@@ -1,0 +1,18 @@
+.game-container {
+	margin-top: 5rem;
+}
+
+.list-of-games {
+	border: 2px solid black;
+	font-size: 18px;
+	text-align: left;
+	padding-left: 0.4rem;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70vw;
+}
+
+.create-game-button {
+	margin: 4rem;
+	color: brown;
+}

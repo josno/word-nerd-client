@@ -1,0 +1,17 @@
+.game-instructions,
+.input-instructions {
+	margin-top: 10vh;
+}
+
+.submit-input,
+.submit-cancel {
+	margin: 5px;
+	height: 5vh;
+	font-size: 1.5rem;
+	border: 2px solid black;
+}
+
+.ready-message,
+.pass-the-ball {
+	margin-top: 20vh;
+}

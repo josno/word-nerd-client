@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home/> renders as expected 1`] = `
+<div>
+  <nav
+    role="navigation"
+  >
+     nav 
+  </nav>
+  <header
+    role="banner"
+  >
+    <h1
+      className="home-page-title"
+    >
+       Word Nerd 
+    </h1>
+  </header>
+  <section>
+    <header>
+      <h3>
+        Make english games to play in the classroom together.
+      </h3>
+    </header>
+    <p>
+      Simply type in vocabulary words you'd like to practice for fluency and generate a "Pass the Ball" game to play together in the classroom.
+    </p>
+  </section>
+</div>
+`;
