@@ -1,0 +1,15 @@
+.ready-message,
+.pass-the-ball {
+	margin-top: 20vh;
+}
+
+.scrambled-word {
+	font-family: 'Arial Black', 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 50px;
+	font-style: bolder;
+}
+
+.game-controls {
+	display: flex;
+	justify-content: space-around;
+}
