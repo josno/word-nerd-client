@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './SignUp.css';
+
+//default on homepage - send a link to render login component when it's clicked
 
 class SignUp extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};
 	}
+
 	render() {
 		return (
 			<div className="sign-up">
 				<section>
 					<div class="form">
-						<ul>
-							<li class="form-tab">
-								<a href="one-home-page-sign-up.html">Sign Up</a>
-							</li>
-
-							<li class="form-tab">
-								<a href="one-home-page-login.html">Log In</a>
-							</li>
-						</ul>
 						<form>
 							<div class="input-form">
 								<input

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import EntryOption from '../entryoption/EntryOption';
 import './Homepage.css';
 
 class Homepage extends Component {
@@ -24,6 +26,9 @@ class Homepage extends Component {
 						for fluency and generate a "Pass the Ball" game to play
 						together in the classroom.
 					</p>
+				</section>
+				<section>
+					<EntryOption />
 				</section>
 			</div>
 		);
