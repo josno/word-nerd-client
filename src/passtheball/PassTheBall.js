@@ -1,5 +1,6 @@
 import React from 'react';
 import Ball from './ball.png';
+import { Link } from 'react-router-dom';
 import './PassTheBall.css';
 
 export default function PassTheBall() {
@@ -13,13 +14,14 @@ export default function PassTheBall() {
 			<p>
 				<h2>(Timer goes here)</h2>
 			</p>
+			{/* need to be component */}
 			<div class="game-controls">
-				<a href="eight-end-game.html">
+				<Link to="/end-game-page">
 					<button class="game-end">End Game</button>
-				</a>
-				<a href="six-guess-the-word.html">
+				</Link>
+				<Link to="/guess-the-word">
 					<button class="next-button">Next</button>
-				</a>
+				</Link>
 			</div>
 		</div>
 	);

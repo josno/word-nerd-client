@@ -1,34 +1,53 @@
 import React, { Component } from 'react';
+import Context from '../Context';
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 class Login extends Component {
+	static contextType = Context;
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			username: '',
+			password: ''
+		};
+		this.handleChange = this.handleChange.bind(this);
 	}
+
+	handleChange = e => {
+		const { name, value } = e.target;
+		this.setState({
+			[name]: value
+		});
+	};
+
 	render() {
 		return (
 			<div className="sign-up">
 				<section>
-					<form>
-						<div class="input-form">
-							<input
-								class="form-input"
-								type="text"
-								for="username"
-								placeholder="username"
-							/>
-							<input
-								class="form-input"
-								type="text"
-								for="password"
-								placeholder="password"
-							/>
-						</div>
-					</form>
-					<a href="two-game-home-page.html">
-						<button class="input-submit-button">Login</button>
-					</a>
+					<div className="input-form">
+						<input
+							className="form-input"
+							type="text"
+							htmlFor="username"
+							placeholder="username"
+							value={this.state.username}
+							name="username"
+							onChange={e => this.handleChange(e)}
+						/>
+						<input
+							className="form-input"
+							type="text"
+							htmlFor="password"
+							placeholder="password"
+							value={this.state.password}
+							name="password"
+							onChange={e => this.handleChange(e)}
+						/>
+					</div>
+					<Link to="/game-home-page">
+						<button className="input-submit-button">Login</button>
+					</Link>
 				</section>
 			</div>
 		);

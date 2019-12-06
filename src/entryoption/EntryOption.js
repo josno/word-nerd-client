@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import './EntryOption.css';
 import SignUp from '../signup/SignUp';
+import Context from '../Context';
 import Login from '../login/Login';
 
 class EntryOption extends Component {
+	static contextType = Context;
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -29,27 +31,33 @@ class EntryOption extends Component {
 		const { formType } = this.state;
 		return (
 			<div className="entry-option">
-				<div class="form">
+				<div className="form">
 					<ul>
-						<li class="form-tab">
-							<button onClick={this.toggleToSignUp}>
+						<li>
+							<button
+								className="form-tab"
+								onClick={this.toggleToSignUp}
+							>
 								Sign Up
 							</button>
 						</li>
 
-						<li class="form-tab">
-							<button onClick={this.toggleToLogin}>Login</button>
+						<li>
+							<button
+								className="form-tab"
+								onClick={this.toggleToLogin}
+							>
+								Login
+							</button>
 						</li>
 					</ul>
-					<div class="form">
-						{formType === 'signUp' ? (
-							<SignUp />
-						) : formType === 'login' ? (
-							<Login />
-						) : (
-							<SignUp />
-						)}
-					</div>
+					{formType === 'siginUp' ? (
+						<SignUp />
+					) : formType === 'login' ? (
+						<Login />
+					) : (
+						<SignUp />
+					)}
 				</div>
 			</div>
 		);

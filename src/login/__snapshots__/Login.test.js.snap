@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login/> renders as expected 1`] = `
+<div
+  className="sign-up"
+>
+  <section>
+    <div
+      className="input-form"
+    >
+      <input
+        className="form-input"
+        htmlFor="username"
+        placeholder="username"
+        type="text"
+      />
+      <input
+        className="form-input"
+        htmlFor="password"
+        placeholder="password"
+        type="text"
+      />
+    </div>
+    <a
+      href="two-game-home-page.html"
+    >
+      <button
+        className="input-submit-button"
+      >
+        Login
+      </button>
+    </a>
+  </section>
+</div>
+`;

@@ -1,31 +1,53 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './InputPage.css';
 
 class InputPage extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			preview: [],
+			textInput: ''
+		};
+		this.updatePreview = this.updatePreview.bind(this);
 	}
+
+	updatePreview = value => {
+		//textInput needs to be push to preview array
+		//Preview array needs to be rendered with forEach
+	};
+
+	renderPreview;
+
 	render() {
 		return (
 			<div>
 				<section>
-					<header class="input-instructions">
+					<header className="input-instructions">
 						<h1>Type Words into the Box Separated by Commas</h1>
 					</header>
 					<form>
-						<div class="input-container">
-							<input class="input-box"></input>
-							<div class="preview-box">Preview</div>
+						<div className="input-container">
+							<textarea
+								className="input-box"
+								placeholder="Write Words Here"
+								aria-label="Type your words here"
+								aria-required="true"
+								value={this.state.preview}
+								onChange={e =>
+									this.updatePreview(e.target.value)
+								}
+							/>
+							<div className="preview-box">Preview Goes Here</div>
 						</div>
 					</form>
-					<div class="submit-button-container">
-						<a href="two-game-home-page.html">
-							<button class="submit-cancel">Cancel</button>
-						</a>
-						<a href="four-game-start.html">
-							<button class="submit-input">Submit</button>
-						</a>
+					<div className="submit-button-container">
+						<Link to="/game-home-page">
+							<button className="submit-cancel">Cancel</button>
+						</Link>
+						<Link to="/game-start-page">
+							<button className="submit-input">Submit</button>
+						</Link>
 					</div>
 				</section>
 			</div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './EndGamePage.css';
 
 export default function EndGamePage() {
@@ -7,12 +8,12 @@ export default function EndGamePage() {
 			<h1 class="end-message">Game Over</h1>
 			<h2>Thanks for playing!</h2>
 			<div class="game-controls">
-				<a href="three-input-page.html">
+				<Link to="/input-page">
 					<button class="play-again">Play Again</button>
-				</a>
-				<a href="two-game-home-page.html">
+				</Link>
+				<Link to="/game-home-page">
 					<button class="home-button">Go Home</button>
-				</a>
+				</Link>
 			</div>
 		</div>
 	);

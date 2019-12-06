@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './GameStartPage.css';
 
 class GameStart extends Component {
@@ -15,12 +16,12 @@ class GameStart extends Component {
 								Are you ready to play?
 							</h1>
 						</header>
-						<a href="two-game-home-page.html">
+						<Link to="/game-home-page">
 							<button class="submit-cancel">No</button>
-						</a>
-						<a href="five-pass-the-ball.html">
+						</Link>
+						<Link to="/pass-the-ball">
 							<button class="submit-input">Yes!</button>
-						</a>
+						</Link>
 					</div>
 				</section>
 			</div>

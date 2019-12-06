@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './AnswerPage.css';
 
 //will take prop from guesstheword page - returns the correct spelling
@@ -12,12 +13,12 @@ export default function AnswerPage(props) {
 				<h2>(Timer goes here)</h2>
 			</p>
 			<div class="game-controls">
-				<a href="eight-end-game.html">
+				<Link to="/end-game-page">
 					<button class="game-end">End Game</button>
-				</a>
-				<a href="five-pass-the-ball.html">
+				</Link>
+				<Link to="/guess-the-word">
 					<button class="next-button">Next</button>
-				</a>
+				</Link>
 			</div>
 		</div>
 	);

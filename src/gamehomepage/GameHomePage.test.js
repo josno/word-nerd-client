@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SignUp from './SignUp';
+import GameHomePage from './GameHomePage';
 import renderer from 'react-test-renderer';
 
-describe('<SignUp/>', () => {
+describe('<Login/>', () => {
 	it('renders without crashing', () => {
 		const div = document.createElement('div');
-		ReactDOM.render(<SignUp />, div);
+		ReactDOM.render(<GameHomePage />, div);
 		ReactDOM.unmountComponentAtNode(div);
 	});
 	it('renders as expected', () => {
-		const tree = renderer.create(<SignUp />).toJSON();
+		const tree = renderer.create(<GameHomePage />).toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './GameHomePage.css';
+import { Link } from 'react-router-dom';
 
 class GameHomePage extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			games: [] //create a array - need to generate list of games here
+		};
 	}
 	render() {
 		return (
@@ -17,11 +20,11 @@ class GameHomePage extends Component {
 								It looks like you haven't made any games yet.
 							</h3>
 						</div>
-						<a href="three-input-page.html">
+						<Link to="/input-page">
 							<button className="create-game-button">
 								<h2>Create a Pass the Ball Game</h2>
 							</button>
-						</a>
+						</Link>
 					</div>
 				</section>
 			</div>

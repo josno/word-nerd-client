@@ -8,13 +8,12 @@ import GameStartPage from './gamestartpage/GameStartPage';
 import PassTheBall from './passtheball/PassTheBall';
 import GuessTheWord from './guesstheword/GuessTheWord';
 import EndGamePage from './endgamepage/EndGamePage';
+import AnswerPage from './answerpage/AnswerPage';
 
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			loaded: false
-		};
+		this.state = {};
 	}
 	render() {
 		return (
@@ -26,6 +25,7 @@ class App extends Component {
 				<Route exact path="/pass-the-ball" component={PassTheBall} />
 				<Route exact path="/guess-the-word" component={GuessTheWord} />
 				<Route exact path="/end-game-page" component={EndGamePage} />
+				<Route exact path="/answer-page" component={AnswerPage} />
 				<Route
 					exact
 					path="/game-start-page"

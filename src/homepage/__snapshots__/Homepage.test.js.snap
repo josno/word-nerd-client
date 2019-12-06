@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Home/> renders as expected 1`] = `
+<div>
+  <header
+    role="banner"
+  >
+    <h1
+      className="home-page-title"
+    >
+       Word Nerd 
+    </h1>
+  </header>
+  <section>
+    <header>
+      <h3>
+        Make english games to play in the classroom together.
+      </h3>
+    </header>
+    <p>
+      Simply type in vocabulary words you'd like to practice for fluency and generate a "Pass the Ball" game to play together in the classroom.
+    </p>
+  </section>
+  <section>
+    <div
+      className="entry-option"
+    >
+      <div
+        className="form"
+      >
+        <ul>
+          <li>
+            <button
+              className="form-tab"
+              onClick={[Function]}
+            >
+              Sign Up
+            </button>
+          </li>
+          <li>
+            <button
+              className="form-tab"
+              onClick={[Function]}
+            >
+              Login
+            </button>
+          </li>
+        </ul>
+        <div
+          className="sign-up"
+        >
+          <section>
+            <div
+              className="input-form"
+            >
+              <input
+                className="form-input"
+                htmlFor="first-name"
+                placeholder="First Name"
+                type="text"
+              />
+              <input
+                className="form-input"
+                htmlFor="last-name"
+                placeholder="Last Name"
+                type="text"
+              />
+              <input
+                className="form-input"
+                htmlFor="username"
+                placeholder="username"
+                type="text"
+              />
+              <input
+                className="form-input"
+                htmlFor="password"
+                placeholder="password"
+                type="text"
+              />
+            </div>
+            <a
+              href="two-game-home-page.html"
+            >
+              <button
+                className="input-submit-button"
+              >
+                Sign Up For Free
+              </button>
+            </a>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;
