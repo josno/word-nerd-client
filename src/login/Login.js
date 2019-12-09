@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Context from '../Context';
+import WordContext from '../WordContext';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
 class Login extends Component {
-	static contextType = Context;
+	static contextType = WordContext;
 	constructor(props) {
 		super(props);
 		this.state = {

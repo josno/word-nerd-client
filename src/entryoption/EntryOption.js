@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import './EntryOption.css';
 import SignUp from '../signup/SignUp';
-import Context from '../Context';
+import WordContext from '../WordContext';
 import Login from '../login/Login';
 
 class EntryOption extends Component {
-	static contextType = Context;
+	static contextType = WordContext;
 	constructor(props) {
 		super(props);
 		this.state = {
