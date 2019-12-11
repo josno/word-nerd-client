@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './AnswerPage.css';
 
-//will take prop from guesstheword page - returns the correct spelling
-
 export default function AnswerPage(props) {
 	return (
 		<div className="answer-page-container">

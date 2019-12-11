@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './GameHomePage.css';
-import { Link, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import WordContext from '../WordContext';
 
 class GameHomePage extends Component {
@@ -28,34 +28,31 @@ class GameHomePage extends Component {
 										</div>
 
 										<div className="button-container">
-											<BrowserRouter>
-												<Link
-													to={`/game-start-page/${g.game_id}`}
+											<Link
+												to={`/game-start-page/${g.game_id}`}
+											>
+												<button
+													className="play-button"
+													type="submit"
+													onClick={() => {
+														getSavedGameId(
+															g.game_id
+														);
+													}}
 												>
-													<button
-														className="play-button"
-														type="submit"
-														onClick={() => {
-															getSavedGameId(
-																g.game_id
-															);
-														}}
-													>
-														Play
-													</button>
-												</Link>
-											</BrowserRouter>
+													Play
+												</button>
+											</Link>
 										</div>
 									</li>
 								))}
 						</ul>
-						<BrowserRouter>
-							<Link to="/input-page">
-								<button className="create-game-button">
-									<h2>Create a Pass the Ball Game</h2>
-								</button>
-							</Link>
-						</BrowserRouter>
+
+						<Link to="/input-page">
+							<button className="create-game-button">
+								<h2>Create a Pass the Ball Game</h2>
+							</button>
+						</Link>
 					</div>
 				</section>
 			</div>
