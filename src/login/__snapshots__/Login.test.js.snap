@@ -2,7 +2,7 @@
 
 exports[`<Login/> renders as expected 1`] = `
 <div
-  className="sign-up"
+  className="login"
 >
   <section>
     <div
@@ -11,18 +11,25 @@ exports[`<Login/> renders as expected 1`] = `
       <input
         className="form-input"
         htmlFor="username"
+        name="username"
+        onChange={[Function]}
         placeholder="username"
         type="text"
+        value=""
       />
       <input
         className="form-input"
         htmlFor="password"
+        name="password"
+        onChange={[Function]}
         placeholder="password"
         type="text"
+        value=""
       />
     </div>
     <a
-      href="two-game-home-page.html"
+      href="/game-home-page"
+      onClick={[Function]}
     >
       <button
         className="input-submit-button"

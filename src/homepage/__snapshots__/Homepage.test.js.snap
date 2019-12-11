@@ -18,7 +18,7 @@ exports[`<Home/> renders as expected 1`] = `
       </h3>
     </header>
     <p>
-      Simply type in vocabulary words you'd like to practice for fluency and generate a "Pass the Ball" game to play together in the classroom.
+      Generate a "Pass the Ball" game to play together in the classroom using your own vocabulary words.
     </p>
   </section>
   <section>
@@ -29,7 +29,9 @@ exports[`<Home/> renders as expected 1`] = `
         className="form"
       >
         <ul>
-          <li>
+          <li
+            className="form-tab-list-item"
+          >
             <button
               className="form-tab"
               onClick={[Function]}
@@ -37,7 +39,9 @@ exports[`<Home/> renders as expected 1`] = `
               Sign Up
             </button>
           </li>
-          <li>
+          <li
+            className="form-tab-list-item"
+          >
             <button
               className="form-tab"
               onClick={[Function]}
@@ -56,35 +60,48 @@ exports[`<Home/> renders as expected 1`] = `
               <input
                 className="form-input"
                 htmlFor="first-name"
+                name="firstName"
+                onChange={[Function]}
                 placeholder="First Name"
                 type="text"
+                value=""
               />
               <input
                 className="form-input"
                 htmlFor="last-name"
+                name="lastName"
+                onChange={[Function]}
                 placeholder="Last Name"
                 type="text"
+                value=""
               />
               <input
                 className="form-input"
                 htmlFor="username"
+                name="username"
+                onChange={[Function]}
                 placeholder="username"
                 type="text"
+                value=""
               />
               <input
                 className="form-input"
                 htmlFor="password"
+                name="password"
+                onChange={[Function]}
                 placeholder="password"
                 type="text"
+                value=""
               />
             </div>
             <a
-              href="two-game-home-page.html"
+              href="/game-home-page"
+              onClick={[Function]}
             >
               <button
                 className="input-submit-button"
               >
-                Sign Up For Free
+                Sign Up
               </button>
             </a>
           </section>

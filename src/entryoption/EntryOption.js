@@ -33,7 +33,7 @@ class EntryOption extends Component {
 			<div className="entry-option">
 				<div className="form">
 					<ul>
-						<li>
+						<li className="form-tab-list-item">
 							<button
 								className="form-tab"
 								onClick={this.toggleToSignUp}
@@ -42,7 +42,7 @@ class EntryOption extends Component {
 							</button>
 						</li>
 
-						<li>
+						<li className="form-tab-list-item">
 							<button
 								className="form-tab"
 								onClick={this.toggleToLogin}

@@ -3,13 +3,14 @@ import React from 'react';
 const WordContext = React.createContext({
 	username: '',
 	password: '',
-	inputWords: [],
 	savedGames: [],
-	currentGameId: '',
+	currentGameId: '', //remove and add as props in App.js
 	currentWord: '',
+	filteredList: '',
 	saveNewGame: () => {},
 	getSavedGameId: () => {},
-	getCurrentWord: () => {}
+	getCurrentWord: () => {},
+	makeFilteredList: () => {}
 });
 
 export default WordContext;

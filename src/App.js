@@ -18,16 +18,20 @@ class App extends Component {
 		super(props);
 		this.state = {
 			savedGames: [],
-			inputWords: [],
 			currentGameId: '',
-			currentWord: ''
+			currentWord: '',
+			filteredList: []
 		};
+		this.makeFilteredList = this.makeFilteredList.bind(this);
 	}
 
 	componentDidMount() {
 		this.setState({
-			savedGames: [...STORE.savedGames]
+			savedGames: [...STORE.savedGames],
+			username: STORE.username,
+			password: STORE.password
 		});
+		/* Fetch later */
 	}
 
 	handlePlayButton = id => {
@@ -36,40 +40,40 @@ class App extends Component {
 		});
 	};
 
+	makeFilteredList(string, list) {
+		const newList = list.filter(item => item !== string);
+		// console.log(newList);
+		this.setState({
+			filteredList: [...newList]
+		});
+	}
+
 	saveNewGame = gameObject => {
-		console.log(gameObject);
 		this.setState({
 			savedGames: [...this.state.savedGames, gameObject]
 		});
+		/* From submit via input-page then adds to state.savedGames */
 	};
 
 	getCurrentWord = string => {
 		this.setState({
 			currentWord: string
 		});
-
-		console.log(string);
+		/* get the current played word from guess-the-word to render in answer page */
 	};
 
-	updateNewWords(array) {
-		const newWords = array;
-
-		this.setState({
-			//add the words, not array because it's already formatted as array
-			inputWords: [...this.state.inputWords, ...newWords],
-			savedGames: [...STORE.savedGames]
-		});
-	}
-
 	render() {
+		const { currentWord } = this.state;
+
 		const contextValue = {
 			savedGames: this.state.savedGames,
-			inputWords: this.state.inputWords,
 			saveNewGame: this.saveNewGame,
 			getSavedGameId: this.handlePlayButton,
 			currentGameId: this.state.currentGameId,
 			currentWord: this.state.currentWord,
-			getCurrentWord: this.getCurrentWord
+			getCurrentWord: this.getCurrentWord,
+			filteredList: this.state.filteredList,
+			makeFilteredList: this.makeFilteredList
 		};
 
 		return (
@@ -101,9 +105,7 @@ class App extends Component {
 					<Route
 						exact
 						path="/answer-page"
-						render={props => (
-							<AnswerPage word={this.state.currentWord} />
-						)}
+						render={props => <AnswerPage word={currentWord} />}
 					/>
 					{['/game-start-page', '/game-start-page/:game_id'].map(
 						path => (
@@ -119,10 +121,6 @@ class App extends Component {
 							/>
 						)
 					)}
-					{/* <Route
-						path={'/game-start-page' | '/game-start-page/:game_id'}
-						component={GameStartPage}
-					/> */}
 				</WordContext.Provider>
 			</div>
 		);

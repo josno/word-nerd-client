@@ -10,28 +10,32 @@ class GameStart extends Component {
 				<section>
 					<div className="game-start-page">
 						<header>
-							<h1 className="game-instructions">How to Play:</h1>
-							<p>Instructions go here</p>
-							<ol className="game-instructions-list">
-								<li className="instructions-list">
-									Pass the ball around the classroom until the
-									timer stops
-								</li>
-								<li className="instructions-list">
-									When the timer stops, whoever had the ball
-									has to say the word on the screen
-								</li>
-								<li className="instructions-list">
-									The words are scrambled!
-								</li>
-								<li className="instructions-list">
-									{' '}
-									Good luck~
-								</li>
-							</ol>
-							<h1 className="ready-message">
-								Are you ready to play?
-							</h1>
+							<div className="how-to-play-box">
+								<h1 className="game-instructions">
+									How to Play:
+								</h1>
+								<ol className="game-instructions-list-container">
+									<li className="instructions-list-item">
+										Pass the ball around the classroom until
+										the timer stops
+									</li>
+									<li className="instructions-list-item">
+										The timer will stop!{' '}
+									</li>
+									<li className="instructions-list-item">
+										If you have the ball, guess the word on
+										the screen.
+									</li>
+									<li className="instructions-list-item">
+										The words are scrambled!
+									</li>
+									<li className="instructions-list-item">
+										{' '}
+										Good luck~
+									</li>
+								</ol>
+							</div>
+							<h1 className="ready-message">Are you ready?</h1>
 						</header>
 						<Link to="/game-home-page">
 							<button className="submit-cancel">No</button>

@@ -21,9 +21,8 @@ class Homepage extends Component {
 						</h3>
 					</header>
 					<p>
-						Simply type in vocabulary words you'd like to practice
-						for fluency and generate a "Pass the Ball" game to play
-						together in the classroom.
+						Generate a "Pass the Ball" game to play together in the
+						classroom using your own vocabulary words.
 					</p>
 				</section>
 				<section>

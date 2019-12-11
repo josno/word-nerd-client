@@ -2,14 +2,14 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import EndGamePage from './EndGamePage';
+import InputPage from './InputPage';
 
-describe('<EndGamePage/>', () => {
+describe('<InputPage/>', () => {
 	it('renders as expected', () => {
 		const tree = renderer
 			.create(
 				<BrowserRouter>
-					<EndGamePage />
+					<InputPage />
 				</BrowserRouter>
 			)
 			.toJSON();

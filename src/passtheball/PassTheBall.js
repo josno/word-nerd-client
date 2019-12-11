@@ -5,7 +5,7 @@ import './PassTheBall.css';
 
 export default function PassTheBall() {
 	return (
-		<div className="pass-the-ball">
+		<div className="game-play-container">
 			<nav role="navigation">nav</nav>
 			<h1 className="pass-the-ball">Pass The Ball!</h1>
 

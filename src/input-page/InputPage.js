@@ -38,7 +38,6 @@ class InputPage extends Component {
 	}
 
 	handleSubmit(e) {
-		// e.preventDefault();
 		const { savedGames } = this.context;
 		const { title, wordList } = this.state;
 		const newGameId = savedGames.length + 1;

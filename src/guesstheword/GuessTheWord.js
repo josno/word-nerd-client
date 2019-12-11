@@ -8,11 +8,9 @@ class GuessTheWord extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			currentWord: '',
 			wordList: [],
 			filteredList: []
 		};
-		this.getAnswer = this.getAnswer.bind(this);
 		this.shuffleWord = this.shuffleWord.bind(this);
 	}
 
@@ -26,20 +24,13 @@ class GuessTheWord extends Component {
 		return shuffled;
 	}
 
-	getAnswer(string) {
-		this.setState({
-			currentWord: string
-		});
-
-		this.context.getCurrentWord(string);
-	}
-
 	componentDidMount() {
-		const { savedGames, currentGameId } = this.context;
+		const { savedGames, currentGameId, filteredList } = this.context;
 		const currentGame = savedGames.find(i => currentGameId === i.game_id);
 		const currentWordList = currentGame.words;
 		this.setState({
-			wordList: [...currentWordList]
+			wordList: [...currentWordList],
+			filteredList: [...filteredList]
 		});
 	}
 
@@ -64,13 +55,25 @@ class GuessTheWord extends Component {
 					<Link to="/answer-page">
 						<button
 							className="answer-button"
-							onClick={() => this.getAnswer(randomWord)}
+							onClick={() =>
+								this.context.getCurrentWord(randomWord)
+							}
 						>
 							Answer
 						</button>
 					</Link>
 					<Link to="/pass-the-ball">
-						<button className="next-button">Next</button>
+						<button
+							className="next-button"
+							onClick={() =>
+								this.context.makeFilteredList(
+									randomWord,
+									wordList
+								)
+							}
+						>
+							Next
+						</button>
 					</Link>
 				</div>
 			</div>
