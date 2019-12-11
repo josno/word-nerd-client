@@ -19,9 +19,9 @@ class App extends Component {
 		this.state = {
 			savedGames: [],
 			inputWords: [],
-			currentGameId: ''
+			currentGameId: '',
+			currentWord: ''
 		};
-		this.saveNewGame = this.saveNewGame.bind(this);
 	}
 
 	componentDidMount() {
@@ -36,32 +36,42 @@ class App extends Component {
 		});
 	};
 
-	saveNewGame = list => {
-		console.log(list);
+	saveNewGame = gameObject => {
+		console.log(gameObject);
 		this.setState({
-			savedGames: [...this.state.savedGames, list]
+			savedGames: [...this.state.savedGames, gameObject]
 		});
 	};
 
-	// updateNewWords(array) {
-	// 	const newWords = array;
+	getCurrentWord = string => {
+		this.setState({
+			currentWord: string
+		});
 
-	// 	this.setState({
-	// 		//add the words, not array because it's already formatted as array
-	// 		inputWords: [...this.state.inputWords, ...newWords],
-	// 		savedGames: [...STORE.savedGames]
-	// 	});
-	// }
+		console.log(string);
+	};
+
+	updateNewWords(array) {
+		const newWords = array;
+
+		this.setState({
+			//add the words, not array because it's already formatted as array
+			inputWords: [...this.state.inputWords, ...newWords],
+			savedGames: [...STORE.savedGames]
+		});
+	}
 
 	render() {
 		const contextValue = {
 			savedGames: this.state.savedGames,
 			inputWords: this.state.inputWords,
-			saveNewWords: this.saveNewGame,
+			saveNewGame: this.saveNewGame,
 			getSavedGameId: this.handlePlayButton,
-			currentGameId: this.state.currentGameId
+			currentGameId: this.state.currentGameId,
+			currentWord: this.state.currentWord,
+			getCurrentWord: this.getCurrentWord
 		};
-		console.log(this.state);
+
 		return (
 			<div>
 				<nav role="navigation"> nav </nav>
@@ -88,7 +98,13 @@ class App extends Component {
 						path="/end-game-page"
 						component={EndGamePage}
 					/>
-					<Route exact path="/answer-page" component={AnswerPage} />
+					<Route
+						exact
+						path="/answer-page"
+						render={props => (
+							<AnswerPage word={this.state.currentWord} />
+						)}
+					/>
 					{['/game-start-page', '/game-start-page/:game_id'].map(
 						path => (
 							<Route

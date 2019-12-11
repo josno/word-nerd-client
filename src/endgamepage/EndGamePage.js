@@ -8,7 +8,7 @@ export default function EndGamePage() {
 			<h1 className="end-message">Game Over</h1>
 			<h2>Thanks for playing!</h2>
 			<div className="game-controls">
-				<Link to="/input-page">
+				<Link to="/game-home-page">
 					<button className="play-again">Play Again</button>
 				</Link>
 				<Link to="/game-home-page">

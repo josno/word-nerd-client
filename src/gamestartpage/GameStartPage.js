@@ -12,6 +12,23 @@ class GameStart extends Component {
 						<header>
 							<h1 className="game-instructions">How to Play:</h1>
 							<p>Instructions go here</p>
+							<ol className="game-instructions-list">
+								<li className="instructions-list">
+									Pass the ball around the classroom until the
+									timer stops
+								</li>
+								<li className="instructions-list">
+									When the timer stops, whoever had the ball
+									has to say the word on the screen
+								</li>
+								<li className="instructions-list">
+									The words are scrambled!
+								</li>
+								<li className="instructions-list">
+									{' '}
+									Good luck~
+								</li>
+							</ol>
 							<h1 className="ready-message">
 								Are you ready to play?
 							</h1>

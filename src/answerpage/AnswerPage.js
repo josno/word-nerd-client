@@ -6,18 +6,18 @@ import './AnswerPage.css';
 
 export default function AnswerPage(props) {
 	return (
-		<div classname="answer-page">
-			<h1 class="pass-the-ball">The word was:</h1>
-			<p class="scrambled-word">f l o w e r</p>
+		<div className="answer-page">
+			<h1 className="pass-the-ball">The word was:</h1>
+			<p className="scrambled-word">{props.word}</p>
 			<p>
 				<h2>(Timer goes here)</h2>
 			</p>
-			<div class="game-controls">
+			<div className="game-controls">
 				<Link to="/end-game-page">
-					<button class="game-end">End Game</button>
+					<button className="game-end">End Game</button>
 				</Link>
 				<Link to="/guess-the-word">
-					<button class="next-button">Next</button>
+					<button className="next-button">Next</button>
 				</Link>
 			</div>
 		</div>

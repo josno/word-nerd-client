@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import WordContext from '../WordContext';
-import STORE from '../store/STORE';
 import './GuessTheWord.css';
 import { Link } from 'react-router-dom';
 
@@ -13,8 +12,8 @@ class GuessTheWord extends Component {
 			wordList: [],
 			filteredList: []
 		};
-		// this.shuffleWord = this.shuffleWord.bind(this);
-		// this.handleClick = this.handleClick.bind(this);
+		this.getAnswer = this.getAnswer.bind(this);
+		this.shuffleWord = this.shuffleWord.bind(this);
 	}
 
 	shuffleWord(string) {
@@ -27,50 +26,51 @@ class GuessTheWord extends Component {
 		return shuffled;
 	}
 
-	// changeWord = string => {
-	// 	// console.log(string);
-	// 	const { words } = this.state;
-	// 	const updatedList = words.filter(word => word !== string);
-	// 	console.log(updatedList);
+	getAnswer(string) {
+		this.setState({
+			currentWord: string
+		});
 
-	// 	this.setState({
-	// 		filteredList: [...updatedList]
-	// 	});
-	// };
-
-	// getCurrentGame(gameId) {
-	// 	if (gameId === '') {
-	// 	}
-	// }
+		this.context.getCurrentWord(string);
+	}
 
 	componentDidMount() {
+		const { savedGames, currentGameId } = this.context;
+		const currentGame = savedGames.find(i => currentGameId === i.game_id);
+		const currentWordList = currentGame.words;
 		this.setState({
-			wordList: [...STORE.savedGames]
+			wordList: [...currentWordList]
 		});
 	}
 
 	render() {
-		console.log(this.state);
+		const { wordList, filteredList } = this.state;
+		console.log(wordList, filteredList);
+
+		const randomWord =
+			wordList[Math.floor(Math.random() * wordList.length)];
+
+		const shuffledWord = this.shuffleWord(String(randomWord));
+
 		return (
 			<div className="guess-the-word-container">
 				<h1 className="pass-the-ball">Say The Word!</h1>
-				{/* <p className="scrambled-word">{shuffledWord}</p> */}
+				<p className="scrambled-word">{shuffledWord}</p>
 
 				<div className="game-controls">
 					<Link to="/end-game-page">
 						<button className="game-end">End Game</button>
 					</Link>
 					<Link to="/answer-page">
-						<button className="answer-button">Answer</button>
+						<button
+							className="answer-button"
+							onClick={() => this.getAnswer(randomWord)}
+						>
+							Answer
+						</button>
 					</Link>
 					<Link to="/pass-the-ball">
-						<button
-							className="next-button"
-							type="submit"
-							// onClick={() => this.changeWord(currentWord)}
-						>
-							Next
-						</button>
+						<button className="next-button">Next</button>
 					</Link>
 				</div>
 			</div>

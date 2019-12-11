@@ -6,8 +6,10 @@ const WordContext = React.createContext({
 	inputWords: [],
 	savedGames: [],
 	currentGameId: '',
+	currentWord: '',
 	saveNewGame: () => {},
-	getSavedGameId: () => {}
+	getSavedGameId: () => {},
+	getCurrentWord: () => {}
 });
 
 export default WordContext;

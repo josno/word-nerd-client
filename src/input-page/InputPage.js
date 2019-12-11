@@ -38,7 +38,7 @@ class InputPage extends Component {
 	}
 
 	handleSubmit(e) {
-		e.preventDefault();
+		// e.preventDefault();
 		const { savedGames } = this.context;
 		const { title, wordList } = this.state;
 		const newGameId = savedGames.length + 1;
@@ -50,6 +50,7 @@ class InputPage extends Component {
 		};
 
 		this.context.saveNewGame(newGame);
+		this.context.getSavedGameId(newGameId);
 	}
 
 	render() {
