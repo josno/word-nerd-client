@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import WordContext from './WordContext';
 import './App.css';
 import Homepage from './homepage/Homepage';
 import GameHomePage from './gamehomepage/GameHomePage';
@@ -10,7 +9,7 @@ import PassTheBall from './passtheball/PassTheBall';
 import GuessTheWord from './guesstheword/GuessTheWord';
 import EndGamePage from './endgamepage/EndGamePage';
 import AnswerPage from './answerpage/AnswerPage';
-
+import WordContext from './WordContext';
 import STORE from './store/STORE';
 
 class App extends Component {
@@ -18,27 +17,51 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			savedWords: STORE.exampleWords,
-			inputWords: []
+			savedGames: [],
+			inputWords: [],
+			currentGameId: ''
 		};
-		this.updateNewWords = this.updateNewWords.bind(this);
+		this.saveNewGame = this.saveNewGame.bind(this);
 	}
 
-	updateNewWords(array) {
-		const newWords = array;
-
+	componentDidMount() {
 		this.setState({
-			//add the words, not array because it's already formatted as array
-			inputWords: [...this.state.inputWords, ...newWords]
+			savedGames: [...STORE.savedGames]
 		});
 	}
 
+	handlePlayButton = id => {
+		this.setState({
+			currentGameId: id
+		});
+	};
+
+	saveNewGame = list => {
+		console.log(list);
+		this.setState({
+			savedGames: [...this.state.savedGames, list]
+		});
+	};
+
+	// updateNewWords(array) {
+	// 	const newWords = array;
+
+	// 	this.setState({
+	// 		//add the words, not array because it's already formatted as array
+	// 		inputWords: [...this.state.inputWords, ...newWords],
+	// 		savedGames: [...STORE.savedGames]
+	// 	});
+	// }
+
 	render() {
 		const contextValue = {
-			savedWords: this.state.savedWords,
+			savedGames: this.state.savedGames,
 			inputWords: this.state.inputWords,
-			saveNewWords: this.updateNewWords
+			saveNewWords: this.saveNewGame,
+			getSavedGameId: this.handlePlayButton,
+			currentGameId: this.state.currentGameId
 		};
+		console.log(this.state);
 		return (
 			<div>
 				<nav role="navigation"> nav </nav>
@@ -66,11 +89,24 @@ class App extends Component {
 						component={EndGamePage}
 					/>
 					<Route exact path="/answer-page" component={AnswerPage} />
-					<Route
-						exact
-						path="/game-start-page"
+					{['/game-start-page', '/game-start-page/:game_id'].map(
+						path => (
+							<Route
+								key={path}
+								exact
+								path={path}
+								render={routeProps => (
+									<GameStartPage
+										gameId={routeProps.match.params.gameId}
+									/>
+								)}
+							/>
+						)
+					)}
+					{/* <Route
+						path={'/game-start-page' | '/game-start-page/:game_id'}
 						component={GameStartPage}
-					/>
+					/> */}
 				</WordContext.Provider>
 			</div>
 		);

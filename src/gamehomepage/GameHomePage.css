@@ -2,17 +2,42 @@
 	margin-top: 5rem;
 }
 
-.list-of-games {
+ul {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.game-info {
 	border: 2px solid black;
 	font-size: 18px;
 	text-align: left;
 	padding-left: 0.4rem;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 10px;
 	width: 70vw;
+	display: flex;
+	justify-content: space-around;
 }
 
 .create-game-button {
 	margin: 4rem;
 	color: brown;
+}
+
+.play-button {
+	border: 2px solid black;
+	height: 4vh;
+	width: 10vw;
+	font-size: 20px;
+}
+
+a:hover {
+	cursor: pointer;
+}
+
+.button-container {
+	display: flex;
+	justify-content: flex-end;
+	align-content: center;
+	align-items: center;
 }

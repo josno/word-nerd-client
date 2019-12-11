@@ -10,34 +10,50 @@ class InputPage extends Component {
 		super(props);
 		this.state = {
 			textInput: '',
-			preview: false
+			wordList: [],
+			newGame: '',
+			title: ''
 		};
+		this.handleSubmit = this.handleSubmit.bind(this);
 		this.updatePreview = this.updatePreview.bind(this);
-		this.renderPreview = this.renderPreview.bind(this);
 	}
 
 	updatePreview = e => {
 		const { value } = e.target;
 		/*Create an array and split by comma as user types*/
+
 		const newList = value.split(',').map(i => i.trim());
 		this.setState({
-			textInput: newList
+			textInput: value,
+			wordList: newList
 		});
 	};
 
-	renderPreview() {
+	updateTitle(e) {
+		const { value } = e.target;
+
 		this.setState({
-			preview: true
+			title: value
 		});
 	}
 
 	handleSubmit(e) {
-		this.context.saveNewWords(this.state.textInput);
-		console.log(this.state.textInput);
+		e.preventDefault();
+		const { savedGames } = this.context;
+		const { title, wordList } = this.state;
+		const newGameId = savedGames.length + 1;
+		const newGame = {
+			game_id: newGameId,
+			title: title,
+			words: wordList,
+			date_created: new Date()
+		};
+
+		this.context.saveNewGame(newGame);
 	}
 
 	render() {
-		const { textInput } = this.state;
+		const { wordList } = this.state;
 
 		return (
 			<div>
@@ -46,6 +62,11 @@ class InputPage extends Component {
 						<h1>Type Words into the Box Separated by Commas</h1>
 					</header>
 					<form>
+						<input
+							className="title-name"
+							placeholder='Game Title example: "Numbers" '
+							onChange={e => this.updateTitle(e)}
+						/>
 						<div className="input-container">
 							<textarea
 								className="input-box"
@@ -56,14 +77,10 @@ class InputPage extends Component {
 							/>
 						</div>
 					</form>
-
-					{this.state.preview && <Preview word={textInput} />}
-					<button
-						className="submit-cancel"
-						onClick={this.renderPreview}
-					>
-						Review Words
-					</button>
+					<h2>Review Words</h2>
+					{wordList.map((word, index) => (
+						<Preview key={index} word={word} />
+					))}
 					<div className="submit-button-container">
 						<Link to="/game-home-page">
 							<button className="submit-cancel">Cancel</button>

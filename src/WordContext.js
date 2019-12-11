@@ -4,8 +4,10 @@ const WordContext = React.createContext({
 	username: '',
 	password: '',
 	inputWords: [],
-	savedWords: [],
-	saveNewWords: () => {}
+	savedGames: [],
+	currentGameId: '',
+	saveNewGame: () => {},
+	getSavedGameId: () => {}
 });
 
 export default WordContext;

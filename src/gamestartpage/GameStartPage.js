@@ -8,19 +8,19 @@ class GameStart extends Component {
 		return (
 			<div>
 				<section>
-					<div class="game-start-page">
+					<div className="game-start-page">
 						<header>
-							<h1 class="game-instructions">How to Play:</h1>
+							<h1 className="game-instructions">How to Play:</h1>
 							<p>Instructions go here</p>
-							<h1 class="ready-message">
+							<h1 className="ready-message">
 								Are you ready to play?
 							</h1>
 						</header>
 						<Link to="/game-home-page">
-							<button class="submit-cancel">No</button>
+							<button className="submit-cancel">No</button>
 						</Link>
 						<Link to="/pass-the-ball">
-							<button class="submit-input">Yes!</button>
+							<button className="submit-input">Yes!</button>
 						</Link>
 					</div>
 				</section>

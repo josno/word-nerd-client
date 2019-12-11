@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import WordContext from '../WordContext';
+import STORE from '../store/STORE';
 import './GuessTheWord.css';
 import { Link } from 'react-router-dom';
 
@@ -9,13 +10,14 @@ class GuessTheWord extends Component {
 		super(props);
 		this.state = {
 			currentWord: '',
-			wordList: []
+			wordList: [],
+			filteredList: []
 		};
-		this.shuffleWords = this.shuffleWords.bind(this);
+		// this.shuffleWord = this.shuffleWord.bind(this);
+		// this.handleClick = this.handleClick.bind(this);
 	}
 
-	shuffleWords(string) {
-		console.log(string);
+	shuffleWord(string) {
 		const stringToArray = string.split('');
 		const unshuffled = stringToArray;
 		const shuffled = unshuffled
@@ -25,26 +27,35 @@ class GuessTheWord extends Component {
 		return shuffled;
 	}
 
+	// changeWord = string => {
+	// 	// console.log(string);
+	// 	const { words } = this.state;
+	// 	const updatedList = words.filter(word => word !== string);
+	// 	console.log(updatedList);
+
+	// 	this.setState({
+	// 		filteredList: [...updatedList]
+	// 	});
+	// };
+
+	// getCurrentGame(gameId) {
+	// 	if (gameId === '') {
+	// 	}
+	// }
+
 	componentDidMount() {
-		const { inputWords } = this.context;
 		this.setState({
-			wordList: [...this.state.wordList, ...inputWords]
+			wordList: [...STORE.savedGames]
 		});
 	}
 
 	render() {
-		const { wordList } = this.state;
-		const chosenWord =
-			wordList[Math.floor(Math.random() * wordList.length)];
-		const string = String(chosenWord);
-		const shuffledWord = this.shuffleWords(string);
+		console.log(this.state);
 		return (
 			<div className="guess-the-word-container">
 				<h1 className="pass-the-ball">Say The Word!</h1>
-				<p className="scrambled-word">{shuffledWord}</p>
-				<p>
-					<h2>(Timer goes here)</h2>
-				</p>
+				{/* <p className="scrambled-word">{shuffledWord}</p> */}
+
 				<div className="game-controls">
 					<Link to="/end-game-page">
 						<button className="game-end">End Game</button>
@@ -53,7 +64,13 @@ class GuessTheWord extends Component {
 						<button className="answer-button">Answer</button>
 					</Link>
 					<Link to="/pass-the-ball">
-						<button className="next-button">Next</button>
+						<button
+							className="next-button"
+							type="submit"
+							// onClick={() => this.changeWord(currentWord)}
+						>
+							Next
+						</button>
 					</Link>
 				</div>
 			</div>
