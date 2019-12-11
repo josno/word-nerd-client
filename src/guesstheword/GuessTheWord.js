@@ -35,8 +35,7 @@ class GuessTheWord extends Component {
 	}
 
 	render() {
-		const { wordList, filteredList } = this.state;
-		console.log(wordList, filteredList);
+		const { wordList } = this.state;
 
 		const randomWord =
 			wordList[Math.floor(Math.random() * wordList.length)];

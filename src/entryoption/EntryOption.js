@@ -9,7 +9,7 @@ class EntryOption extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			formType: 'signUp'
+			formType: 'login'
 		};
 		this.toggleToSignUp = this.toggleToSignUp.bind(this);
 		this.toggleToLogin = this.toggleToLogin.bind(this);
@@ -17,7 +17,7 @@ class EntryOption extends Component {
 
 	toggleToSignUp = () => {
 		this.setState({
-			formType: 'signup'
+			formType: 'signUp'
 		});
 	};
 
@@ -51,13 +51,7 @@ class EntryOption extends Component {
 							</button>
 						</li>
 					</ul>
-					{formType === 'siginUp' ? (
-						<SignUp />
-					) : formType === 'login' ? (
-						<Login />
-					) : (
-						<SignUp />
-					)}
+					{formType === 'signUp' ? <SignUp /> : <Login />}
 				</div>
 			</div>
 		);

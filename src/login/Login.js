@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import WordContext from '../WordContext';
-import { Link, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 class Login extends Component {
@@ -45,13 +45,10 @@ class Login extends Component {
 							onChange={e => this.handleChange(e)}
 						/>
 					</div>
-					<BrowserRouter>
-						<Link to="/game-home-page">
-							<button className="input-submit-button">
-								Login
-							</button>
-						</Link>
-					</BrowserRouter>
+
+					<Link to="/game-home-page">
+						<button className="input-submit-button">Login</button>
+					</Link>
 				</section>
 			</div>
 		);

@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Preview/> renders as expected 1`] = `
+<div
+  className="preview-box"
+>
+  <li
+    className="preview-words"
+  />
+</div>
+`;
+
+exports[`<Preview/> renders nothing when no props given 1`] = `
+<div
+  className="preview-box"
+>
+  <li
+    className="preview-words"
+  />
+</div>
+`;
+
+exports[`<Preview/> renders with props 1`] = `
+<div
+  className="preview-box"
+>
+  <li
+    className="preview-words"
+  >
+    red
+  </li>
+</div>
+`;
