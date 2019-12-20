@@ -1,0 +1,9 @@
+{
+	"version": 2,
+	"name": "word-nerd-client",
+	"alias": "josno-word-nerd",
+	"routes": [
+		{ "handle": "filesystem" },
+		{ "src": "/.*", "dest": "/index.html" }
+	]
+}

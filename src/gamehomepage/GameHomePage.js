@@ -23,21 +23,21 @@ class GameHomePage extends Component {
 										<div className="info-container">
 											<h2>{g.title}</h2>
 											<h3>
-												{g.date_created.toLocaleDateString()}
+												{new Date(
+													g.date_created
+												).toLocaleString()}
 											</h3>
 										</div>
 
 										<div className="button-container">
 											<Link
-												to={`/game-start-page/${g.game_id}`}
+												to={`/game-start-page/${g.id}`}
 											>
 												<button
 													className="play-button"
 													type="submit"
 													onClick={() => {
-														getSavedGameId(
-															g.game_id
-														);
+														getSavedGameId(g.id);
 													}}
 												>
 													Play

@@ -12,7 +12,7 @@ export default function AnswerPage(props) {
 				<Link to="/end-game-page">
 					<button className="game-end">End Game</button>
 				</Link>
-				<Link to="/guess-the-word">
+				<Link to="/pass-the-ball">
 					<button className="next-button">Next</button>
 				</Link>
 			</div>

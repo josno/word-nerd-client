@@ -26,12 +26,14 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		this.setState({
-			savedGames: [...STORE.savedGames],
-			username: STORE.username,
-			password: STORE.password
-		});
-		/* Fetch later */
+		fetch('http://localhost:8000/api/v1/games')
+			.then(res => res.json())
+			// .then(responsejson => console.log(responsejson))
+			.then(responsejson => {
+				this.setState({
+					savedGames: responsejson
+				});
+			});
 	}
 
 	handlePlayButton = id => {
@@ -64,6 +66,7 @@ class App extends Component {
 
 	render() {
 		const { currentWord } = this.state;
+		console.log(this.state);
 
 		const contextValue = {
 			savedGames: this.state.savedGames,

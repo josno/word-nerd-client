@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import PassTheBall from './PassTheBall';
 
-describe('<PassTheBall/>', () => {
+describe('<PassTheBall />', () => {
 	it('renders as expected', () => {
 		const tree = renderer
 			.create(

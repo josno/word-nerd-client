@@ -5,25 +5,18 @@ import './Login.css';
 
 class Login extends Component {
 	static contextType = WordContext;
-	constructor(props) {
-		super(props);
-		this.state = {
-			username: '',
-			password: ''
-		};
-		this.handleChange = this.handleChange.bind(this);
-	}
 
-	handleChange = e => {
-		const { name, value } = e.target;
-		this.setState({
-			[name]: value
-		});
+	handleSubmit = e => {
+		const { username, password } = e.target;
+
+		const token = window.btoa(username.value + ':' + password.value); //encoding
+
+		window.localStorage.setItem('token', token);
 	};
 
 	render() {
 		return (
-			<div className="login">
+			<div clasName="login">
 				<section>
 					<div className="input-form">
 						<input
@@ -37,7 +30,7 @@ class Login extends Component {
 						/>
 						<input
 							className="form-input"
-							type="text"
+							type="password"
 							htmlFor="password"
 							placeholder="password"
 							value={this.state.password}
@@ -47,7 +40,12 @@ class Login extends Component {
 					</div>
 
 					<Link to="/game-home-page">
-						<button className="input-submit-button">Login</button>
+						<button
+							className="input-submit-button"
+							onClick={this.handleSubmit}
+						>
+							Login
+						</button>
 					</Link>
 				</section>
 			</div>

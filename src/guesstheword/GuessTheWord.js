@@ -26,8 +26,8 @@ class GuessTheWord extends Component {
 
 	componentDidMount() {
 		const { savedGames, currentGameId, filteredList } = this.context;
-		const currentGame = savedGames.find(i => currentGameId === i.game_id);
-		const currentWordList = currentGame.words;
+		const currentGame = savedGames.find(i => currentGameId === i.id);
+		const currentWordList = currentGame.word_list;
 		this.setState({
 			wordList: [...currentWordList],
 			filteredList: [...filteredList]
@@ -36,7 +36,6 @@ class GuessTheWord extends Component {
 
 	render() {
 		const { wordList } = this.state;
-
 		const randomWord =
 			wordList[Math.floor(Math.random() * wordList.length)];
 
