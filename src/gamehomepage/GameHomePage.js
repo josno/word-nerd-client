@@ -6,6 +6,9 @@ import WordContext from '../WordContext';
 class GameHomePage extends Component {
 	static contextType = WordContext;
 
+	componentDidMount(){
+		
+	}
 	render(props) {
 		const { savedGames, getSavedGameId } = this.context;
 		return (

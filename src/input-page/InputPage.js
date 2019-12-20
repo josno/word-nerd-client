@@ -38,22 +38,23 @@ class InputPage extends Component {
 	}
 
 	handleSubmit(e) {
-		const { savedGames } = this.context;
-		const { title, wordList } = this.state;
-		const newGameId = savedGames.length + 1;
+		// const { savedGames } = this.context;
+		const { title, word_list } = this.state;
+		//Have to make a new server endpoint for getting the saved game Id
+		// const newGameId = savedGames.length + 1;
 		const newGame = {
-			game_id: newGameId,
 			title: title,
-			words: wordList,
+			word_list: word_list,
 			date_created: new Date()
 		};
 
 		this.context.saveNewGame(newGame);
-		this.context.getSavedGameId(newGameId);
+		//new endpoint has to generate the dynamic gameId here
+		// this.context.getSavedGameId(newGameId);
 	}
 
 	render() {
-		const { wordList } = this.state;
+		const { word_list } = this.state;
 
 		return (
 			<div>
@@ -78,7 +79,7 @@ class InputPage extends Component {
 						</div>
 					</form>
 					<h2>Review Words</h2>
-					{wordList.map((word, index) => (
+					{word_list.map((word, index) => (
 						<Preview key={index} word={word} />
 					))}
 					<div className="submit-button-container">

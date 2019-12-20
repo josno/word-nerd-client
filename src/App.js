@@ -11,6 +11,7 @@ import EndGamePage from './endgamepage/EndGamePage';
 import AnswerPage from './answerpage/AnswerPage';
 import WordContext from './WordContext';
 import config from './config';
+import TokenService from './services/token-services';
 
 class App extends Component {
 	static contextType = WordContext;
@@ -54,6 +55,20 @@ class App extends Component {
 			savedGames: [...this.state.savedGames, gameObject]
 		});
 		/* From submit via input-page then adds to state.savedGames */
+		const newList = {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+				Authorization: `basic ${TokenService.getAuthToken()}`
+			},
+			body: JSON.stringify({
+				gameObject
+			})
+		};
+
+		fetch(`${config.API_ENDPOINT}/v1/games`, newList).then(res => {
+			!res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
+		});
 	};
 
 	getCurrentWord = string => {
