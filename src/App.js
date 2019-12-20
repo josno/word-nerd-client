@@ -10,7 +10,7 @@ import GuessTheWord from './guesstheword/GuessTheWord';
 import EndGamePage from './endgamepage/EndGamePage';
 import AnswerPage from './answerpage/AnswerPage';
 import WordContext from './WordContext';
-import STORE from './store/STORE';
+import config from './config';
 
 class App extends Component {
 	static contextType = WordContext;
@@ -26,9 +26,8 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		fetch('http://localhost:8000/api/v1/games')
+		fetch(`${config.API_ENDPOINT}/v1/games`)
 			.then(res => res.json())
-			// .then(responsejson => console.log(responsejson))
 			.then(responsejson => {
 				this.setState({
 					savedGames: responsejson
@@ -110,20 +109,18 @@ class App extends Component {
 						path="/answer-page"
 						render={props => <AnswerPage word={currentWord} />}
 					/>
-					{['/game-start-page', '/game-start-page/:game_id'].map(
-						path => (
-							<Route
-								key={path}
-								exact
-								path={path}
-								render={routeProps => (
-									<GameStartPage
-										gameId={routeProps.match.params.gameId}
-									/>
-								)}
-							/>
-						)
-					)}
+					{['/game-start-page'].map(path => (
+						<Route
+							key={path}
+							exact
+							path={path}
+							render={routeProps => (
+								<GameStartPage
+									gameId={routeProps.match.params.gameId}
+								/>
+							)}
+						/>
+					))}
 				</WordContext.Provider>
 			</div>
 		);

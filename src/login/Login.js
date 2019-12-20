@@ -1,22 +1,39 @@
 import React, { Component } from 'react';
 import WordContext from '../WordContext';
 import { Link } from 'react-router-dom';
+import TokenService from '../services/token-services';
 import './Login.css';
 
 class Login extends Component {
 	static contextType = WordContext;
+	constructor(props) {
+		super(props);
+		this.state = {
+			username: '',
+			password: ''
+		};
+		this.handleChange = this.handleChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+	}
 
-	handleSubmit = e => {
-		const { username, password } = e.target;
+	handleChange = e => {
+		const { name, value } = e.target;
+		this.setState({
+			[name]: value
+		});
+	};
 
-		const token = window.btoa(username.value + ':' + password.value); //encoding
+	handleSubmit = () => {
+		const { username, password } = this.state;
 
-		window.localStorage.setItem('token', token);
+		TokenService.saveAuthToken(
+			TokenService.makeBasicAuthToken(username, password)
+		);
 	};
 
 	render() {
 		return (
-			<div clasName="login">
+			<div className="login">
 				<section>
 					<div className="input-form">
 						<input
