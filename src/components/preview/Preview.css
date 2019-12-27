@@ -1,6 +1,7 @@
 .preview-words {
 	font-size: 6rem;
 	font-weight: bold;
+	list-style: none;
 }
 
 .preview-words:hover {

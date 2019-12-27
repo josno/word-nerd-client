@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import './GameStartPage.css';
 
 class GameStart extends Component {
-	state = {};
-	render() {
+	render(props) {
 		return (
 			<div>
 				<section>

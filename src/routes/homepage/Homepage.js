@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import EntryOption from '../entryoption/EntryOption';
+import EntryOption from '../../components/entryoption/EntryOption';
 import './Homepage.css';
 
 class Homepage extends Component {

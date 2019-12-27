@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import Homepage from './homepage/Homepage';
-import GameHomePage from './gamehomepage/GameHomePage';
-import InputPage from './input-page/InputPage';
-import GameStartPage from './gamestartpage/GameStartPage';
-import PassTheBall from './passtheball/PassTheBall';
-import GuessTheWord from './guesstheword/GuessTheWord';
-import EndGamePage from './endgamepage/EndGamePage';
-import AnswerPage from './answerpage/AnswerPage';
+import Homepage from './routes/homepage/Homepage';
+import GameHomePage from './routes/gamehomepage/GameHomePage';
+import InputPage from './routes/input-page/InputPage';
+import GameStartPage from './routes/gamestartpage/GameStartPage';
+import PassTheBall from './routes/passtheball/PassTheBall';
+import GuessTheWord from './routes/guesstheword/GuessTheWord';
+import EndGamePage from './routes/endgamepage/EndGamePage';
+import AnswerPage from './components/answerpage/AnswerPage';
 import WordContext from './WordContext';
 import config from './config';
 import TokenService from './services/token-service';
@@ -18,12 +18,9 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			savedGames: [],
 			currentGameId: '',
-			currentWord: '',
-			filteredList: []
+			response: ''
 		};
-		this.makeFilteredList = this.makeFilteredList.bind(this);
 	}
 
 	handlePlayButton = id => {
@@ -32,19 +29,9 @@ class App extends Component {
 		});
 	};
 
-	makeFilteredList(string, list) {
-		const newList = list.filter(item => item !== string);
-		// console.log(newList);
-		this.setState({
-			filteredList: [...newList]
-		});
-	}
-
 	saveNewGame = gameObject => {
-		this.setState({
-			savedGames: [...this.state.savedGames, gameObject]
-		});
 		/* From submit via input-page then adds to state.savedGames */
+
 		const newList = {
 			method: 'POST',
 			headers: {
@@ -52,20 +39,18 @@ class App extends Component {
 				Authorization: `basic ${TokenService.getAuthToken()}`
 			},
 			body: JSON.stringify({
-				gameObject
+				title: gameObject.title,
+				word_list: gameObject.word_list,
+				date_created: new Date(),
+				user_id: gameObject.user_id
 			})
 		};
 
-		fetch(`${config.API_ENDPOINT}/v1/games`, newList).then(res => {
-			!res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
-		});
-	};
-
-	getCurrentWord = string => {
-		this.setState({
-			currentWord: string
-		});
-		/* get the current played word from guess-the-word to render in answer page */
+		fetch(`${config.API_ENDPOINT}/v1/games`, newList)
+			.then(res => {
+				!res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
+			})
+			.then(responsejson => console.log(responsejson));
 	};
 
 	render() {
@@ -73,14 +58,10 @@ class App extends Component {
 		console.log(this.state);
 
 		const contextValue = {
-			savedGames: this.state.savedGames,
 			saveNewGame: this.saveNewGame,
 			getSavedGameId: this.handlePlayButton,
 			currentGameId: this.state.currentGameId,
-			currentWord: this.state.currentWord,
-			getCurrentWord: this.getCurrentWord,
-			filteredList: this.state.filteredList,
-			makeFilteredList: this.makeFilteredList
+			saveUsername: this.saveUsername
 		};
 
 		return (
@@ -93,12 +74,24 @@ class App extends Component {
 						path="/game-home-page"
 						component={GameHomePage}
 					/>
-					<Route exact path="/input-page" component={InputPage} />
+
 					<Route
 						exact
 						path="/pass-the-ball"
 						component={PassTheBall}
 					/>
+					{['/input-page/:user_id'].map(path => (
+						<Route
+							key={path}
+							exact
+							path={path}
+							render={routeProps => (
+								<InputPage
+									userId={routeProps.match.params.user_id}
+								/>
+							)}
+						/>
+					))}
 					<Route
 						exact
 						path="/guess-the-word"
@@ -114,18 +107,11 @@ class App extends Component {
 						path="/answer-page"
 						render={props => <AnswerPage word={currentWord} />}
 					/>
-					{['/game-start-page'].map(path => (
-						<Route
-							key={path}
-							exact
-							path={path}
-							render={routeProps => (
-								<GameStartPage
-									gameId={routeProps.match.params.gameId}
-								/>
-							)}
-						/>
-					))}
+					<Route
+						exact
+						path="/game-start-page"
+						component={GameStartPage}
+					/>
 				</WordContext.Provider>
 			</div>
 		);

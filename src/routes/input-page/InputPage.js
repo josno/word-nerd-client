@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './InputPage.css';
-import Preview from '../preview/Preview.js';
-import WordContext from '../WordContext';
+import Preview from '../../components/preview/Preview.js';
+import WordContext from '../../WordContext';
 
 class InputPage extends Component {
 	static contextType = WordContext;
@@ -38,23 +38,19 @@ class InputPage extends Component {
 	}
 
 	handleSubmit(e) {
-		// const { savedGames } = this.context;
-		const { title, word_list } = this.state;
-		//Have to make a new server endpoint for getting the saved game Id
-		// const newGameId = savedGames.length + 1;
+		const { title, wordList } = this.state;
 		const newGame = {
 			title: title,
-			word_list: word_list,
-			date_created: new Date()
+			word_list: wordList,
+			date_created: new Date(),
+			user_id: this.props.userId
 		};
 
 		this.context.saveNewGame(newGame);
-		//new endpoint has to generate the dynamic gameId here
-		// this.context.getSavedGameId(newGameId);
 	}
 
-	render() {
-		const { word_list } = this.state;
+	render(props) {
+		const { wordList } = this.state;
 
 		return (
 			<div>
@@ -79,7 +75,7 @@ class InputPage extends Component {
 						</div>
 					</form>
 					<h2>Review Words</h2>
-					{word_list.map((word, index) => (
+					{wordList.map((word, index) => (
 						<Preview key={index} word={word} />
 					))}
 					<div className="submit-button-container">

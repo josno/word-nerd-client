@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './EntryOption.css';
 import SignUp from '../signup/SignUp';
-import WordContext from '../WordContext';
+import WordContext from '../../WordContext';
 import Login from '../login/Login';
 
 class EntryOption extends Component {
