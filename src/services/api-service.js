@@ -34,3 +34,7 @@ const GamesService = {
 		});
 	}
 };
+
+export default GamesService;
+
+//refactor to replace all api fetch calls
