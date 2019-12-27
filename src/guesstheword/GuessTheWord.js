@@ -14,6 +14,11 @@ class GuessTheWord extends Component {
 		this.shuffleWord = this.shuffleWord.bind(this);
 	}
 
+	//add fetch to API against gameId
+	//API fetch POST should return new game list, not empty
+	//context for saving new game needs to get game id and history push game start
+	//--make an api fetch when component needs it
+
 	shuffleWord(string) {
 		const stringToArray = string.split('');
 		const unshuffled = stringToArray;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import WordContext from '../WordContext';
 import { Link } from 'react-router-dom';
-import TokenService from '../services/token-services';
+import TokenService from '../services/token-service';
 import './Login.css';
 
 class Login extends Component {

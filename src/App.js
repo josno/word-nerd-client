@@ -11,7 +11,7 @@ import EndGamePage from './endgamepage/EndGamePage';
 import AnswerPage from './answerpage/AnswerPage';
 import WordContext from './WordContext';
 import config from './config';
-import TokenService from './services/token-services';
+import TokenService from './services/token-service';
 
 class App extends Component {
 	static contextType = WordContext;
@@ -24,16 +24,6 @@ class App extends Component {
 			filteredList: []
 		};
 		this.makeFilteredList = this.makeFilteredList.bind(this);
-	}
-
-	componentDidMount() {
-		fetch(`${config.API_ENDPOINT}/v1/games`)
-			.then(res => res.json())
-			.then(responsejson => {
-				this.setState({
-					savedGames: responsejson
-				});
-			});
 	}
 
 	handlePlayButton = id => {

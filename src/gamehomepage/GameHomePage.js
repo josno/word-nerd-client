@@ -2,15 +2,35 @@ import React, { Component } from 'react';
 import './GameHomePage.css';
 import { Link } from 'react-router-dom';
 import WordContext from '../WordContext';
+import config from '../config';
+import TokenService from '../services/token-service';
 
 class GameHomePage extends Component {
 	static contextType = WordContext;
-
-	componentDidMount(){
-		
+	constructor(props) {
+		super(props);
+		this.state = {
+			savedGames: []
+		};
 	}
+
+	componentDidMount() {
+		//we need a user Id
+		fetch(`${config.API_ENDPOINT}/v1/games/`, {
+			headers: {
+				Authorization: `basic ${TokenService.getAuthToken()} `
+			}
+		})
+			.then(res => res.json())
+			.then(responsejson => {
+				this.setState({
+					savedGames: responsejson
+				});
+			});
+	}
+
 	render(props) {
-		const { savedGames, getSavedGameId } = this.context;
+		const { savedGames, getSavedGameId } = this.state; //deleteSavedGames in App.js & context
 		return (
 			<div>
 				<section>
@@ -41,7 +61,7 @@ class GameHomePage extends Component {
 													type="submit"
 													onClick={() => {
 														getSavedGameId(g.id);
-													}}
+													}} //remove onClick
 												>
 													Play
 												</button>
