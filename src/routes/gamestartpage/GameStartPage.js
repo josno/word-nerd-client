@@ -39,7 +39,7 @@ class GameStart extends Component {
 						<Link to="/game-home-page">
 							<button className="submit-cancel">No</button>
 						</Link>
-						<Link to="/pass-the-ball">
+						<Link to={`/game/${this.props.gameId}/guess-the-word/`}>
 							<button className="submit-input">Yes!</button>
 						</Link>
 					</div>

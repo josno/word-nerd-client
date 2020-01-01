@@ -37,7 +37,7 @@ class InputPage extends Component {
 		});
 	}
 
-	handleSubmit(e) {
+	async handleSubmit(e) {
 		const { title, wordList } = this.state;
 		const newGame = {
 			title: title,
@@ -46,7 +46,8 @@ class InputPage extends Component {
 			user_id: this.props.userId
 		};
 
-		this.context.saveNewGame(newGame);
+		const gameId = await this.context.saveNewGame(newGame);
+		this.props.history.push(`/game/${gameId}/game-start-page`);
 	}
 
 	render(props) {
@@ -82,15 +83,14 @@ class InputPage extends Component {
 						<Link to="/game-home-page">
 							<button className="submit-cancel">Cancel</button>
 						</Link>
-						<Link to="/game-start-page">
-							<button
-								className="submit-input"
-								type="submit"
-								onClick={e => this.handleSubmit(e)}
-							>
-								Submit
-							</button>
-						</Link>
+
+						<button
+							className="submit-input"
+							type="submit"
+							onClick={e => this.handleSubmit(e)}
+						>
+							Submit
+						</button>
 					</div>
 				</section>
 			</div>

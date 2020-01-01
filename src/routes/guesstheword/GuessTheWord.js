@@ -6,19 +6,20 @@ import config from '../../config';
 import TokenService from '../../services/token-service';
 import AnswerPage from '../../components/answerpage/AnswerPage';
 import ScrambledWordPage from '../../components/scrambledwordpage/ScrambledWordPage';
+import PassTheBall from '../../components/passtheball/PassTheBall';
 
 class GuessTheWord extends Component {
 	static contextType = WordContext;
 	constructor(props) {
 		super(props);
 		this.state = {
-			wordList: [],
-			filteredList: [],
-			showAnswer: false
+			showAnswer: false,
+			passTheBall: false,
+			randomWord: ''
 		};
 		this.shuffleWord = this.shuffleWord.bind(this);
-		this.showAnswer = this.showAnswer.bind(this);
-		this.makeRandomWord = this.makeRandomWord.bind(this);
+		this.renderAnswer = this.renderAnswer.bind(this);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
 	//add fetch to API against gameId
@@ -36,7 +37,7 @@ class GuessTheWord extends Component {
 		return shuffled;
 	}
 
-	showAnswer = () => {
+	renderAnswer = () => {
 		this.setState({
 			showAnswer: true
 		});
@@ -57,64 +58,62 @@ class GuessTheWord extends Component {
 					wordList: [...responsejson.word_list]
 				})
 			)
-			.then(list => this.makeRandomWord());
-		// const currentGame = savedGames.find(i => currentGameId === i.id);
-		// const currentWordList = currentGame.word_list;
-		// this.setState({
-		// 	wordList: [...currentWordList],
-		// 	filteredList: [...filteredList]
-		// });
+			.then(list => this.handleClick());
 	}
 
-	makeRandomWord = () => {
+	handleClick = () => {
 		const { wordList } = this.state;
 		const randomWord =
 			wordList[Math.floor(Math.random() * wordList.length)];
+
 		this.setState({
-			randomWord: randomWord
+			randomWord: randomWord,
+			showAnswer: false,
+			passTheBall: true
 		});
 
-		return this.state.randomWord;
+		setTimeout(() => {
+			this.setState({ passTheBall: false });
+		}, 2000);
+
+		//random timer between 30 to 60 seconds
+		//Math.random() * (60000 - 30000) + 30000;
 	};
 
 	render() {
-		const { wordList, randomWord } = this.state;
+		const { wordList, randomWord, showAnswer, passTheBall } = this.state;
 		console.log(wordList);
 
 		const shuffledWord = this.shuffleWord(String(randomWord));
 
 		return (
 			<div className="guess-the-word-container">
-				{this.state.showAnswer ? (
+				{showAnswer ? (
 					<AnswerPage word={randomWord} />
+				) : passTheBall ? (
+					<PassTheBall pause={true} />
 				) : (
-					<>
-						<ScrambledWordPage shuffledWord={shuffledWord} />
-					</>
+					<ScrambledWordPage shuffledWord={shuffledWord} />
 				)}
 
 				<div className="game-controls">
 					<Link to="/end-game-page">
 						<button className="game-end">End Game</button>
 					</Link>
-					{this.state.showAnswer ? (
+					{this.state.renderAnswer ? (
 						''
 					) : (
 						<button
 							className="answer-button"
-							onClick={this.showAnswer}
+							onClick={this.renderAnswer}
 						>
 							Answer
 						</button>
 					)}
-					<Link to="/pass-the-ball">
-						<button
-							className="next-button"
-							onClick={() => this.makeRandomWord()}
-						>
-							Next
-						</button>
-					</Link>
+
+					<button className="next-button" onClick={this.handleClick}>
+						Next
+					</button>
 				</div>
 			</div>
 		);

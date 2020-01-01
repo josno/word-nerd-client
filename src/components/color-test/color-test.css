@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Luckiest+Guy|Poppins&display=swap');
+
+.color-container {
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+	width: 100%;
+	background-color: #18c0f0;
+}
+
+.ball-gif {
+	width: 600px;
+	height: 600px;
+}
+
+.font-test {
+	font-size: 6rem;
+	font-family: 'Luckiest Guy', cursive;
+	color: #0c0a3e;
+	-webkit-text-stroke: 1px#fbff12;
+	text-shadow: 3px 3px #ff206e, -1px -1px #ff206e, 1px -1px #ff206e,
+		-1px 1px #ff206e, 1px 1px #ff206e;
+	/* font-family: 'Open Sans', sans-serif; 
+    @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy&display=swap');
+    font-family: 'Luckiest Guy', cursive;*/
+}

@@ -24,7 +24,7 @@ class GamesList extends Component {
 								</div>
 
 								<div className="button-container">
-									<Link to={`/game-start-page/`}>
+									<Link to={`/game/${g.id}/game-start-page/`}>
 										<button
 											className="play-button"
 											type="submit"

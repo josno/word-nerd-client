@@ -5,13 +5,13 @@ import Homepage from './routes/homepage/Homepage';
 import GameHomePage from './routes/gamehomepage/GameHomePage';
 import InputPage from './routes/input-page/InputPage';
 import GameStartPage from './routes/gamestartpage/GameStartPage';
-import PassTheBall from './routes/passtheball/PassTheBall';
 import GuessTheWord from './routes/guesstheword/GuessTheWord';
 import EndGamePage from './routes/endgamepage/EndGamePage';
 import AnswerPage from './components/answerpage/AnswerPage';
 import WordContext from './WordContext';
 import config from './config';
 import TokenService from './services/token-service';
+import ColorTest from './components/color-test/color-test';
 
 class App extends Component {
 	static contextType = WordContext;
@@ -46,16 +46,18 @@ class App extends Component {
 			})
 		};
 
-		fetch(`${config.API_ENDPOINT}/v1/games`, newList)
+		return fetch(`${config.API_ENDPOINT}/v1/games`, newList) //returns result of promises
 			.then(res => {
-				!res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
+				return !res.ok
+					? res.json().then(e => Promise.reject(e))
+					: res.json();
 			})
-			.then(responsejson => console.log(responsejson));
+			.then(responsejson => responsejson.id);
 	};
 
 	render() {
 		const { currentWord } = this.state;
-		console.log(this.state);
+		console.log(this.state.currentGameId);
 
 		const contextValue = {
 			saveNewGame: this.saveNewGame,
@@ -77,25 +79,13 @@ class App extends Component {
 
 					<Route
 						exact
-						path="/pass-the-ball"
-						component={PassTheBall}
-					/>
-					{['/input-page/:user_id'].map(path => (
-						<Route
-							key={path}
-							exact
-							path={path}
-							render={routeProps => (
-								<InputPage
-									userId={routeProps.match.params.user_id}
-								/>
-							)}
-						/>
-					))}
-					<Route
-						exact
-						path="/guess-the-word"
-						component={GuessTheWord}
+						path="/input-page/:user_id"
+						render={routeProps => (
+							<InputPage
+								userId={routeProps.match.params.user_id}
+								{...routeProps} //passes all other props like history and location
+							/>
+						)}
 					/>
 					<Route
 						exact
@@ -107,10 +97,29 @@ class App extends Component {
 						path="/answer-page"
 						render={props => <AnswerPage word={currentWord} />}
 					/>
+
 					<Route
 						exact
-						path="/game-start-page"
-						component={GameStartPage}
+						path="/color-page"
+						render={props => <ColorTest word={currentWord} />}
+					/>
+					<Route
+						exact
+						path="/game/:gameId/guess-the-word/"
+						render={routeProps => (
+							<GuessTheWord
+								gameId={routeProps.match.params.gameId}
+							/>
+						)}
+					/>
+					<Route
+						exact
+						path="/game/:gameId/game-start-page/"
+						render={routeProps => (
+							<GameStartPage
+								gameId={routeProps.match.params.gameId}
+							/>
+						)}
 					/>
 				</WordContext.Provider>
 			</div>
