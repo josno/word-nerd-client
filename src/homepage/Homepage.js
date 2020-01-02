@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import EntryOption from '../components/entryoption/EntryOption';
-import './Homepage.css';
+// import './Homepage.css';
 
 class Homepage extends Component {
 	constructor(props) {

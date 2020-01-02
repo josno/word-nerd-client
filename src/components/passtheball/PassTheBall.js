@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Ball from './ball.png';
 import './PassTheBall.css';
-import soundfile from './funday.mp3';
+// import soundfile from './funday.mp3';
 
 class PassTheBall extends Component {
 	// componentDidMount() {}
 	render(props) {
-		const audio = new Audio(soundfile);
-		audio.play();
+		// const audio = new Audio(soundfile);
+		// audio.play();
 		return (
 			<div className="game-play-container">
 				<nav role="navigation">nav</nav>

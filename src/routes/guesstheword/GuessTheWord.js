@@ -49,7 +49,7 @@ class GuessTheWord extends Component {
 
 		fetch(`${config.API_ENDPOINT}/v1/games/${currentGameId}`, {
 			headers: {
-				Authorization: `basic ${TokenService.getAuthToken()} `
+				Authorization: `Bearer ${TokenService.getAuthToken()} `
 			}
 		})
 			.then(response => response.json())
@@ -72,9 +72,9 @@ class GuessTheWord extends Component {
 			passTheBall: true
 		});
 
-		setTimeout(() => {
-			this.setState({ passTheBall: false });
-		}, 2000);
+		// setTimeout(() => {
+		// 	this.setState({ passTheBall: false });
+		// }, 2000);
 
 		//random timer between 30 to 60 seconds
 		//Math.random() * (60000 - 30000) + 30000;

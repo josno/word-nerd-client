@@ -23,7 +23,7 @@ class GameHomePage extends Component {
 		//add to GamesSErvice later
 		fetch(`${config.API_ENDPOINT}/v1/games/`, {
 			headers: {
-				Authorization: `basic ${TokenService.getAuthToken()} `
+				Authorization: `Bearer ${TokenService.getAuthToken()} `
 			}
 		})
 			.then(res => res.json())

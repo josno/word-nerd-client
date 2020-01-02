@@ -6,7 +6,7 @@ class GamesList extends Component {
 	static contextType = WordContext;
 	render(props) {
 		return (
-			<div classname="">
+			<div>
 				<ul className="list-of-games">
 					{this.props.savedGames.length > 0 &&
 						this.props.savedGames.map(g => (

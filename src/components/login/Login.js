@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import WordContext from '../../WordContext';
 import { Link } from 'react-router-dom';
 import TokenService from '../../services/token-service';
+import AuthApiService from '../../services/auth-api-service';
 import './Login.css';
 
 class Login extends Component {
@@ -26,9 +27,22 @@ class Login extends Component {
 	handleSubmit = () => {
 		const { username, password } = this.state;
 
-		TokenService.saveAuthToken(
-			TokenService.makeBasicAuthToken(username, password)
-		);
+		// TokenService.saveAuthToken(
+		// 	TokenService.makeBasicAuthToken(username, password)
+		// );
+
+		AuthApiService.postLogin({
+			user_name: username,
+			password: password
+		}) //passed in as one object
+			.then(res => {
+				// console.log(res.authToken);
+				TokenService.saveAuthToken(res.authToken); //will only store the token when request is successful
+				// this.props.onLoginSuccess();
+			})
+			.catch(res => {
+				this.setState({ error: res.error });
+			});
 	};
 
 	render() {

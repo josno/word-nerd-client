@@ -8,6 +8,7 @@ import GameStartPage from './routes/gamestartpage/GameStartPage';
 import GuessTheWord from './routes/guesstheword/GuessTheWord';
 import EndGamePage from './routes/endgamepage/EndGamePage';
 import AnswerPage from './components/answerpage/AnswerPage';
+import Navigation from './components/Navigation/Navigation';
 import WordContext from './WordContext';
 import config from './config';
 import TokenService from './services/token-service';
@@ -68,8 +69,9 @@ class App extends Component {
 
 		return (
 			<div>
-				<nav role="navigation"> nav </nav>
 				<WordContext.Provider value={contextValue}>
+					<Navigation />
+
 					<Route exact path="/" component={Homepage} />
 					<Route
 						exact
