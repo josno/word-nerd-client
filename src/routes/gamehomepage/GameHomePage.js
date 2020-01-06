@@ -3,7 +3,7 @@ import './GameHomePage.css';
 import { Link } from 'react-router-dom';
 import WordContext from '../../WordContext';
 import config from '../../config';
-import GamesList from '../../components/gameslist/GamesList';
+import GamesList from '../../components/GamesList/GamesList';
 import TokenService from '../../services/token-service';
 // import GamesService from '../services/api-service';
 

@@ -7,7 +7,7 @@ import InputPage from './routes/InputPage/InputPage';
 import GameStartPage from './routes/GameStartPage/GameStartPage';
 import GuessTheWord from './routes/GuessTheWord/GuessTheWord';
 import EndGamePage from './routes/EndGamePage/EndGamePage';
-import AnswerPage from './components/Answerpage/AnswerPage';
+import AnswerPage from './components/AnswerPage/AnswerPage';
 import Navigation from './components/Navigation/Navigation';
 import WordContext from './WordContext';
 import config from './config';
