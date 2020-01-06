@@ -3,7 +3,6 @@ import React from 'react';
 const WordContext = React.createContext({
 	currentGameId: '',
 	currentWord: '',
-	// filteredList: '',
 	isLoggedIn: '',
 	isLoggedOut: '',
 	saveNewGame: () => {},

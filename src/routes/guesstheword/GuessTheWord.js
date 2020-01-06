@@ -4,7 +4,7 @@ import './GuessTheWord.css';
 import { Link } from 'react-router-dom';
 import config from '../../config';
 import TokenService from '../../services/token-service';
-import AnswerPage from '../../components/Answerpage/AnswerPage';
+import AnswerPage from '../../components/AnswerPage/AnswerPage';
 import ScrambledWordPage from '../../components/ScrambledWordPage/ScrambledWordPage';
 import PassTheBall from '../../components/Passtheball/PassTheBall';
 

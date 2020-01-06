@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './InputPage.css';
-import Preview from '../../components/preview/Preview.js';
+import Preview from '../../components/Preview/Preview.js';
 import WordContext from '../../WordContext';
 
 class InputPage extends Component {
@@ -47,6 +47,7 @@ class InputPage extends Component {
 		};
 
 		const gameId = await this.context.saveNewGame(newGame);
+		//wait until you get the id
 		this.props.history.push(`/game/${gameId}/game-start-page`);
 	}
 
