@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 import WordContext from '../../WordContext';
-import { Link } from 'react-router-dom';
+import { withRouter } from './node_modules/react-router-dom';
 import TokenService from '../../services/token-service';
 import AuthApiService from '../../services/auth-api-service';
 import './Login.css';
@@ -10,35 +10,25 @@ class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			username: '',
-			password: ''
+			error: null
 		};
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleChange = e => {
-		const { name, value } = e.target;
-		this.setState({
-			[name]: value
-		});
-	};
-
-	handleSubmit = () => {
-		const { username, password } = this.state;
-
-		// TokenService.saveAuthToken(
-		// 	TokenService.makeBasicAuthToken(username, password)
-		// );
+	handleSubmit = e => {
+		e.preventDefault();
+		this.setState({ error: null });
+		const { username, password } = e.target;
 
 		AuthApiService.postLogin({
-			user_name: username,
-			password: password
+			user_name: username.value,
+			password: password.value
 		}) //passed in as one object
 			.then(res => {
-				// console.log(res.authToken);
+				console.log(res.authToken);
+				username.value = '';
+				password.value = '';
 				TokenService.saveAuthToken(res.authToken); //will only store the token when request is successful
-				// this.props.onLoginSuccess();
+				// this.props.history.push('/game-home-page');
 			})
 			.catch(res => {
 				this.setState({ error: res.error });
@@ -48,40 +38,31 @@ class Login extends Component {
 	render() {
 		return (
 			<div className="login">
-				<section>
+				<form onSubmit={this.handleSubmit}>
 					<div className="input-form">
 						<input
 							className="form-input"
 							type="text"
 							htmlFor="username"
 							placeholder="username"
-							value={this.state.username}
 							name="username"
-							onChange={e => this.handleChange(e)}
 						/>
 						<input
 							className="form-input"
 							type="password"
 							htmlFor="password"
 							placeholder="password"
-							value={this.state.password}
 							name="password"
-							onChange={e => this.handleChange(e)}
 						/>
 					</div>
 
-					<Link to="/game-home-page">
-						<button
-							className="input-submit-button"
-							onClick={this.handleSubmit}
-						>
-							Login
-						</button>
-					</Link>
-				</section>
+					<button type="submit" className="input-submit-button">
+						Login
+					</button>
+				</form>
 			</div>
 		);
 	}
 }
 
-export default Login;
+export default withRouter(Login);

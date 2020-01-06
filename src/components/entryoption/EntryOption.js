@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 import './EntryOption.css';
-import SignUp from '../signup/SignUp';
+import SignUp from '../SignUp/SignUp';
 import WordContext from '../../WordContext';
-import Login from '../login/Login';
+import Login from '../Login/Login';
 
 class EntryOption extends Component {
 	static contextType = WordContext;

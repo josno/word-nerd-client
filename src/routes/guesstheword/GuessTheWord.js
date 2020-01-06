@@ -4,9 +4,9 @@ import './GuessTheWord.css';
 import { Link } from 'react-router-dom';
 import config from '../../config';
 import TokenService from '../../services/token-service';
-import AnswerPage from '../../components/answerpage/AnswerPage';
-import ScrambledWordPage from '../../components/scrambledwordpage/ScrambledWordPage';
-import PassTheBall from '../../components/passtheball/PassTheBall';
+import AnswerPage from '../../components/Answerpage/AnswerPage';
+import ScrambledWordPage from '../../components/ScrambledWordPage/ScrambledWordPage';
+import PassTheBall from '../../components/Passtheball/PassTheBall';
 
 class GuessTheWord extends Component {
 	static contextType = WordContext;
@@ -21,11 +21,6 @@ class GuessTheWord extends Component {
 		this.renderAnswer = this.renderAnswer.bind(this);
 		this.handleClick = this.handleClick.bind(this);
 	}
-
-	//add fetch to API against gameId
-	//API fetch POST should return new game list, not empty
-	//context for saving new game needs to get game id and history push game start
-	//--make an api fetch when component needs it
 
 	shuffleWord(string) {
 		const stringToArray = string.split('');

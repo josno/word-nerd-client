@@ -19,11 +19,9 @@ class GameHomePage extends Component {
 	}
 
 	componentDidMount() {
-		//we need a user Id
-		//add to GamesSErvice later
 		fetch(`${config.API_ENDPOINT}/v1/games/`, {
 			headers: {
-				Authorization: `Bearer ${TokenService.getAuthToken()} `
+				Authorization: `bearer ${TokenService.getAuthToken()} `
 			}
 		})
 			.then(res => res.json())

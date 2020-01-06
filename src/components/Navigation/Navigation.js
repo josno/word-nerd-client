@@ -6,10 +6,7 @@ import WordContext from '../../WordContext';
 
 class Navigation extends Component {
 	static contextType = WordContext;
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
+
 	handleLogoutClick = () => {
 		TokenService.clearAuthToken('word-nerd-token');
 	};
@@ -33,11 +30,12 @@ class Navigation extends Component {
 	}
 
 	render() {
+		console.log(TokenService.hasAuthToken());
 		return (
 			<nav role="navigation">
-				<Link to="/">
-					<h1> Word Nerd</h1>
-				</Link>
+				<h1>
+					<Link to="/">Word Nerd</Link>
+				</h1>
 				{TokenService.hasAuthToken()
 					? this.renderLogoutLink()
 					: this.renderLoginLink()}

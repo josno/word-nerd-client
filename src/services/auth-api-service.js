@@ -1,6 +1,6 @@
 import config from '../config';
 
-//this is a service for authorization; keep it separate from regular API methods
+//this is a service for authorization
 const AuthApiService = {
 	postLogin(credentials) {
 		return fetch(`${config.API_ENDPOINT}/auth/login`, {

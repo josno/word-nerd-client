@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import './App.css';
-import Homepage from './routes/homepage/Homepage';
-import GameHomePage from './routes/gamehomepage/GameHomePage';
-import InputPage from './routes/input-page/InputPage';
-import GameStartPage from './routes/gamestartpage/GameStartPage';
-import GuessTheWord from './routes/guesstheword/GuessTheWord';
-import EndGamePage from './routes/endgamepage/EndGamePage';
-import AnswerPage from './components/answerpage/AnswerPage';
+import Homepage from './routes/Homepage/Homepage';
+import GameHomePage from './routes/GameHomePage/GameHomePage';
+import InputPage from './routes/InputPage/InputPage';
+import GameStartPage from './routes/GameStartPage/GameStartPage';
+import GuessTheWord from './routes/GuessTheWord/GuessTheWord';
+import EndGamePage from './routes/EndGamePage/EndGamePage';
+import AnswerPage from './components/Answerpage/AnswerPage';
 import Navigation from './components/Navigation/Navigation';
 import WordContext from './WordContext';
 import config from './config';
 import TokenService from './services/token-service';
-import ColorTest from './components/color-test/color-test';
+// import ColorTest from './components/color-test/color-test';
 
 class App extends Component {
 	static contextType = WordContext;
@@ -21,6 +21,8 @@ class App extends Component {
 		this.state = {
 			currentGameId: '',
 			response: ''
+			// isLoggedIn: false,
+			// isLoggedOut: false
 		};
 	}
 
@@ -30,6 +32,17 @@ class App extends Component {
 		});
 	};
 
+	handleLogInState = () => {
+		this.setState({
+			isLoggedIn: true
+		});
+	};
+
+	handleLogoutState = () => {
+		this.setState({
+			isLoggedOut: true
+		});
+	};
 	saveNewGame = gameObject => {
 		/* From submit via input-page then adds to state.savedGames */
 
@@ -62,26 +75,32 @@ class App extends Component {
 
 		const contextValue = {
 			saveNewGame: this.saveNewGame,
+			// isLoggedIn: this.state.isLoggedIn,
+			// isLoggedOut: this.state.isLoggedOut,
 			getSavedGameId: this.handlePlayButton,
 			currentGameId: this.state.currentGameId,
 			saveUsername: this.saveUsername
+			// handleLogInState: this.handleLogInState,
+			// handleLogoutState: this.handleLogoutState
 		};
 
 		return (
-			<div>
+			<div className="App">
 				<WordContext.Provider value={contextValue}>
-					<Navigation />
+					<header className="navigation">
+						<Navigation />
+					</header>
 
-					<Route exact path="/" component={Homepage} />
+					<Route exact path={'/'} component={Homepage} />
 					<Route
 						exact
-						path="/game-home-page"
+						path={'/game-home-page'}
 						component={GameHomePage}
 					/>
 
 					<Route
 						exact
-						path="/input-page/:user_id"
+						path={'/input-page/:user_id'}
 						render={routeProps => (
 							<InputPage
 								userId={routeProps.match.params.user_id}
@@ -91,23 +110,23 @@ class App extends Component {
 					/>
 					<Route
 						exact
-						path="/end-game-page"
+						path={'/end-game-page'}
 						component={EndGamePage}
 					/>
 					<Route
 						exact
-						path="/answer-page"
+						path={'/answer-page'}
 						render={props => <AnswerPage word={currentWord} />}
 					/>
 
-					<Route
+					{/* <Route
 						exact
 						path="/color-page"
 						render={props => <ColorTest word={currentWord} />}
-					/>
+					/> */}
 					<Route
 						exact
-						path="/game/:gameId/guess-the-word/"
+						path={'/game/:gameId/guess-the-word/'}
 						render={routeProps => (
 							<GuessTheWord
 								gameId={routeProps.match.params.gameId}
@@ -116,7 +135,7 @@ class App extends Component {
 					/>
 					<Route
 						exact
-						path="/game/:gameId/game-start-page/"
+						path={'/game/:gameId/game-start-page/'}
 						render={routeProps => (
 							<GameStartPage
 								gameId={routeProps.match.params.gameId}
