@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './InputPage.css';
 import Preview from '../../components/Preview/Preview.js';
-import WordContext from '../../WordContext';
+import GameService from '../../services/api-service';
 
 class InputPage extends Component {
-	static contextType = WordContext;
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -46,7 +45,13 @@ class InputPage extends Component {
 			user_id: this.props.userId
 		};
 
-		const gameId = await this.context.saveNewGame(newGame);
+		const gameId = await GameService.saveNewGame(newGame)
+			.then(res => {
+				return !res.ok
+					? res.json().then(e => Promise.reject(e))
+					: res.json();
+			})
+			.then(responsejson => responsejson.id);
 		//wait until you get the id
 		this.props.history.push(`/game/${gameId}/game-start-page`);
 	}

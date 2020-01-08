@@ -16,20 +16,40 @@ const GamesService = {
 			}
 		});
 	},
-	postNewGame(userId, object) {
-		//refactor - add the fetch from app
-		return fetch(`${config.API_ENDPOINT}/games/${userId}`, {
+	// saveNewGame(userId, object) {
+	// 	//refactor - add the fetch from app
+	// 	return fetch(`${config.API_ENDPOINT}/games/${userId}`, {
+	// 		method: 'POST',
+	// 		headers: {
+	// 			authorization: `basic ${TokenService.getAuthToken()}`
+	// 		},
+	// 		body: {} //object information goes here
+	// 	});
+	// },
+
+	saveNewGame(gameObject) {
+		/* From submit via input-page then adds to state.savedGames */
+
+		const newList = {
+			method: 'POST',
 			headers: {
-				method: 'POST',
-				authorization: `basic ${TokenService.getAuthToken()}`
+				'content-type': 'application/json',
+				Authorization: `bearer ${TokenService.getAuthToken()}`
 			},
-			body: {} //object information goes here
-		});
+			body: JSON.stringify({
+				title: gameObject.title,
+				word_list: gameObject.word_list,
+				date_created: new Date(),
+				user_id: gameObject.user_id
+			})
+		};
+
+		return fetch(`${config.API_ENDPOINT}/v1/games`, newList); //returns result of promises
 	},
 	editGame(userId, gameId) {
 		return fetch(`${config.API_ENDPOINT}/games/${userId}`, {
+			method: 'PUT',
 			headers: {
-				method: 'PUT',
 				authorization: `basic ${TokenService.getAuthToken()}`
 			}
 		});
