@@ -10,7 +10,6 @@ class PassTheBall extends Component {
 		// audio.play();
 		return (
 			<div className="game-play-container">
-				<nav role="navigation">nav</nav>
 				<h1 className="pass-the-ball">Pass The Ball!</h1>
 
 				<img alt="ball-placeholder" src={Ball} />

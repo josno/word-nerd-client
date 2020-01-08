@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './EntryOption.css';
 import SignUp from '../SignUp/SignUp';
 import WordContext from '../../WordContext';
+import TokenService from '../../services/token-service';
 import Login from '../Login/Login';
 
 class EntryOption extends Component {

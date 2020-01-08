@@ -24,11 +24,13 @@ class Login extends Component {
 			password: password.value
 		}) //passed in as one object
 			.then(res => {
-				console.log(res.authToken);
 				username.value = '';
 				password.value = '';
 				TokenService.saveAuthToken(res.authToken); //will only store the token when request is successful
-				// this.props.history.push('/game-home-page');
+			})
+			.then(res => {
+				this.context.handleLogInState();
+				this.props.history.push('/game-home-page');
 			})
 			.catch(res => {
 				this.setState({ error: res.error });

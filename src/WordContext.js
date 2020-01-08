@@ -10,7 +10,8 @@ const WordContext = React.createContext({
 	getUserId: () => {},
 	getCurrentWord: () => {},
 	handleLogInState: () => {},
-	handleLogOutState: () => {}
+	handleLogOutState: () => {},
+	deleteSavedGame: () => {}
 });
 
 export default WordContext;

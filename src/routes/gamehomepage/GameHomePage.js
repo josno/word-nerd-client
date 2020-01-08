@@ -5,6 +5,7 @@ import WordContext from '../../WordContext';
 import config from '../../config';
 import GamesList from '../../components/GamesList/GamesList';
 import TokenService from '../../services/token-service';
+import ApiService from '../../services/api-service';
 // import GamesService from '../services/api-service';
 
 class GameHomePage extends Component {
@@ -17,6 +18,14 @@ class GameHomePage extends Component {
 			user_id: ''
 		};
 	}
+
+	deleteSavedGame = gameId => {
+		ApiService.deleteGame(gameId).then(res =>
+			!res.ok
+				? res.json().then(e => Promise.reject(e))
+				: this.props.history.push('/game-home-page')
+		);
+	};
 
 	componentDidMount() {
 		fetch(`${config.API_ENDPOINT}/v1/games/`, {
@@ -53,7 +62,10 @@ class GameHomePage extends Component {
 								You have no saved games yet!
 							</div>
 						) : (
-							<GamesList savedGames={savedGames} />
+							<GamesList
+								handleDelete={this.deleteSavedGame}
+								savedGames={savedGames}
+							/>
 						)}
 						<Link to={`/input-page/${user_id}`}>
 							<button className="create-game-button">

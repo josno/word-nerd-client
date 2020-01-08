@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import WordContext from '../../WordContext';
 import './GuessTheWord.css';
 import { Link } from 'react-router-dom';
-import config from '../../config';
-import TokenService from '../../services/token-service';
+import GamesService from '../../services/api-service';
 import AnswerPage from '../../components/AnswerPage/AnswerPage';
 import ScrambledWordPage from '../../components/ScrambledWordPage/ScrambledWordPage';
 import PassTheBall from '../../components/Passtheball/PassTheBall';
@@ -15,7 +14,8 @@ class GuessTheWord extends Component {
 		this.state = {
 			showAnswer: false,
 			passTheBall: false,
-			randomWord: ''
+			randomWord: '',
+			wordList: []
 		};
 		this.shuffleWord = this.shuffleWord.bind(this);
 		this.renderAnswer = this.renderAnswer.bind(this);
@@ -39,14 +39,7 @@ class GuessTheWord extends Component {
 	};
 
 	componentDidMount() {
-		const { currentGameId } = this.context;
-		// const url = `${config.API_ENDPOINT}/v1/games/${currentGameId}`;
-
-		fetch(`${config.API_ENDPOINT}/v1/games/${currentGameId}`, {
-			headers: {
-				Authorization: `Bearer ${TokenService.getAuthToken()} `
-			}
-		})
+		GamesService.getGameContent(this.props.gameId)
 			.then(response => response.json())
 			.then(responsejson =>
 				this.setState({
@@ -64,29 +57,22 @@ class GuessTheWord extends Component {
 		this.setState({
 			randomWord: randomWord,
 			showAnswer: false,
-			passTheBall: true
+			passTheBall: !this.state.passTheBall
 		});
-
-		// setTimeout(() => {
-		// 	this.setState({ passTheBall: false });
-		// }, 2000);
-
-		//random timer between 30 to 60 seconds
-		//Math.random() * (60000 - 30000) + 30000;
 	};
 
 	render() {
 		const { wordList, randomWord, showAnswer, passTheBall } = this.state;
-		console.log(wordList);
 
 		const shuffledWord = this.shuffleWord(String(randomWord));
+		console.log(wordList, randomWord, shuffledWord);
 
 		return (
 			<div className="guess-the-word-container">
 				{showAnswer ? (
 					<AnswerPage word={randomWord} />
 				) : passTheBall ? (
-					<PassTheBall pause={true} />
+					<PassTheBall />
 				) : (
 					<ScrambledWordPage shuffledWord={shuffledWord} />
 				)}

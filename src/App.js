@@ -7,11 +7,11 @@ import InputPage from './routes/InputPage/InputPage';
 import GameStartPage from './routes/GameStartPage/GameStartPage';
 import GuessTheWord from './routes/GuessTheWord/GuessTheWord';
 import EndGamePage from './routes/EndGamePage/EndGamePage';
-import AnswerPage from './components/AnswerPage/AnswerPage';
 import Navigation from './components/Navigation/Navigation';
 import WordContext from './WordContext';
 import config from './config';
 import TokenService from './services/token-service';
+import ApiService from './services/api-service';
 // import ColorTest from './components/color-test/color-test';
 
 class App extends Component {
@@ -20,9 +20,9 @@ class App extends Component {
 		super(props);
 		this.state = {
 			currentGameId: '',
-			response: ''
-			// isLoggedIn: false,
-			// isLoggedOut: false
+			response: '',
+			isLoggedIn: false,
+			isLoggedOut: false
 		};
 	}
 
@@ -43,6 +43,16 @@ class App extends Component {
 			isLoggedOut: true
 		});
 	};
+
+	deleteSavedGame = gameId => {
+		ApiService.deleteGame(gameId).then(res =>
+			!res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+		);
+		this.setState({
+			isLoggedOut: false
+		});
+	};
+
 	saveNewGame = gameObject => {
 		/* From submit via input-page then adds to state.savedGames */
 
@@ -50,7 +60,7 @@ class App extends Component {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
-				Authorization: `basic ${TokenService.getAuthToken()}`
+				Authorization: `bearer ${TokenService.getAuthToken()}`
 			},
 			body: JSON.stringify({
 				title: gameObject.title,
@@ -70,18 +80,16 @@ class App extends Component {
 	};
 
 	render() {
-		const { currentWord } = this.state;
-		console.log(this.state.currentGameId);
-
 		const contextValue = {
 			saveNewGame: this.saveNewGame,
-			// isLoggedIn: this.state.isLoggedIn,
-			// isLoggedOut: this.state.isLoggedOut,
+			isLoggedIn: this.state.isLoggedIn,
+			isLoggedOut: this.state.isLoggedOut,
 			getSavedGameId: this.handlePlayButton,
 			currentGameId: this.state.currentGameId,
-			saveUsername: this.saveUsername
-			// handleLogInState: this.handleLogInState,
-			// handleLogoutState: this.handleLogoutState
+			saveUsername: this.saveUsername,
+			handleLogInState: this.handleLogInState,
+			handleLogoutState: this.handleLogoutState,
+			deleteSavedGame: this.deleteSavedGame
 		};
 
 		return (
@@ -113,17 +121,6 @@ class App extends Component {
 						path={'/end-game-page'}
 						component={EndGamePage}
 					/>
-					<Route
-						exact
-						path={'/answer-page'}
-						render={props => <AnswerPage word={currentWord} />}
-					/>
-
-					{/* <Route
-						exact
-						path="/color-page"
-						render={props => <ColorTest word={currentWord} />}
-					/> */}
 					<Route
 						exact
 						path={'/game/:gameId/guess-the-word/'}

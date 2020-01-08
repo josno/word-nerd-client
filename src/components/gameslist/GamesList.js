@@ -37,6 +37,13 @@ class GamesList extends Component {
 											Play
 										</button>
 									</Link>
+									<button
+										onClick={() =>
+											this.props.handleDelete(g.id)
+										}
+									>
+										Delete
+									</button>
 								</div>
 							</li>
 						))}

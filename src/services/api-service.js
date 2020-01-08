@@ -10,13 +10,14 @@ const GamesService = {
 		});
 	},
 	getGameContent(gameId) {
-		return fetch(`${config.API_ENDPOINT}/games/${gameId}`, {
+		return fetch(`${config.API_ENDPOINT}/v1/games/${gameId}`, {
 			headers: {
-				authorization: `basic ${TokenService.getAuthToken()}`
+				Authorization: `Bearer ${TokenService.getAuthToken()} `
 			}
 		});
 	},
-	postNewGame(userId, gameId) {
+	postNewGame(userId, object) {
+		//refactor - add the fetch from app
 		return fetch(`${config.API_ENDPOINT}/games/${userId}`, {
 			headers: {
 				method: 'POST',
@@ -30,6 +31,14 @@ const GamesService = {
 			headers: {
 				method: 'PUT',
 				authorization: `basic ${TokenService.getAuthToken()}`
+			}
+		});
+	},
+	deleteGame(gameId) {
+		return fetch(`${config.API_ENDPOINT}/v1/games/${gameId}`, {
+			method: 'DELETE',
+			headers: {
+				authorization: `Bearer ${TokenService.getAuthToken()}`
 			}
 		});
 	}
