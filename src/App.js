@@ -9,10 +9,6 @@ import GuessTheWord from './routes/GuessTheWord/GuessTheWord';
 import EndGamePage from './routes/EndGamePage/EndGamePage';
 import Navigation from './components/Navigation/Navigation';
 import WordContext from './WordContext';
-import config from './config';
-import TokenService from './services/token-service';
-import ApiService from './services/api-service';
-// import ColorTest from './components/color-test/color-test';
 
 class App extends Component {
 	static contextType = WordContext;
@@ -20,11 +16,18 @@ class App extends Component {
 		super(props);
 		this.state = {
 			currentGameId: '',
-			response: '',
 			isLoggedIn: false,
-			isLoggedOut: false
+			userId: ''
 		};
 	}
+
+	saveUserId = id => {
+		this.setState({
+			userId: id
+		});
+
+		console.log(id);
+	};
 
 	handlePlayButton = id => {
 		this.setState({
@@ -34,37 +37,19 @@ class App extends Component {
 
 	handleLogInState = () => {
 		this.setState({
-			isLoggedIn: true
-		});
-	};
-
-	handleLogoutState = () => {
-		this.setState({
-			isLoggedOut: true
-		});
-	};
-
-	deleteSavedGame = gameId => {
-		ApiService.deleteGame(gameId).then(res =>
-			!res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-		);
-		this.setState({
-			isLoggedOut: false
+			isLoggedIn: !this.state.isLoggedIn
 		});
 	};
 
 	render() {
 		const contextValue = {
 			isLoggedIn: this.state.isLoggedIn,
-			isLoggedOut: this.state.isLoggedOut,
+			saveUserId: this.saveUserId,
 			getSavedGameId: this.handlePlayButton,
 			currentGameId: this.state.currentGameId,
-			saveUsername: this.saveUsername,
-			handleLogInState: this.handleLogInState,
-			handleLogoutState: this.handleLogoutState,
-			deleteSavedGame: this.deleteSavedGame
+			handleLogInState: this.handleLogInState
 		};
-
+		const { userId } = this.state;
 		return (
 			<div className="App">
 				<WordContext.Provider value={contextValue}>
@@ -76,7 +61,12 @@ class App extends Component {
 					<Route
 						exact
 						path={'/game-home-page'}
-						component={GameHomePage}
+						render={routeProps => (
+							<GameHomePage
+								userId={this.state.userId}
+								{...routeProps}
+							/>
+						)}
 					/>
 
 					<Route

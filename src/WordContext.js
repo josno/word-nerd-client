@@ -2,16 +2,11 @@ import React from 'react';
 
 const WordContext = React.createContext({
 	currentGameId: '',
-	currentWord: '',
 	isLoggedIn: '',
-	isLoggedOut: '',
-
+	userId: '',
 	getSavedGameId: () => {},
-	getUserId: () => {},
-	getCurrentWord: () => {},
-	handleLogInState: () => {},
-	handleLogOutState: () => {},
-	deleteSavedGame: () => {}
+	saveUserId: () => {},
+	handleLogInState: () => {}
 });
 
 export default WordContext;

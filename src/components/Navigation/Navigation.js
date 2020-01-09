@@ -9,7 +9,7 @@ class Navigation extends Component {
 
 	handleLogoutClick = () => {
 		TokenService.clearAuthToken('word-nerd-token');
-		this.context.handleLogoutState();
+		this.context.handleLogInState();
 	};
 
 	renderLogoutLink() {

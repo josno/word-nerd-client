@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import EntryOption from '../../components/EntryOption/EntryOption';
+import TokenService from '../../services/token-service';
 import './Homepage.css';
 
 class Homepage extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {};
-	}
 	render() {
 		return (
 			<div>
@@ -26,7 +23,7 @@ class Homepage extends Component {
 					</p>
 				</section>
 				<section>
-					<EntryOption />
+					{TokenService.hasAuthToken() ? '' : <EntryOption />}
 				</section>
 			</div>
 		);

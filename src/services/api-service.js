@@ -16,17 +16,6 @@ const GamesService = {
 			}
 		});
 	},
-	// saveNewGame(userId, object) {
-	// 	//refactor - add the fetch from app
-	// 	return fetch(`${config.API_ENDPOINT}/games/${userId}`, {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			authorization: `basic ${TokenService.getAuthToken()}`
-	// 		},
-	// 		body: {} //object information goes here
-	// 	});
-	// },
-
 	saveNewGame(gameObject) {
 		/* From submit via input-page then adds to state.savedGames */
 

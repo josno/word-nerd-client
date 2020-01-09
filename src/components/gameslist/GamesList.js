@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import WordContext from '../../WordContext';
+import './GamesList.css';
 
 class GamesList extends Component {
 	static contextType = WordContext;

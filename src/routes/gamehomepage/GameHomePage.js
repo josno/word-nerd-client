@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 import './GameHomePage.css';
 import { Link } from 'react-router-dom';
 import WordContext from '../../WordContext';
-import config from '../../config';
 import GamesList from '../../components/GamesList/GamesList';
-import TokenService from '../../services/token-service';
-import ApiService from '../../services/api-service';
-// import GamesService from '../services/api-service';
+import GamesService from '../../services/api-service';
 
 class GameHomePage extends Component {
 	static contextType = WordContext;
@@ -15,17 +12,17 @@ class GameHomePage extends Component {
 		this.state = {
 			savedGames: [],
 			noGamesSaved: false,
-			user_id: ''
+			user_id: this.props.userId
 		};
 	}
 
 	deleteSavedGame = gameId => {
-		ApiService.deleteGame(gameId).then(res => {
+		GamesService.deleteGame(gameId).then(res => {
 			if (!res.ok) {
 				res.json().then(e => Promise.reject(e));
 			}
 
-			ApiService.getUserGames()
+			GamesService.getUserGames()
 				.then(res => res.json())
 				.then(responsejson => {
 					if (responsejson.length === 0) {
@@ -34,8 +31,8 @@ class GameHomePage extends Component {
 						});
 					} else {
 						this.setState({
-							savedGames: [...responsejson],
-							user_id: responsejson[0]['user_id']
+							savedGames: [...responsejson]
+							// user_id: responsejson[0]['user_id']
 						});
 					}
 				});
@@ -43,7 +40,7 @@ class GameHomePage extends Component {
 	};
 
 	componentDidMount() {
-		ApiService.getUserGames()
+		GamesService.getUserGames()
 			.then(res => res.json())
 			.then(responsejson => {
 				if (responsejson.length === 0) {
@@ -52,8 +49,8 @@ class GameHomePage extends Component {
 					});
 				} else {
 					this.setState({
-						savedGames: [...responsejson],
-						user_id: responsejson[0]['user_id']
+						savedGames: [...responsejson]
+						// user_id: responsejson[0]['user_id']
 					});
 				}
 			});
@@ -61,6 +58,7 @@ class GameHomePage extends Component {
 
 	render(props) {
 		const { savedGames, user_id } = this.state;
+		console.log(user_id);
 
 		return (
 			<div>
