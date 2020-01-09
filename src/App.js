@@ -53,35 +53,8 @@ class App extends Component {
 		});
 	};
 
-	// saveNewGame = gameObject => {
-	// 	/* From submit via input-page then adds to state.savedGames */
-
-	// 	const newList = {
-	// 		method: 'POST',
-	// 		headers: {
-	// 			'content-type': 'application/json',
-	// 			Authorization: `bearer ${TokenService.getAuthToken()}`
-	// 		},
-	// 		body: JSON.stringify({
-	// 			title: gameObject.title,
-	// 			word_list: gameObject.word_list,
-	// 			date_created: new Date(),
-	// 			user_id: gameObject.user_id
-	// 		})
-	// 	};
-
-	// 	return fetch(`${config.API_ENDPOINT}/v1/games`, newList) //returns result of promises
-	// 		.then(res => {
-	// 			return !res.ok
-	// 				? res.json().then(e => Promise.reject(e))
-	// 				: res.json();
-	// 		})
-	// 		.then(responsejson => responsejson.id);
-	// };
-
 	render() {
 		const contextValue = {
-			saveNewGame: this.saveNewGame,
 			isLoggedIn: this.state.isLoggedIn,
 			isLoggedOut: this.state.isLoggedOut,
 			getSavedGameId: this.handlePlayButton,

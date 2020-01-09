@@ -2,10 +2,10 @@ import TokenService from '../services/token-service';
 import config from '../config';
 
 const GamesService = {
-	getUserGames(userId) {
-		return fetch(`${config.API_ENDPOINT}/games/${userId}`, {
+	getUserGames() {
+		return fetch(`${config.API_ENDPOINT}/v1/games/`, {
 			headers: {
-				authorization: `basic ${TokenService.getAuthToken()}`
+				Authorization: `bearer ${TokenService.getAuthToken()} `
 			}
 		});
 	},

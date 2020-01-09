@@ -26,7 +26,7 @@ ul {
 	color: brown;
 }
 
-.play-button {
+.button-style {
 	border: 2px solid black;
 	height: 4vh;
 	width: 10vw;
@@ -36,6 +36,11 @@ ul {
 a:hover {
 	cursor: pointer;
 }
+/* 
+{
+	padding: 0px;
+	margin: 0px;
+} */
 
 .button-container {
 	display: flex;

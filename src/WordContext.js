@@ -5,7 +5,7 @@ const WordContext = React.createContext({
 	currentWord: '',
 	isLoggedIn: '',
 	isLoggedOut: '',
-	saveNewGame: () => {},
+
 	getSavedGameId: () => {},
 	getUserId: () => {},
 	getCurrentWord: () => {},

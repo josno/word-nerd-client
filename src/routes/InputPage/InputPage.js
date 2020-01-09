@@ -19,7 +19,8 @@ class InputPage extends Component {
 
 	updatePreview = e => {
 		const { value } = e.target;
-		/*Create an array and split by comma as user types*/
+		/*Create an array and split by comma as user types 
+		so students can review the words*/
 
 		const newList = value.split(',').map(i => i.trim());
 		this.setState({

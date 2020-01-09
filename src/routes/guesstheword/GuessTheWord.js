@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import WordContext from '../../WordContext';
 import './GuessTheWord.css';
 import { Link } from 'react-router-dom';
 import GamesService from '../../services/api-service';
@@ -8,7 +7,6 @@ import ScrambledWordPage from '../../components/ScrambledWordPage/ScrambledWordP
 import PassTheBall from '../../components/Passtheball/PassTheBall';
 
 class GuessTheWord extends Component {
-	static contextType = WordContext;
 	constructor(props) {
 		super(props);
 		this.state = {

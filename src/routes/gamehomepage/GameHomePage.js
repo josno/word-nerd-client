@@ -20,19 +20,30 @@ class GameHomePage extends Component {
 	}
 
 	deleteSavedGame = gameId => {
-		ApiService.deleteGame(gameId).then(res =>
-			!res.ok
-				? res.json().then(e => Promise.reject(e))
-				: this.props.history.push('/game-home-page')
-		);
+		ApiService.deleteGame(gameId).then(res => {
+			if (!res.ok) {
+				res.json().then(e => Promise.reject(e));
+			}
+
+			ApiService.getUserGames()
+				.then(res => res.json())
+				.then(responsejson => {
+					if (responsejson.length === 0) {
+						this.setState({
+							noGamesSaved: true
+						});
+					} else {
+						this.setState({
+							savedGames: [...responsejson],
+							user_id: responsejson[0]['user_id']
+						});
+					}
+				});
+		});
 	};
 
 	componentDidMount() {
-		fetch(`${config.API_ENDPOINT}/v1/games/`, {
-			headers: {
-				Authorization: `bearer ${TokenService.getAuthToken()} `
-			}
-		})
+		ApiService.getUserGames()
 			.then(res => res.json())
 			.then(responsejson => {
 				if (responsejson.length === 0) {

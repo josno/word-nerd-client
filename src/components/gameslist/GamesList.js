@@ -24,9 +24,9 @@ class GamesList extends Component {
 								</div>
 
 								<div className="button-container">
-									<Link to={`/game/${g.id}/game-start-page/`}>
+									<Link to={`/game/${g.id}/game-start-page`}>
 										<button
-											className="play-button"
+											className="button-style"
 											type="submit"
 											onClick={() =>
 												this.context.getSavedGameId(
@@ -37,7 +37,9 @@ class GamesList extends Component {
 											Play
 										</button>
 									</Link>
+
 									<button
+										className="button-style"
 										onClick={() =>
 											this.props.handleDelete(g.id)
 										}
