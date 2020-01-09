@@ -35,14 +35,6 @@ const GamesService = {
 
 		return fetch(`${config.API_ENDPOINT}/v1/games`, newList); //returns result of promises
 	},
-	editGame(userId, gameId) {
-		return fetch(`${config.API_ENDPOINT}/games/${userId}`, {
-			method: 'PUT',
-			headers: {
-				authorization: `basic ${TokenService.getAuthToken()}`
-			}
-		});
-	},
 	deleteGame(gameId) {
 		return fetch(`${config.API_ENDPOINT}/v1/games/${gameId}`, {
 			method: 'DELETE',

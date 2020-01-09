@@ -25,8 +25,6 @@ class App extends Component {
 		this.setState({
 			userId: id
 		});
-
-		console.log(id);
 	};
 
 	handlePlayButton = id => {
