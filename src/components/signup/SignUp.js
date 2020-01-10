@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './SignUp.css';
-import { Link } from 'react-router-dom';
 import AuthApiService from '../../services/auth-api-service';
 
 class SignUp extends Component {
@@ -27,7 +26,7 @@ class SignUp extends Component {
 			.then(res =>
 				!res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
 			)
-			.then(res => console.log(res));
+			.then(res => this.props.history.push('/game-home-page'));
 		// .then(user => {
 		// 	this.props.history.push('/game-home-page');
 		// })

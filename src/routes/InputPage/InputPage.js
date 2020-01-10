@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './InputPage.css';
 import Preview from '../../components/Preview/Preview.js';
 import GameService from '../../services/api-service';
@@ -52,7 +51,7 @@ class InputPage extends Component {
 					: res.json();
 			})
 			.then(responsejson => responsejson.id);
-		//wait until you get the id
+		/*Wait until you get the id*/
 		this.props.history.push(`/game/${gameId}/game-start-page`);
 	}
 
@@ -86,9 +85,12 @@ class InputPage extends Component {
 						<Preview key={index} word={word} />
 					))}
 					<div className="submit-button-container">
-						<Link to="/game-home-page">
-							<button className="submit-cancel">Cancel</button>
-						</Link>
+						<button
+							className="submit-cancel"
+							onClick={() => this.props.history.goBack()}
+						>
+							Cancel
+						</button>
 
 						<button
 							className="submit-input"

@@ -13,7 +13,8 @@ class GuessTheWord extends Component {
 			showAnswer: false,
 			passTheBall: false,
 			randomWord: '',
-			wordList: []
+			wordList: [],
+			stop: 'stop'
 		};
 		this.shuffleWord = this.shuffleWord.bind(this);
 		this.renderAnswer = this.renderAnswer.bind(this);
@@ -31,9 +32,12 @@ class GuessTheWord extends Component {
 	}
 
 	renderAnswer = () => {
-		this.setState({
-			showAnswer: true
-		});
+		/* Don't show answer unless there's already a scrambled word*/
+		if (this.state.passTheBall === false) {
+			this.setState({
+				showAnswer: true
+			});
+		}
 	};
 
 	componentDidMount() {
@@ -71,7 +75,10 @@ class GuessTheWord extends Component {
 				) : passTheBall ? (
 					<PassTheBall />
 				) : (
-					<ScrambledWordPage shuffledWord={shuffledWord} />
+					<ScrambledWordPage
+						stop={'Stop!'}
+						shuffledWord={shuffledWord}
+					/>
 				)}
 
 				<div className="game-controls">
