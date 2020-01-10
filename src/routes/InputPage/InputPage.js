@@ -42,8 +42,7 @@ class InputPage extends Component {
 		const newGame = {
 			title: title,
 			word_list: wordList,
-			date_created: new Date(),
-			user_id: this.props.userId
+			date_created: new Date()
 		};
 
 		const gameId = await GameService.saveNewGame(newGame)

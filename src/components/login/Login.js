@@ -28,7 +28,7 @@ class Login extends Component {
 				password.value = '';
 				//will only store the token when request is successful
 				TokenService.saveAuthToken(res.authToken);
-				this.context.saveUserId(res.user_id);
+				// this.context.saveUserId(res.user_id);
 			})
 			.then(res => {
 				this.context.handleLogInState();

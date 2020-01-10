@@ -60,10 +60,9 @@ class GuessTheWord extends Component {
 	};
 
 	render() {
-		const { wordList, randomWord, showAnswer, passTheBall } = this.state;
+		const { randomWord, showAnswer, passTheBall } = this.state;
 
 		const shuffledWord = this.shuffleWord(String(randomWord));
-		console.log(wordList, randomWord, shuffledWord);
 
 		return (
 			<div className="guess-the-word-container">

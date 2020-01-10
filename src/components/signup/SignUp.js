@@ -21,13 +21,13 @@ class SignUp extends Component {
 			full_name: fullName.value
 		};
 
-		console.log(newUser);
+		// console.log(newUser);
 
-		// AuthApiService.postUser(newUser)
-		// 	.then(res =>
-		// 		!res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
-		// 	)
-		// 	.then(res => console.log(res));
+		AuthApiService.postUser(newUser)
+			.then(res =>
+				!res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
+			)
+			.then(res => console.log(res));
 		// .then(user => {
 		// 	this.props.history.push('/game-home-page');
 		// })

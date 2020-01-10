@@ -11,8 +11,7 @@ class GameHomePage extends Component {
 		super(props);
 		this.state = {
 			savedGames: [],
-			noGamesSaved: false,
-			user_id: this.props.userId
+			noGamesSaved: false
 		};
 	}
 
@@ -32,7 +31,6 @@ class GameHomePage extends Component {
 					} else {
 						this.setState({
 							savedGames: [...responsejson]
-							// user_id: responsejson[0]['user_id']
 						});
 					}
 				});
@@ -50,15 +48,13 @@ class GameHomePage extends Component {
 				} else {
 					this.setState({
 						savedGames: [...responsejson]
-						// user_id: responsejson[0]['user_id']
 					});
 				}
 			});
 	}
 
 	render(props) {
-		const { savedGames, user_id } = this.state;
-		console.log(user_id);
+		const { savedGames } = this.state;
 
 		return (
 			<div>
@@ -66,7 +62,7 @@ class GameHomePage extends Component {
 					<div className="game-container">
 						<h1> Games List </h1>
 
-						{this.state.noGamesSaved === true ? (
+						{this.state.noGamesSaved ? (
 							<div className="info-container">
 								You have no saved games yet!
 							</div>
@@ -76,7 +72,7 @@ class GameHomePage extends Component {
 								savedGames={savedGames}
 							/>
 						)}
-						<Link to={`/input-page/${user_id}`}>
+						<Link to={`/input-page`}>
 							<button className="create-game-button">
 								<h2>Create a Pass the Ball Game</h2>
 							</button>

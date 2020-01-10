@@ -8,6 +8,7 @@ import GameStartPage from './routes/GameStartPage/GameStartPage';
 import GuessTheWord from './routes/GuessTheWord/GuessTheWord';
 import EndGamePage from './routes/EndGamePage/EndGamePage';
 import Navigation from './components/Navigation/Navigation';
+import ColorTest from './components/color-test/color-test';
 import WordContext from './WordContext';
 
 class App extends Component {
@@ -16,16 +17,9 @@ class App extends Component {
 		super(props);
 		this.state = {
 			currentGameId: '',
-			isLoggedIn: false,
-			userId: ''
+			isLoggedIn: false
 		};
 	}
-
-	saveUserId = id => {
-		this.setState({
-			userId: id
-		});
-	};
 
 	handlePlayButton = id => {
 		this.setState({
@@ -42,12 +36,10 @@ class App extends Component {
 	render() {
 		const contextValue = {
 			isLoggedIn: this.state.isLoggedIn,
-			saveUserId: this.saveUserId,
 			getSavedGameId: this.handlePlayButton,
 			currentGameId: this.state.currentGameId,
 			handleLogInState: this.handleLogInState
 		};
-		const { userId } = this.state;
 		return (
 			<div className="App">
 				<WordContext.Provider value={contextValue}>
@@ -59,20 +51,14 @@ class App extends Component {
 					<Route
 						exact
 						path={'/game-home-page'}
-						render={routeProps => (
-							<GameHomePage
-								userId={this.state.userId}
-								{...routeProps}
-							/>
-						)}
+						render={routeProps => <GameHomePage {...routeProps} />}
 					/>
 
 					<Route
 						exact
-						path={'/input-page/:user_id'}
+						path={'/input-page'}
 						render={routeProps => (
 							<InputPage
-								userId={routeProps.match.params.user_id}
 								{...routeProps} //passes all other props like history and location
 							/>
 						)}
@@ -82,6 +68,8 @@ class App extends Component {
 						path={'/end-game-page'}
 						component={EndGamePage}
 					/>
+
+					<Route exact path={'/color'} component={ColorTest} />
 					<Route
 						exact
 						path={'/game/:gameId/guess-the-word/'}
