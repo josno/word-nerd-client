@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<EndGamePage/> renders as expected 1`] = `
+<div
+  className="end-game-page"
+>
+  <h1
+    className="end-message"
+  >
+    Game Over
+  </h1>
+  <h2>
+    Thanks for playing!
+  </h2>
+  <div
+    className="game-controls"
+  >
+    <a
+      href="/game-home-page"
+      onClick={[Function]}
+    >
+      <button
+        className="play-again"
+      >
+        Play Again
+      </button>
+    </a>
+    <a
+      href="/game-home-page"
+      onClick={[Function]}
+    >
+      <button
+        className="home-button"
+      >
+        Go Home
+      </button>
+    </a>
+  </div>
+</div>
+`;

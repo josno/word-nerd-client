@@ -1,0 +1,13 @@
+nav,
+footer {
+	padding: 1% 0;
+	background-color: #aaa;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 40px;
+}
+
+p {
+	display: inline;
+}

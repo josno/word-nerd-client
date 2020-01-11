@@ -1,0 +1,8 @@
+.end-message {
+	margin-top: 10vh;
+}
+
+.game-controls {
+	display: flex;
+	justify-content: space-around;
+}

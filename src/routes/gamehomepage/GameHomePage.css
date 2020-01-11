@@ -1,0 +1,10 @@
+.game-container {
+	margin-top: 5rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.create-game-button {
+	margin: 4rem;
+	color: brown;
+}

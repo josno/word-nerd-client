@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Login/> renders as expected 1`] = `
+<div
+  className="login"
+>
+  <section>
+    <div
+      className="input-form"
+    >
+      <input
+        className="form-input"
+        htmlFor="username"
+        name="username"
+        onChange={[Function]}
+        placeholder="username"
+        type="text"
+        value=""
+      />
+      <input
+        className="form-input"
+        htmlFor="password"
+        name="password"
+        onChange={[Function]}
+        placeholder="password"
+        type="text"
+        value=""
+      />
+    </div>
+    <a
+      href="/game-home-page"
+      onClick={[Function]}
+    >
+      <button
+        className="input-submit-button"
+      >
+        Login
+      </button>
+    </a>
+  </section>
+</div>
+`;
