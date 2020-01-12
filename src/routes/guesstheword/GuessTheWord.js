@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import GamesService from '../../services/api-service';
 import AnswerPage from '../../components/AnswerPage/AnswerPage';
 import ScrambledWordPage from '../../components/ScrambledWordPage/ScrambledWordPage';
-import PassTheBall from '../../components/Passtheball/PassTheBall';
+import PassTheBall from '../../components/PassTheBall/PassTheBall';
 
 class GuessTheWord extends Component {
 	constructor(props) {
@@ -13,8 +13,7 @@ class GuessTheWord extends Component {
 			showAnswer: false,
 			passTheBall: false,
 			randomWord: '',
-			wordList: [],
-			stop: 'stop'
+			wordList: []
 		};
 		this.shuffleWord = this.shuffleWord.bind(this);
 		this.renderAnswer = this.renderAnswer.bind(this);
@@ -75,14 +74,11 @@ class GuessTheWord extends Component {
 				) : passTheBall ? (
 					<PassTheBall />
 				) : (
-					<ScrambledWordPage
-						stop={'Stop!'}
-						shuffledWord={shuffledWord}
-					/>
+					<ScrambledWordPage shuffledWord={shuffledWord} />
 				)}
 
 				<div className="game-controls">
-					<Link to="/end-game-page">
+					<Link to={`/end-game-page`}>
 						<button className="game-end">End Game</button>
 					</Link>
 					{this.state.renderAnswer ? (

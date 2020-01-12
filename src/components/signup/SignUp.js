@@ -26,13 +26,10 @@ class SignUp extends Component {
 			.then(res =>
 				!res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
 			)
-			.then(res => this.props.history.push('/game-home-page'));
-		// .then(user => {
-		// 	this.props.history.push('/game-home-page');
-		// })
-		// .catch(res => {
-		// 	this.setState({ error: res.error });
-		// });
+			.then(res => {
+				this.context.handleLogInState();
+				this.props.history.push('/game-home-page');
+			});
 	};
 
 	capitalizeNames = string => {

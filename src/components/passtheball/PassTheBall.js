@@ -14,13 +14,17 @@ class PassTheBall extends Component {
 		};
 	}
 	componentDidMount() {
-		setTimeout(
+		this.ballTimer = setTimeout(
 			() =>
 				this.setState({
 					message: 'Pass The Ball!'
 				}),
 			2000
 		);
+	}
+
+	componentWillUnmount() {
+		clearTimeout(this.ballTimer);
 	}
 
 	render(props) {

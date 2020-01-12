@@ -9,10 +9,9 @@ export default function EndGamePage() {
 			<h2>Thanks for playing!</h2>
 			<div className="game-controls">
 				<Link to="/game-home-page">
-					<button className="play-again">Play Again</button>
-				</Link>
-				<Link to="/game-home-page">
-					<button className="home-button">Go Home</button>
+					<button className="home-button">
+						Go Back To Games Home
+					</button>
 				</Link>
 			</div>
 		</div>

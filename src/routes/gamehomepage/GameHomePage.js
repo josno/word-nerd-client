@@ -22,7 +22,7 @@ class GameHomePage extends Component {
 			}
 
 			GamesService.getUserGames()
-				.then(res => res.json())
+				.then(res => res.json()) // is this redundant?
 				.then(responsejson => {
 					if (responsejson.length === 0) {
 						this.setState({
