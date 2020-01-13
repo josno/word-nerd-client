@@ -10,6 +10,7 @@ import EndGamePage from './routes/EndGamePage/EndGamePage';
 import Navigation from './components/Navigation/Navigation';
 import ErrorPage from './routes/ErrorPage/ErrorPage';
 import WordContext from './WordContext';
+import TokenService from './services/token-service';
 
 class App extends Component {
 	static contextType = WordContext;
@@ -33,6 +34,14 @@ class App extends Component {
 		});
 	};
 
+	componentDidMount() {
+		if (TokenService.hasAuthToken()) {
+			this.setState({
+				isLoggedIn: true
+			});
+		}
+	}
+
 	render() {
 		const contextValue = {
 			isLoggedIn: this.state.isLoggedIn,
@@ -47,66 +56,41 @@ class App extends Component {
 						<Navigation />
 					</header>
 					<Switch>
-						<Route exact path="/" component={Homepage} />
-						<Route
-							exact
-							path="/game-home-page"
-							render={routeProps =>
-								this.state.isLoggedIn ? (
+						{this.state.isLoggedIn ? (
+							<Route
+								exact
+								path="/"
+								render={routeProps => (
 									<GameHomePage {...routeProps} />
-								) : (
-									<Redirect to="/" />
-								)
-							}
-						/>
-						<Route
-							exact
-							path="/input-page"
-							render={() =>
-								this.state.isLoggedIn ? (
-									<InputPage />
-								) : (
-									<Redirect to="/" />
-								)
-							}
-						/>
+								)}
+							/>
+						) : (
+							<Route exact path="/" component={Homepage} />
+						)}
+						<Route exact path="/input-page" component={InputPage} />
 						<Route
 							exact
 							path="/end-game-page"
-							render={() =>
-								this.state.isLoggedIn ? (
-									<EndGamePage />
-								) : (
-									<Redirect to="/" />
-								)
-							}
+							render={EndGamePage}
 						/>
 						<Route
 							exact
 							path="/game/:gameId/guess-the-word/"
-							render={routeProps =>
-								this.state.isLoggedIn ? (
-									<GuessTheWord
-										gameId={routeProps.match.params.gameId}
-									/>
-								) : (
-									<Redirect to="/" />
-								)
-							}
+							render={routeProps => (
+								<GuessTheWord
+									gameId={routeProps.match.params.gameId}
+								/>
+							)}
 						/>
 
 						<Route
 							exact
 							path="/game/:gameId/game-start-page/"
-							render={routeProps =>
-								this.state.isLoggedIn ? (
-									<GameStartPage
-										gameId={routeProps.match.params.gameId}
-									/>
-								) : (
-									<Redirect to="/" />
-								)
-							}
+							render={routeProps => (
+								<GameStartPage
+									gameId={routeProps.match.params.gameId}
+								/>
+							)}
 						/>
 						<Route component={ErrorPage} />
 					</Switch>

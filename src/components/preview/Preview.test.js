@@ -1,11 +1,11 @@
-import React from 'react';
-import Enzyme from 'enzyme';
-import { BrowserRouter } from 'react-router-dom';
-import { shallow } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import renderer from 'react-test-renderer';
+import React from './node_modules/react';
+import Enzyme from './node_modules/enzyme';
+import { BrowserRouter } from './node_modules/react-router-dom';
+import { shallow } from './node_modules/enzyme';
+import Adapter from './node_modules/enzyme-adapter-react-16';
+import renderer from './node_modules/react-test-renderer';
 import Preview from './Preview';
-import toJson from 'enzyme-to-json';
+import toJson from './node_modules/enzyme-to-json';
 
 Enzyme.configure({ adapter: new Adapter() });
 

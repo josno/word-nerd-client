@@ -33,3 +33,9 @@ ul {
 a {
 	text-decoration: none;
 }
+
+.error-message {
+	color: red;
+	font-weight: bold;
+	font-style: italic;
+}

@@ -20,15 +20,16 @@ class SignUp extends Component {
 			full_name: fullName.value
 		};
 
-		// console.log(newUser);
-
 		AuthApiService.postUser(newUser)
 			.then(res =>
 				!res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
 			)
 			.then(res => {
-				this.context.handleLogInState();
+				// this.context.handleLogInState();
 				this.props.history.push('/game-home-page');
+			})
+			.catch(res => {
+				this.setState({ error: res.error });
 			});
 	};
 
@@ -47,6 +48,7 @@ class SignUp extends Component {
 							htmlFor="full-name"
 							placeholder="Full Name"
 							name="fullName"
+							required
 						/>
 
 						<input
@@ -55,6 +57,7 @@ class SignUp extends Component {
 							htmlFor="username"
 							placeholder="username"
 							name="username"
+							required
 						/>
 						<input
 							className="form-input"
@@ -62,12 +65,14 @@ class SignUp extends Component {
 							htmlFor="password"
 							placeholder="password"
 							name="password"
+							required
 						/>
 					</div>
 					<button type="submit" className="input-submit-button">
 						Sign Up
 					</button>
 				</form>
+				<div className="error-message">{this.state.error}</div>
 			</div>
 		);
 	}
