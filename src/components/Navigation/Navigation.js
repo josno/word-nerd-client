@@ -15,6 +15,7 @@ class Navigation extends Component {
 	renderLogoutLink() {
 		return (
 			<div className="logged-in">
+				<Link to="/">My Page</Link>
 				<Link onClick={this.handleLogoutClick} to="/">
 					Logout
 				</Link>
