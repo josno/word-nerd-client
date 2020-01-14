@@ -16,31 +16,8 @@ class GameHomePage extends Component {
 	}
 
 	deleteSavedGame = gameId => {
-		GamesService.deleteGame(gameId).then(res => {
-			if (!res.ok) {
-				res.json().then(e => Promise.reject(e));
-			}
-
-			GamesService.getUserGames()
-				.then(res => res.json()) // is this redundant?
-				.then(responsejson => {
-					if (responsejson.length === 0) {
-						this.setState({
-							noGamesSaved: true
-						});
-					} else {
-						this.setState({
-							savedGames: [...responsejson]
-						});
-					}
-				});
-		});
-	};
-
-	componentDidMount() {
-		GamesService.getUserGames()
-			.then(res => res.json())
-			.then(responsejson => {
+		GamesService.deleteGame(gameId).then(response => {
+			GamesService.getUserGames().then(responsejson => {
 				if (responsejson.length === 0) {
 					this.setState({
 						noGamesSaved: true
@@ -51,6 +28,21 @@ class GameHomePage extends Component {
 					});
 				}
 			});
+		});
+	};
+
+	componentDidMount() {
+		GamesService.getUserGames().then(responsejson => {
+			if (responsejson.length === 0) {
+				this.setState({
+					noGamesSaved: true
+				});
+			} else {
+				this.setState({
+					savedGames: [...responsejson]
+				});
+			}
+		});
 	}
 
 	render(props) {

@@ -25,6 +25,19 @@ class GamesList extends Component {
 								</div>
 
 								<div className="button-container">
+									<Link to={`/game/${g.id}/edit-page`}>
+										<button
+											className="button-style"
+											type="submit"
+											onClick={() =>
+												this.context.getSavedGameId(
+													g.id
+												)
+											}
+										>
+											Edit
+										</button>
+									</Link>
 									<Link to={`/game/${g.id}/game-start-page`}>
 										<button
 											className="button-style"

@@ -4,6 +4,7 @@ import './App.css';
 import Homepage from './routes/Homepage/Homepage';
 import GameHomePage from './routes/GameHomePage/GameHomePage';
 import InputPage from './routes/InputPage/InputPage';
+import EditPage from './routes/EditPage/EditPage';
 import GameStartPage from './routes/GameStartPage/GameStartPage';
 import GuessTheWord from './routes/GuessTheWord/GuessTheWord';
 import EndGamePage from './routes/EndGamePage/EndGamePage';
@@ -56,42 +57,77 @@ class App extends Component {
 						<Navigation />
 					</header>
 					<Switch>
-						{this.state.isLoggedIn ? (
-							<Route
-								exact
-								path="/"
-								render={routeProps => (
-									<GameHomePage {...routeProps} />
-								)}
-							/>
-						) : (
-							<Route exact path="/" component={Homepage} />
-						)}
-						<Route exact path="/input-page" component={InputPage} />
 						<Route
 							exact
-							path="/end-game-page"
-							render={EndGamePage}
-						/>
-						<Route
-							exact
-							path="/game/:gameId/guess-the-word/"
+							path="/game-home-page"
 							render={routeProps => (
-								<GuessTheWord
-									gameId={routeProps.match.params.gameId}
-								/>
+								<GameHomePage {...routeProps} />
 							)}
 						/>
 
-						<Route
-							exact
-							path="/game/:gameId/game-start-page/"
-							render={routeProps => (
-								<GameStartPage
-									gameId={routeProps.match.params.gameId}
-								/>
-							)}
-						/>
+						<Route exact path="/" component={Homepage} />
+
+						{TokenService.hasAuthToken() ? (
+							<Route
+								exact
+								path="/end-game-page"
+								render={EndGamePage}
+							/>
+						) : (
+							<Redirect to="/" />
+						)}
+
+						{TokenService.hasAuthToken() ? (
+							<Route
+								exact
+								path="/input-page"
+								component={InputPage}
+							/>
+						) : (
+							<Redirect to="/" />
+						)}
+
+						{TokenService.hasAuthToken() ? (
+							<Route
+								exact
+								path="/game/:gameId/guess-the-word/"
+								render={routeProps => (
+									<GuessTheWord
+										gameId={routeProps.match.params.gameId}
+									/>
+								)}
+							/>
+						) : (
+							<Redirect to="/" />
+						)}
+
+						{TokenService.hasAuthToken() ? (
+							<Route
+								exact
+								path="/game/:gameId/game-start-page/"
+								render={routeProps => (
+									<GameStartPage
+										gameId={routeProps.match.params.gameId}
+									/>
+								)}
+							/>
+						) : (
+							<Redirect to="/" />
+						)}
+						{TokenService.hasAuthToken() ? (
+							<Route
+								exact
+								path="/game/:gameId/edit-page/"
+								render={routeProps => (
+									<EditPage
+										gameId={routeProps.match.params.gameId}
+										{...routeProps}
+									/>
+								)}
+							/>
+						) : (
+							<Redirect to="/" />
+						)}
 						<Route component={ErrorPage} />
 					</Switch>
 				</WordContext.Provider>

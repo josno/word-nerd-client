@@ -41,7 +41,6 @@ class GuessTheWord extends Component {
 
 	componentDidMount() {
 		GamesService.getGameContent(this.props.gameId)
-			.then(response => response.json())
 			.then(responsejson =>
 				this.setState({
 					wordList: [...responsejson.word_list]

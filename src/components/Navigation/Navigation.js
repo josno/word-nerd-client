@@ -15,8 +15,14 @@ class Navigation extends Component {
 	renderLogoutLink() {
 		return (
 			<div className="logged-in">
-				<Link to="/">My Page</Link>
-				<Link onClick={this.handleLogoutClick} to="/">
+				<Link className="link-text" to="/game-home-page">
+					My Page
+				</Link>
+				<Link
+					className="link-text"
+					onClick={this.handleLogoutClick}
+					to="/"
+				>
 					Logout
 				</Link>
 			</div>
@@ -26,7 +32,9 @@ class Navigation extends Component {
 	renderLoginLink() {
 		return (
 			<div className="not-logged-in">
-				<Link to="/">Log in</Link>
+				<Link className="link-text" to="/">
+					Log in
+				</Link>
 			</div>
 		);
 	}
@@ -35,7 +43,9 @@ class Navigation extends Component {
 		return (
 			<nav role="navigation">
 				<h1>
-					<Link to="/">Word Nerd</Link>
+					<Link className="nav-title" to="/">
+						Word Nerd
+					</Link>
 				</h1>
 				{TokenService.hasAuthToken()
 					? this.renderLogoutLink()

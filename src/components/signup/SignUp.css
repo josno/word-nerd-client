@@ -33,3 +33,7 @@ ul {
 a {
 	text-decoration: none;
 }
+
+.sign-up-sucess-message {
+	color: green;
+}
