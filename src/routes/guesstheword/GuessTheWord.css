@@ -12,3 +12,13 @@
 .guess-the-word-container {
 	height: 400px;
 }
+
+.control-button {
+	width: 20vw;
+	height: 5vh;
+	font-size: 1rem;
+}
+
+.control-button:hover {
+	cursor: pointer;
+}

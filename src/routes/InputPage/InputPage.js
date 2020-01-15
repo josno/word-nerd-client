@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './InputPage.css';
 import Preview from '../../components/Preview/Preview.js';
-import GameService from '../../services/api-service';
+import GamesService from '../../services/api-service';
 
 class InputPage extends Component {
 	constructor(props) {
@@ -44,7 +44,7 @@ class InputPage extends Component {
 			date_created: new Date()
 		};
 
-		const gameId = await GameService.saveNewGame(newGame)
+		const gameId = await GamesService.saveNewGame(newGame)
 			.then(res => {
 				return !res.ok
 					? res.json().then(e => Promise.reject(e))

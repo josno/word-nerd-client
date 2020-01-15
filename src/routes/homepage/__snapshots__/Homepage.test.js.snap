@@ -51,60 +51,39 @@ exports[`<Home/> renders as expected 1`] = `
           </li>
         </ul>
         <div
-          className="sign-up"
+          className="login"
         >
-          <section>
+          <form
+            onSubmit={[Function]}
+          >
             <div
               className="input-form"
             >
               <input
                 className="form-input"
-                htmlFor="first-name"
-                name="firstName"
-                onChange={[Function]}
-                placeholder="First Name"
-                type="text"
-                value=""
-              />
-              <input
-                className="form-input"
-                htmlFor="last-name"
-                name="lastName"
-                onChange={[Function]}
-                placeholder="Last Name"
-                type="text"
-                value=""
-              />
-              <input
-                className="form-input"
                 htmlFor="username"
                 name="username"
-                onChange={[Function]}
                 placeholder="username"
                 type="text"
-                value=""
               />
               <input
                 className="form-input"
                 htmlFor="password"
                 name="password"
-                onChange={[Function]}
                 placeholder="password"
-                type="text"
-                value=""
+                type="password"
               />
             </div>
-            <a
-              href="/game-home-page"
-              onClick={[Function]}
+            <button
+              className="input-submit-button"
+              type="submit"
             >
-              <button
-                className="input-submit-button"
-              >
-                Sign Up
-              </button>
-            </a>
-          </section>
+              Login
+            </button>
+          </form>
+          <div
+            className="error-message"
+          />
         </div>
       </div>
     </div>

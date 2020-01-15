@@ -7,7 +7,7 @@ class SignUp extends Component {
 		super(props);
 		this.state = {
 			error: null,
-			signUpSuccess: ''
+			signUp: ''
 		};
 	}
 
@@ -22,15 +22,16 @@ class SignUp extends Component {
 		};
 
 		AuthApiService.postUser(newUser)
-			.then(res => {
-				!res.ok ? res.json().then(e => Promise.reject(e)) : res.json();
+			.then(res =>
 				this.setState({
-					signUpSuccess: 'Signed up! Please log in.'
-				});
-			})
-			.catch(res => {
-				this.setState({ error: res.error });
-			});
+					signUp: 'Signed up! Please log in.'
+				})
+			)
+			.catch(res => this.setState({ error: res.error }));
+	};
+
+	capitalizeNames = string => {
+		return string.charAt(0).toUpperCase() + string.slice(1);
 	};
 
 	render() {
@@ -68,10 +69,11 @@ class SignUp extends Component {
 						Sign Up
 					</button>
 				</form>
-				<div className="error-message">{this.state.error}</div>
-				<div className="sign-up-sucess-message">
-					{this.state.signUpSuccess}
-				</div>
+				{this.state.error === null ? (
+					<div className="signup-message"> {this.state.signUp}</div>
+				) : (
+					<div className="error-message">{this.state.error}</div>
+				)}
 			</div>
 		);
 	}

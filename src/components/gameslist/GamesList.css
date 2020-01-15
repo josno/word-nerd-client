@@ -16,20 +16,23 @@ ul {
 }
 
 .button-style {
+	display: block;
 	border: 2px solid black;
 	height: 4vh;
-	width: 10vw;
+	width: 20vw;
 	font-size: 20px;
 	margin: 3px;
 }
 
-a:hover {
+.button-style:hover {
 	cursor: pointer;
+	color: pink;
 }
 
 .button-container {
 	display: flex;
-	justify-content: flex-end;
+	flex-direction: column;
+	justify-content: center;
 	align-content: center;
 	align-items: center;
 }

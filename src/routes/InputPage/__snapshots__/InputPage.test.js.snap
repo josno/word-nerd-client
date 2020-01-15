@@ -34,28 +34,19 @@ exports[`<InputPage/> renders as expected 1`] = `
     <div
       className="submit-button-container"
     >
-      <a
-        href="/game-home-page"
+      <button
+        className="submit-cancel"
         onClick={[Function]}
       >
-        <button
-          className="submit-cancel"
-        >
-          Cancel
-        </button>
-      </a>
-      <a
-        href="/game-start-page"
+        Cancel
+      </button>
+      <button
+        className="submit-input"
         onClick={[Function]}
+        type="submit"
       >
-        <button
-          className="submit-input"
-          onClick={[Function]}
-          type="submit"
-        >
-          Submit
-        </button>
-      </a>
+        Submit
+      </button>
     </div>
   </section>
 </div>

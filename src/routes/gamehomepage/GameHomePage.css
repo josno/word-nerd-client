@@ -8,3 +8,8 @@
 	margin: 4rem;
 	color: brown;
 }
+
+.create-game-button:hover {
+	color: blue;
+	cursor: pointer;
+}

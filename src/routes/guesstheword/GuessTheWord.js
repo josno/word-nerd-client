@@ -78,20 +78,23 @@ class GuessTheWord extends Component {
 
 				<div className="game-controls">
 					<Link to={`/end-game-page`}>
-						<button className="game-end">End Game</button>
+						<button className="control-button">End Game</button>
 					</Link>
 					{this.state.renderAnswer ? (
 						''
 					) : (
 						<button
-							className="answer-button"
+							className="control-button"
 							onClick={this.renderAnswer}
 						>
 							Answer
 						</button>
 					)}
 
-					<button className="next-button" onClick={this.handleClick}>
+					<button
+						className="control-button"
+						onClick={this.handleClick}
+					>
 						Next
 					</button>
 				</div>

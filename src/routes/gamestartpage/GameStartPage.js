@@ -16,10 +16,10 @@ class GameStart extends Component {
 								<ol className="game-instructions-list-container">
 									<li className="instructions-list-item">
 										Pass the ball around the classroom until
-										the timer stops
+										the music stops
 									</li>
 									<li className="instructions-list-item">
-										The timer will stop!{' '}
+										The music will stop!{' '}
 									</li>
 									<li className="instructions-list-item">
 										If you have the ball, guess the word on

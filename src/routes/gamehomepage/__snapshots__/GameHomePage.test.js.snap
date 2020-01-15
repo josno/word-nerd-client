@@ -9,9 +9,11 @@ exports[`<Login/> renders as expected 1`] = `
       <h1>
          Games List 
       </h1>
-      <ul
-        className="list-of-games"
-      />
+      <div>
+        <ul
+          className="list-of-games"
+        />
+      </div>
       <a
         href="/input-page"
         onClick={[Function]}

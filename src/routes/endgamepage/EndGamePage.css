@@ -6,3 +6,9 @@
 	display: flex;
 	justify-content: space-around;
 }
+
+.home-button {
+	width: 20vw;
+	height: 5vh;
+	font-size: 1rem;
+}

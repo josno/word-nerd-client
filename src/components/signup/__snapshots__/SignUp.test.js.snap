@@ -4,44 +4,49 @@ exports[`<SignUp/> renders as expected 1`] = `
 <div
   className="sign-up"
 >
-  <section>
+  <form
+    onSubmit={[Function]}
+  >
     <div
       className="input-form"
     >
       <input
         className="form-input"
-        htmlFor="first-name"
-        placeholder="First Name"
-        type="text"
-      />
-      <input
-        className="form-input"
-        htmlFor="last-name"
-        placeholder="Last Name"
+        htmlFor="full-name"
+        name="fullName"
+        placeholder="Full Name"
+        required={true}
         type="text"
       />
       <input
         className="form-input"
         htmlFor="username"
+        name="username"
         placeholder="username"
+        required={true}
         type="text"
       />
       <input
         className="form-input"
         htmlFor="password"
+        name="password"
         placeholder="password"
-        type="text"
+        required={true}
+        type="password"
       />
     </div>
-    <a
-      href="two-game-home-page.html"
+    <button
+      className="input-submit-button"
+      type="submit"
     >
-      <button
-        className="input-submit-button"
-      >
-        Sign Up For Free
-      </button>
-    </a>
-  </section>
+      Sign Up
+    </button>
+  </form>
+  <div
+    className="signup-message"
+  >
+     
+    
+  </div>
 </div>
 `;

@@ -4,7 +4,9 @@ exports[`<Login/> renders as expected 1`] = `
 <div
   className="login"
 >
-  <section>
+  <form
+    onSubmit={[Function]}
+  >
     <div
       className="input-form"
     >
@@ -12,31 +14,26 @@ exports[`<Login/> renders as expected 1`] = `
         className="form-input"
         htmlFor="username"
         name="username"
-        onChange={[Function]}
         placeholder="username"
         type="text"
-        value=""
       />
       <input
         className="form-input"
         htmlFor="password"
         name="password"
-        onChange={[Function]}
         placeholder="password"
-        type="text"
-        value=""
+        type="password"
       />
     </div>
-    <a
-      href="/game-home-page"
-      onClick={[Function]}
+    <button
+      className="input-submit-button"
+      type="submit"
     >
-      <button
-        className="input-submit-button"
-      >
-        Login
-      </button>
-    </a>
-  </section>
+      Login
+    </button>
+  </form>
+  <div
+    className="error-message"
+  />
 </div>
 `;

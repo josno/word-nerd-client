@@ -4,6 +4,19 @@ import WordContext from '../../WordContext';
 import './GamesList.css';
 
 class GamesList extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {};
+		this.formatDate = this.formatDate.bind(this);
+	}
+
+	formatDate(date) {
+		const formattedDate = new Date(date).toLocaleString().split(',')[0];
+
+		const created = 'Created:';
+		return created + ' ' + formattedDate;
+	}
+
 	static contextType = WordContext;
 	render(props) {
 		return (
@@ -17,15 +30,14 @@ class GamesList extends Component {
 							>
 								<div className="info-container">
 									<h2>{g.title}</h2>
-									<h3>
-										{new Date(
-											g.date_created
-										).toLocaleString()}
-									</h3>
+									<h3>{this.formatDate(g.date_created)}</h3>
 								</div>
 
 								<div className="button-container">
-									<Link to={`/game/${g.id}/edit-page`}>
+									<Link
+										to={`/game/${g.id}/edit-page`}
+										className="game-link"
+									>
 										<button
 											className="button-style"
 											type="submit"
@@ -38,7 +50,10 @@ class GamesList extends Component {
 											Edit
 										</button>
 									</Link>
-									<Link to={`/game/${g.id}/game-start-page`}>
+									<Link
+										className="game-link"
+										to={`/game/${g.id}/game-start-page`}
+									>
 										<button
 											className="button-style"
 											type="submit"
@@ -53,7 +68,7 @@ class GamesList extends Component {
 									</Link>
 
 									<button
-										className="button-style"
+										className="button-style game-link"
 										onClick={() =>
 											this.props.handleDelete(g.id)
 										}
