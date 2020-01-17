@@ -11,7 +11,7 @@ class GuessTheWord extends Component {
 		super(props);
 		this.state = {
 			showAnswer: false,
-			passTheBall: false,
+			passTheBall: true,
 			randomWord: '',
 			wordList: []
 		};
@@ -46,7 +46,12 @@ class GuessTheWord extends Component {
 					wordList: [...responsejson.word_list]
 				})
 			)
-			.then(list => this.handleClick());
+			.then(list => {
+				const { wordList } = this.state;
+				const randomWord =
+					wordList[Math.floor(Math.random() * wordList.length)];
+				this.setState({ randomWord: randomWord });
+			});
 	}
 
 	handleClick = () => {
