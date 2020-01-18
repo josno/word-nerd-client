@@ -31,7 +31,7 @@ class EntryOption extends Component {
 		const { formType } = this.state;
 		return (
 			<div className="entry-option">
-				<div className="form">
+				<div className="entry-form">
 					<ul>
 						<li className="form-tab-list-item">
 							<button

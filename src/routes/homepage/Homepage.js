@@ -6,21 +6,23 @@ import './Homepage.css';
 class Homepage extends Component {
 	render() {
 		return (
-			<div>
+			<div className="homepage">
 				<header role="banner">
 					<h1 className="home-page-title"> Word Nerd </h1>
 				</header>
-				<section>
-					<header>
-						<h3>
-							Make english games to play in the classroom
-							together.
-						</h3>
-					</header>
-					<p>
-						Generate a "Pass the Ball" game to play together in the
-						classroom using your own vocabulary words.
-					</p>
+				<section className="app-description">
+					<div className="app-description-container">
+						<header>
+							<h3>
+								Make english games to play in the classroom
+								together.
+							</h3>
+						</header>
+						<p>
+							Generate a "Pass the Ball" game to play together in
+							the classroom using your own vocabulary words.
+						</p>
+					</div>
 				</section>
 				<section>
 					{TokenService.hasAuthToken() ? '' : <EntryOption />}
