@@ -18,7 +18,7 @@ This program saved you room in your computer by eliminating multiple powerpoint 
 
 ## Screenshots
 
-![Home Page](/assets/Answer-page.png)
+![Home Page](/assets/home-page.png)
 ![Game List](/assets/List-page.png)
 ![Input Page](/assets/Input-page.png)
 ![Pass The Ball](/assets/Pass-page.png)
