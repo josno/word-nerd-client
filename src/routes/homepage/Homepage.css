@@ -1,5 +1,9 @@
+.homepage {
+	background: #18c0f0;
+	height: 100vh;
+}
 .home-page-title {
-	color: #18c0f0;
+	color: #ffbc42;
 	font-family: 'Lemon', sans-serif;
 	font-size: 3rem;
 	margin: 0;

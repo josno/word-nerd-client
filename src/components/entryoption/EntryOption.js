@@ -32,10 +32,14 @@ class EntryOption extends Component {
 		return (
 			<div className="entry-option">
 				<div className="entry-form">
+					<div className="demo-information">
+						<p> Login demo</p>
+						<p> user: 'nerd' pass: 'nerdpass'</p>
+					</div>
 					<ul>
 						<li className="form-tab-list-item">
 							<button
-								className="form-tab"
+								className="form-tab sign-up-tab"
 								onClick={this.toggleToSignUp}
 							>
 								Sign Up
@@ -44,7 +48,7 @@ class EntryOption extends Component {
 
 						<li className="form-tab-list-item">
 							<button
-								className="form-tab"
+								className="form-tab login-tab"
 								onClick={this.toggleToLogin}
 							>
 								Login

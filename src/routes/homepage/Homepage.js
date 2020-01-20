@@ -12,15 +12,13 @@ class Homepage extends Component {
 				</header>
 				<section className="app-description">
 					<div className="app-description-container">
-						<header>
-							<h3>
-								Make english games to play in the classroom
-								together.
-							</h3>
-						</header>
+						<h3>
+							Make english games to play in the classroom
+							together.
+						</h3>
 						<p>
-							Generate a "Pass the Ball" game to play together in
-							the classroom using your own vocabulary words.
+							Make a "Pass the Ball" game to play together in the
+							classroom using your own vocabulary words.
 						</p>
 					</div>
 				</section>
