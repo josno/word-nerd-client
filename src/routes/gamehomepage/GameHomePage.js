@@ -52,10 +52,10 @@ class GameHomePage extends Component {
 			<div>
 				<section>
 					<div className="game-container">
-						<h1> Games List </h1>
+						<h1 className="games-list-title"> Games List </h1>
 
 						{this.state.noGamesSaved ? (
-							<div className="info-container">
+							<div className="no-games-message">
 								You have no saved games yet!
 							</div>
 						) : (
@@ -64,11 +64,12 @@ class GameHomePage extends Component {
 								savedGames={savedGames}
 							/>
 						)}
-						<Link to={`/input-page`}>
-							<button className="create-game-button">
+
+						<button className="create-game-button">
+							<Link to={`/input-page`}>
 								<h2>Create a Pass the Ball Game</h2>
-							</button>
-						</Link>
+							</Link>
+						</button>
 					</div>
 				</section>
 			</div>

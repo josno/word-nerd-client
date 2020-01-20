@@ -1,15 +1,30 @@
+.create-game-button {
+	box-shadow: 5px 5px black;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	border: none;
+	background-color: #18c0f0;
+}
+
+.create-game-button:hover {
+	cursor: pointer;
+}
+
+.create-game-button:active {
+	/* background-color: #0e6983; */
+	box-shadow: 2px 2px black;
+}
+
 .game-container {
 	margin-top: 5rem;
 	display: flex;
 	flex-direction: column;
 }
 
-.create-game-button {
-	margin: 4rem;
-	color: brown;
-}
-
-.create-game-button:hover {
-	color: blue;
-	cursor: pointer;
+.games-list-title {
+	font-family: 'Lemon', sans-serif;
+	font-weight: 900;
+	font-size: 1em;
+	color: black;
 }

@@ -1,32 +1,20 @@
-ul {
-	display: inline-block;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.game-info {
-	border: 2px solid black;
-	font-size: 18px;
-	text-align: left;
-	padding-left: 0.4rem;
-	margin: 10px;
-	width: 70vw;
-	display: flex;
-	justify-content: space-around;
-}
-
 .button-style {
 	display: block;
-	border: 2px solid black;
-	height: 4vh;
-	width: 20vw;
 	font-size: 20px;
 	margin: 3px;
+	height: 8vh;
+	transition: all 1s ease;
+	width: 50vw;
+	border-radius: 10px;
 }
 
 .button-style:hover {
 	cursor: pointer;
-	color: pink;
+	background-color: #ffbc42;
+}
+
+.button-style:active {
+	background-color: #ba8931;
 }
 
 .button-container {
@@ -35,4 +23,51 @@ ul {
 	justify-content: center;
 	align-content: center;
 	align-items: center;
+	margin: 10px;
+}
+
+.game-info {
+	border-radius: 5px;
+	box-shadow: 2px gray;
+	font-size: 18px;
+	text-align: center;
+	margin: 10px;
+	width: 70vw;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.info-container {
+	width: 300px;
+	margin: 10px;
+}
+
+.info-text {
+	color: white;
+}
+
+.game-info:nth-child(odd) {
+	background-color: #d81159;
+}
+
+.game-info:nth-child(even) {
+	background-color: #0c0a3e;
+}
+
+ul {
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@media (min-width: 700px) {
+	.button-style {
+		height: 5vh;
+		width: 20vw;
+	}
+	.game-info {
+		text-align: left;
+		padding-left: 0.4rem;
+	}
 }

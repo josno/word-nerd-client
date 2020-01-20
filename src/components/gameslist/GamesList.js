@@ -20,7 +20,7 @@ class GamesList extends Component {
 	static contextType = WordContext;
 	render(props) {
 		return (
-			<div>
+			<div className="game-list-container">
 				<ul className="list-of-games">
 					{this.props.savedGames.length > 0 &&
 						this.props.savedGames.map(g => (
@@ -29,8 +29,10 @@ class GamesList extends Component {
 								className="game-info"
 							>
 								<div className="info-container">
-									<h2>{g.title}</h2>
-									<h3>{this.formatDate(g.date_created)}</h3>
+									<h2 className="info-text">{g.title}</h2>
+									<h3 className="info-text">
+										{this.formatDate(g.date_created)}
+									</h3>
 								</div>
 
 								<div className="button-container">
