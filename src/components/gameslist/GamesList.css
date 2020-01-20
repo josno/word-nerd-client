@@ -1,6 +1,6 @@
 .button-style {
 	display: block;
-	font-size: 20px;
+	font-size: 1em;
 	margin: 3px;
 	height: 8vh;
 	transition: all 0.5s ease;

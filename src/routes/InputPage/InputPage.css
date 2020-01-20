@@ -21,7 +21,7 @@
 	width: 100%;
 	text-align: left;
 	padding-left: 0.4em;
-	font-size: 20px;
+	font-size: 1em;
 }
 
 .submit-button-container {
@@ -36,7 +36,7 @@
 .submit-input,
 .submit-cancel {
 	display: block;
-	font-size: 20px;
+	font-size: 1em;
 	margin: 3px;
 	height: 6vh;
 	transition: all 0.5s ease;
