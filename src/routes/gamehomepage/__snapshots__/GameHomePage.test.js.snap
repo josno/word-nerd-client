@@ -6,26 +6,30 @@ exports[`<Login/> renders as expected 1`] = `
     <div
       className="game-container"
     >
-      <h1>
+      <h1
+        className="games-list-title"
+      >
          Games List 
       </h1>
-      <div>
+      <div
+        className="game-list-container"
+      >
         <ul
           className="list-of-games"
         />
       </div>
-      <a
-        href="/input-page"
-        onClick={[Function]}
+      <button
+        className="create-game-button"
       >
-        <button
-          className="create-game-button"
+        <a
+          href="/input-page"
+          onClick={[Function]}
         >
           <h2>
             Create a Pass the Ball Game
           </h2>
-        </button>
-      </a>
+        </a>
+      </button>
     </div>
   </section>
 </div>

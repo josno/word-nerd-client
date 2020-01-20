@@ -7,13 +7,16 @@ exports[`<PassTheBall /> renders as expected 1`] = `
   <div
     className="pass-the-ball"
   >
-    <h1>
+    <h1
+      className="pass-the-ball-text"
+    >
       Start
     </h1>
   </div>
   <img
     alt="ball-placeholder"
-    src="ball.png"
+    className="ball-gif"
+    src="giphy.gif"
   />
 </div>
 `;

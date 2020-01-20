@@ -5,37 +5,13 @@ exports[`<AnswerPage/> renders as expected 1`] = `
   className="answer-page-container"
 >
   <h1
-    className="pass-the-ball"
+    className="answer-page-text"
   >
     The word was:
   </h1>
   <p
-    className="scrambled-word"
+    className="answer-word"
   />
-  <div
-    className="game-controls"
-  >
-    <a
-      href="/end-game-page"
-      onClick={[Function]}
-    >
-      <button
-        className="game-end"
-      >
-        End Game
-      </button>
-    </a>
-    <a
-      href="/guess-the-word"
-      onClick={[Function]}
-    >
-      <button
-        className="next-button"
-      >
-        Next
-      </button>
-    </a>
-  </div>
 </div>
 `;
 
@@ -44,35 +20,13 @@ exports[`<AnswerPage/> renders nothing when no props given 1`] = `
   className="answer-page-container"
 >
   <h1
-    className="pass-the-ball"
+    className="answer-page-text"
   >
     The word was:
   </h1>
   <p
-    className="scrambled-word"
+    className="answer-word"
   />
-  <div
-    className="game-controls"
-  >
-    <Link
-      to="/end-game-page"
-    >
-      <button
-        className="game-end"
-      >
-        End Game
-      </button>
-    </Link>
-    <Link
-      to="/guess-the-word"
-    >
-      <button
-        className="next-button"
-      >
-        Next
-      </button>
-    </Link>
-  </div>
 </div>
 `;
 
@@ -81,38 +35,14 @@ exports[`<AnswerPage/> renders with answer prop when given 1`] = `
   className="answer-page-container"
 >
   <h1
-    className="pass-the-ball"
+    className="answer-page-text"
   >
     The word was:
   </h1>
   <p
-    className="scrambled-word"
+    className="answer-word"
   >
     blue
   </p>
-  <div
-    className="game-controls"
-  >
-    <a
-      href="/end-game-page"
-      onClick={[Function]}
-    >
-      <button
-        className="game-end"
-      >
-        End Game
-      </button>
-    </a>
-    <a
-      href="/guess-the-word"
-      onClick={[Function]}
-    >
-      <button
-        className="next-button"
-      >
-        Next
-      </button>
-    </a>
-  </div>
 </div>
 `;

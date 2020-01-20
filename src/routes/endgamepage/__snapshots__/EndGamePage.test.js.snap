@@ -13,18 +13,8 @@ exports[`<EndGamePage/> renders as expected 1`] = `
     Thanks for playing!
   </h2>
   <div
-    className="game-controls"
+    className="end-game-controls"
   >
-    <a
-      href="/game-home-page"
-      onClick={[Function]}
-    >
-      <button
-        className="play-again"
-      >
-        Play Again
-      </button>
-    </a>
     <a
       href="/game-home-page"
       onClick={[Function]}
@@ -32,7 +22,7 @@ exports[`<EndGamePage/> renders as expected 1`] = `
       <button
         className="home-button"
       >
-        Go Home
+        Go Back To Games Home
       </button>
     </a>
   </div>

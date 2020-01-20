@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Home/> renders as expected 1`] = `
-<div>
+<div
+  className="homepage"
+>
   <header
     role="banner"
   >
@@ -11,29 +13,43 @@ exports[`<Home/> renders as expected 1`] = `
        Word Nerd 
     </h1>
   </header>
-  <section>
-    <header>
+  <section
+    className="app-description"
+  >
+    <div
+      className="app-description-container"
+    >
       <h3>
         Make english games to play in the classroom together.
       </h3>
-    </header>
-    <p>
-      Generate a "Pass the Ball" game to play together in the classroom using your own vocabulary words.
-    </p>
+      <p>
+        Make a "Pass the Ball" game to play together in the classroom using your own vocabulary words.
+      </p>
+    </div>
   </section>
   <section>
     <div
       className="entry-option"
     >
       <div
-        className="form"
+        className="entry-form"
       >
+        <div
+          className="demo-information"
+        >
+          <p>
+             Login demo
+          </p>
+          <p>
+             user: 'nerd' pass: 'nerdpass'
+          </p>
+        </div>
         <ul>
           <li
             className="form-tab-list-item"
           >
             <button
-              className="form-tab"
+              className="form-tab sign-up-tab"
               onClick={[Function]}
             >
               Sign Up
@@ -43,7 +59,7 @@ exports[`<Home/> renders as expected 1`] = `
             className="form-tab-list-item"
           >
             <button
-              className="form-tab"
+              className="form-tab login-tab"
               onClick={[Function]}
             >
               Login

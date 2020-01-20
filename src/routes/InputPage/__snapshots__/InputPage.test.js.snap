@@ -1,20 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<InputPage/> renders as expected 1`] = `
-<div>
+<div
+  className="input-page-container"
+>
   <section>
     <header
       className="input-instructions"
     >
-      <h1>
-        Type Words into the Box Separated by Commas
+      <h1
+        className="input-instructions-text"
+      >
+        Type Words In The Box
       </h1>
+      <p>
+        Separate them by commas!
+      </p>
     </header>
     <form>
       <input
         className="title-name"
         onChange={[Function]}
-        placeholder="Game Title example: \\"Numbers\\" "
+        placeholder="Example: \\"Numbers\\" "
+        required={true}
       />
       <div
         className="input-container"
@@ -24,7 +32,8 @@ exports[`<InputPage/> renders as expected 1`] = `
           aria-required="true"
           className="input-box"
           onChange={[Function]}
-          placeholder="Write Words Here"
+          placeholder="Example: twenty, thirty..."
+          required={true}
         />
       </div>
     </form>
