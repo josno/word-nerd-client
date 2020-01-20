@@ -47,13 +47,11 @@ class GuessTheWord extends Component {
 	};
 
 	componentDidMount() {
-		GamesService.getGameContent(this.props.gameId)
-			.then(responsejson =>
-				this.setState({
-					wordList: [...responsejson.word_list]
-				})
-			)
-			.then(list => console.log('check'));
+		GamesService.getGameContent(this.props.gameId).then(responsejson =>
+			this.setState({
+				wordList: [...responsejson.word_list]
+			})
+		);
 	}
 
 	handleClick = () => {
