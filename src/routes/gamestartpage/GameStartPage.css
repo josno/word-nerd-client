@@ -1,14 +1,22 @@
-.submit-input,
-.submit-cancel {
-	margin: 5px;
-	height: 5vh;
-	font-size: 1.5rem;
-	border: 2px solid black;
+.game-start-container {
+	background-color: #0c0a3e;
+	margin: 0px;
+	height: 100vh;
+	padding: 10px;
 }
 
-.ready-message,
-.pass-the-ball {
+.ready-message {
 	margin-top: 5vh;
+	color: #d81159;
+}
+
+.game-instructions {
+	font-family: 'Luckiest Guy', sans-serif;
+	font-size: 2em;
+	margin: 0px;
+	color: #ffbc42;
+	background-color: #18c0f0;
+	-webkit-text-stroke: 1px black;
 }
 
 .game-instructions-list-container {
@@ -16,6 +24,7 @@
 	margin-left: auto;
 	margin-right: auto;
 	text-align: left;
+	color: #ffbc42;
 }
 
 .how-to-play-box {
@@ -23,5 +32,33 @@
 	width: 80vw;
 	margin-left: auto;
 	margin-right: auto;
-	border: 2px solid black;
+	border: 2px solid #18c0f0;
+	border-radius: 10px;
+}
+
+.instructions-list-item {
+	color: #ffbc42;
+}
+
+.start-submit-cancel {
+	display: block;
+	font-size: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	height: 6vh;
+	transition: all 0.5s ease;
+	width: 50vw;
+	border-radius: 10px;
+	border: none;
+	background-color: #ffbc42;
+	font-weight: bold;
+}
+
+.start-submit-cancel:hover {
+	cursor: pointer;
+}
+
+.start-submit-cancel:hover {
+	background-color: #ba8931;
 }

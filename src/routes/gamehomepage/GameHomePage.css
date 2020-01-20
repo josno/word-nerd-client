@@ -12,7 +12,6 @@
 }
 
 .create-game-button:active {
-	/* background-color: #0e6983; */
 	box-shadow: 2px 2px black;
 }
 

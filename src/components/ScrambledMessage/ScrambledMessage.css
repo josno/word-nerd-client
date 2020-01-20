@@ -1,3 +1,13 @@
-.scrambled-message {
-	margin-top: 20vh;
+.scrambled-message-text {
+	font-size: 2rem;
+	font-family: Luckiest Guy, cursive;
+	color: #0c0a3e;
+	margin-top: 5vh;
+	margin-bottom: 0;
+}
+
+@media (min-width: 600px) {
+	.scrambled-message-text {
+		font-size: 4rem;
+	}
 }

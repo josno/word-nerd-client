@@ -1,3 +1,21 @@
-.pass-the-ball {
-	margin-top: 20vh;
+.pass-the-ball-text {
+	margin: 10px;
+	font-size: 2rem;
+	font-family: Luckiest Guy, cursive;
+	color: #0c0a3e;
+	-webkit-text-stroke: 1px#fbff12;
+	text-shadow: 3px 3px #ff206e, -1px -1px #ff206e, 1px -1px #ff206e,
+		-1px 1px #ff206e, 1px 1px #ff206e;
+}
+
+@media (min-width: 600px) {
+	.pass-the-ball-text {
+		font-size: 4rem;
+	}
+}
+
+@media (min-width: 800px) {
+	.pass-the-ball-text {
+		font-size: 6rem;
+	}
 }

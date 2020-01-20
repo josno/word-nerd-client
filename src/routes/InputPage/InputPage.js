@@ -59,24 +59,29 @@ class InputPage extends Component {
 		const { wordList } = this.state;
 
 		return (
-			<div>
+			<div className="input-page-container">
 				<section>
 					<header className="input-instructions">
-						<h1>Type Words into the Box Separated by Commas</h1>
+						<h1 className="input-instructions-text">
+							Type Words In The Box
+						</h1>
+						<p>Separate them by commas!</p>
 					</header>
 					<form>
 						<input
 							className="title-name"
-							placeholder='Game Title example: "Numbers" '
+							placeholder='Example: "Numbers" '
 							onChange={e => this.updateTitle(e)}
+							required
 						/>
 						<div className="input-container">
 							<textarea
 								className="input-box"
-								placeholder="Write Words Here"
+								placeholder="Example: twenty, thirty..."
 								aria-label="Type your words here"
 								aria-required="true"
 								onChange={e => this.updatePreview(e)}
+								required
 							/>
 						</div>
 					</form>

@@ -14,7 +14,7 @@ class ScrambleWordPage extends Component {
 
 	render(props) {
 		return (
-			<div className="guess-the-word-container">
+			<div className="scrambled-word-container">
 				<Sound
 					url={boing}
 					playStatus={Sound.status.PLAYING}

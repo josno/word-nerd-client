@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ScrambledMessage.css';
 
 class ScrambledMessage extends Component {
 	constructor(props) {
@@ -23,7 +24,7 @@ class ScrambledMessage extends Component {
 	render() {
 		return (
 			<div className="scrambled-message">
-				<h1>{this.state.message}</h1>
+				<h1 className="scrambled-message-text">{this.state.message}</h1>
 			</div>
 		);
 	}

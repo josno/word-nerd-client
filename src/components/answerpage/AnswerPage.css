@@ -1,14 +1,29 @@
-.scrambled-word {
-	font-family: 'Arial Black', 'Helvetica Neue', Helvetica, sans-serif;
-	font-size: 50px;
-	font-style: bolder;
+.answer-page-text {
+	font-size: 2rem;
+	font-family: Luckiest Guy, cursive;
+	color: #0c0a3e;
+	margin-top: 10vh;
+	margin-bottom: 0;
 }
 
-.game-controls {
-	display: flex;
-	justify-content: space-around;
+.answer-word {
+	font-family: 'Poppins', sans-serif;
+	font-size: 6rem;
+	color: #fbff12;
+	letter-spacing: 10px;
+	text-shadow: 3px 3px #000, -1px -1px #000, 1px -1px #000, -1px 1px #000,
+		1px 1px #000;
+	font-weight: 700;
 }
 
-.answer-page-container {
-	height: 400px;
+@media (min-width: 600px) {
+	.answer-page-text {
+		font-size: 4rem;
+	}
+}
+
+@media (min-width: 800px) {
+	.answer-page-text {
+		font-size: 6rem;
+	}
 }

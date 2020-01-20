@@ -3,9 +3,10 @@
 	font-size: 20px;
 	margin: 3px;
 	height: 8vh;
-	transition: all 1s ease;
+	transition: all 0.5s ease;
 	width: 50vw;
 	border-radius: 10px;
+	border: none;
 }
 
 .button-style:hover {

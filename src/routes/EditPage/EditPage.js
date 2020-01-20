@@ -75,6 +75,7 @@ class EditPage extends Component {
 							className="title-name"
 							value={this.state.title}
 							onChange={e => this.updateTitle(e.target.value)}
+							required
 						/>
 						<div className="input-container">
 							<textarea
@@ -83,6 +84,7 @@ class EditPage extends Component {
 								aria-required="true"
 								value={this.state.wordList}
 								onChange={e => this.updateWords(e.target.value)}
+								required
 							/>
 						</div>
 					</form>

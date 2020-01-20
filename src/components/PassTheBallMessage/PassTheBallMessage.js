@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './PassTheBallMessage.css';
 
 class PassTheBallMessage extends Component {
 	constructor(props) {
@@ -23,7 +24,7 @@ class PassTheBallMessage extends Component {
 	render() {
 		return (
 			<div className="pass-the-ball">
-				<h1>{this.state.message}</h1>
+				<h1 className="pass-the-ball-text">{this.state.message}</h1>
 			</div>
 		);
 	}

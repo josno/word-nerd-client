@@ -2,6 +2,9 @@
 	margin-top: 10vh;
 }
 
+.input-instructions-text {
+	margin-bottom: 0px;
+}
 .input-container {
 	width: 60vw;
 	margin-left: auto;
@@ -11,8 +14,10 @@
 }
 
 .input-box {
-	border: 2px solid purple;
-	height: 10vh;
+	border: 3px solid #d81159;
+	border-radius: 10px;
+	box-shadow: 3px 3px #0c0a3e;
+	height: 40vh;
 	width: 100%;
 	text-align: left;
 	padding-left: 0.4em;
@@ -22,18 +27,54 @@
 .submit-button-container {
 	margin-left: auto;
 	margin-right: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 50vw;
 }
 
 .submit-input,
 .submit-cancel {
-	margin: 5px;
-	height: 5vh;
-	font-size: 1.5rem;
-	border: 2px solid black;
+	display: block;
+	font-size: 20px;
+	margin: 3px;
+	height: 6vh;
+	transition: all 0.5s ease;
+	width: 50vw;
+	border-radius: 10px;
+	border: none;
+	background-color: #ffbc42;
+	font-weight: bold;
+}
+
+.submit-input:hover,
+.submit-cancel:hover {
+	cursor: pointer;
+}
+
+.submit-input:hover,
+.submit-cancel:hover {
+	background-color: #ba8931;
 }
 
 .title-name {
-	border: 2px solid black;
-	height: 5vh;
-	width: 40vw;
+	border: 3px solid #18c0f0;
+	box-shadow: 3px 3px #0c0a3e;
+	height: 8vh;
+	width: 60vw;
+	margin-top: 30px;
+	border-radius: 10px;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.title-name::placeholder {
+	padding-left: 0.4em;
+	font-size: 0.75em;
+}
+
+@media (min-width: 600px) {
+	.title-name {
+		width: 40vw;
+	}
 }

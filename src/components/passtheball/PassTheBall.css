@@ -1,7 +1,13 @@
-img {
-	height: 20vh;
+.ball-gif {
+	width: 150px;
+	height: 150px;
+	margin: 0px;
 }
 
-.game-play-container {
-	height: 400px;
+@media (min-width: 700px) {
+	.ball-gif {
+		width: 300px;
+		height: 300px;
+		margin: 0px;
+	}
 }

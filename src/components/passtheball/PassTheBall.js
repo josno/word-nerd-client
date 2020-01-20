@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Ball from './ball.png';
+import Ball from './giphy.gif';
 import './PassTheBall.css';
 import Sound from 'react-sound';
 import soundfile from './pass-song.mp3';
@@ -22,7 +22,7 @@ class PassTheBall extends Component {
 					playStatus={Sound.status.PLAYING}
 					onFinishedPlaying={this.handleSongFinishedPlaying}
 				/>
-				<img alt="ball-placeholder" src={Ball} />
+				<img className="ball-gif" alt="ball-placeholder" src={Ball} />
 			</div>
 		);
 	}

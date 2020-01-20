@@ -5,7 +5,7 @@ import './GameStartPage.css';
 class GameStart extends Component {
 	render(props) {
 		return (
-			<div>
+			<div class="game-start-container">
 				<section>
 					<div className="game-start-page">
 						<header>
@@ -37,10 +37,12 @@ class GameStart extends Component {
 							<h1 className="ready-message">Are you ready?</h1>
 						</header>
 						<Link to="/game-home-page">
-							<button className="submit-cancel">No</button>
+							<button className="start-submit-cancel">No</button>
 						</Link>
 						<Link to={`/game/${this.props.gameId}/guess-the-word/`}>
-							<button className="submit-input">Yes!</button>
+							<button className="start-submit-cancel">
+								Yes!
+							</button>
 						</Link>
 					</div>
 				</section>

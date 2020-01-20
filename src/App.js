@@ -23,7 +23,7 @@ class App extends Component {
 		};
 	}
 
-	handlePlayButton = id => {
+	setCurrentGameId = id => {
 		this.setState({
 			currentGameId: id
 		});
@@ -46,7 +46,7 @@ class App extends Component {
 	render() {
 		const contextValue = {
 			isLoggedIn: this.state.isLoggedIn,
-			getSavedGameId: this.handlePlayButton,
+			setCurrentGameId: this.setCurrentGameId,
 			currentGameId: this.state.currentGameId,
 			handleLogInState: this.handleLogInState
 		};

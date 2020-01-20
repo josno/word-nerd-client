@@ -7,7 +7,7 @@ export default function EndGamePage() {
 		<div className="end-game-page">
 			<h1 className="end-message">Game Over</h1>
 			<h2>Thanks for playing!</h2>
-			<div className="game-controls">
+			<div className="end-game-controls">
 				<Link to="/game-home-page">
 					<button className="home-button">
 						Go Back To Games Home

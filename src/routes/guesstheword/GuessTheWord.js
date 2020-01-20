@@ -21,13 +21,20 @@ class GuessTheWord extends Component {
 	}
 
 	shuffleWord(string) {
-		const stringToArray = string.split('');
-		const unshuffled = stringToArray;
-		const shuffled = unshuffled
-			.map(a => ({ sort: Math.random(), value: a }))
-			.sort((a, b) => a.sort - b.sort)
-			.map(a => a.value);
-		return shuffled;
+		if (string.length <= 3) {
+			const shortWordArray = string.split('');
+			const shuffledShortWord =
+				shortWordArray[1] + shortWordArray[0] + shortWordArray[2];
+			return shuffledShortWord;
+		} else {
+			const stringToArray = string.split('');
+			const unshuffled = stringToArray;
+			const shuffled = unshuffled
+				.map(a => ({ sort: Math.random(), value: a }))
+				.sort((a, b) => a.sort - b.sort)
+				.map(a => a.value);
+			return shuffled;
+		}
 	}
 
 	renderAnswer = () => {
@@ -46,12 +53,7 @@ class GuessTheWord extends Component {
 					wordList: [...responsejson.word_list]
 				})
 			)
-			.then(list => {
-				const { wordList } = this.state;
-				const randomWord =
-					wordList[Math.floor(Math.random() * wordList.length)];
-				this.setState({ randomWord: randomWord });
-			});
+			.then(list => console.log('check'));
 	}
 
 	handleClick = () => {
@@ -83,7 +85,7 @@ class GuessTheWord extends Component {
 
 				<div className="game-controls">
 					<Link to={`/end-game-page`}>
-						<button className="control-button">End Game</button>
+						<button className="control-button">End</button>
 					</Link>
 					{this.state.renderAnswer ? (
 						''

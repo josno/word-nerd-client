@@ -44,7 +44,7 @@ class GamesList extends Component {
 											className="button-style"
 											type="submit"
 											onClick={() =>
-												this.context.getSavedGameId(
+												this.context.setCurrentGameId(
 													g.id
 												)
 											}
@@ -60,7 +60,7 @@ class GamesList extends Component {
 											className="button-style"
 											type="submit"
 											onClick={() =>
-												this.context.getSavedGameId(
+												this.context.setCurrentGameId(
 													g.id
 												)
 											}
