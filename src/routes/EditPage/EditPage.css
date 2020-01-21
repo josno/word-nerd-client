@@ -1,13 +1,11 @@
 .input-instructions {
-	margin-top: 10vh;
+	margin: 2em;
 }
 
 .input-container {
 	width: 60vw;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 5vh;
-	margin-bottom: 5px;
 }
 
 .submit-button-container {

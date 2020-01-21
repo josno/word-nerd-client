@@ -1,11 +1,3 @@
-.answer-page-text {
-	font-size: 2rem;
-	font-family: Luckiest Guy, cursive;
-	color: #0c0a3e;
-	margin-top: 10vh;
-	margin-bottom: 0;
-}
-
 .answer-word {
 	font-family: 'Poppins', sans-serif;
 	font-size: 6rem;
@@ -16,14 +8,16 @@
 	font-weight: 700;
 }
 
-@media (min-width: 600px) {
-	.answer-page-text {
-		font-size: 4rem;
-	}
+.answer-message-text {
+	font-size: 2rem;
+	font-family: Luckiest Guy, cursive;
+	color: #0c0a3e;
+	margin-top: 10px;
+	margin-bottom: 0;
 }
 
-@media (min-width: 800px) {
-	.answer-page-text {
-		font-size: 6rem;
+@media (min-width: 600px) {
+	.answer-message-text {
+		font-size: 4rem;
 	}
 }

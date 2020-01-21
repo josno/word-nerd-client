@@ -30,7 +30,7 @@ class EntryOption extends Component {
 	render() {
 		const { formType } = this.state;
 		return (
-			<div className="entry-option">
+			<div className="entry-option-container">
 				<div className="entry-form">
 					<div className="demo-information">
 						<p> Login demo</p>

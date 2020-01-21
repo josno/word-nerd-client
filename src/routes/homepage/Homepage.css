@@ -1,3 +1,7 @@
+.app-description-container {
+	margin: 0 2em 0 2em;
+}
+
 .homepage {
 	background: #18c0f0;
 	height: 100vh;
@@ -7,13 +11,9 @@
 	font-family: 'Lemon', sans-serif;
 	font-size: 3rem;
 	margin: 0;
-	padding: 3vh 0 3vh 0;
+	padding-top: 0.5em;
 	text-shadow: 3px 3px #ff206e;
 	-webkit-text-stroke: 1px black;
-}
-
-.app-description-container {
-	margin: 2vh 0 4vh 0;
 }
 
 @media (min-width: 400px) {

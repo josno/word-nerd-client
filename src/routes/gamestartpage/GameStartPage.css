@@ -2,11 +2,11 @@
 	background-color: #0c0a3e;
 	margin: 0px;
 	height: 100vh;
-	padding: 10px;
+	padding: 10px 0 10px 0;
 }
 
 .ready-message {
-	margin-top: 5vh;
+	margin-top: 1em;
 	color: #d81159;
 }
 
@@ -27,6 +27,12 @@
 	color: #ffbc42;
 }
 
+.game-start-page {
+	margin: 0px;
+	padding-bottom: 40px;
+	background-color: #0c0a3e;
+}
+
 .how-to-play-box {
 	margin-top: 10vh;
 	width: 80vw;
@@ -42,11 +48,10 @@
 
 .start-submit-cancel {
 	display: block;
-	font-size: 20px;
+	font-size: 1em;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10px;
-	height: 6vh;
 	transition: all 0.5s ease;
 	width: 50vw;
 	border-radius: 10px;

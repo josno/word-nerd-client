@@ -2,7 +2,6 @@
 	display: block;
 	font-size: 1em;
 	margin: 3px;
-	height: 8vh;
 	transition: all 0.5s ease;
 	width: 50vw;
 	border-radius: 10px;
@@ -33,7 +32,7 @@
 	font-size: 18px;
 	text-align: center;
 	margin: 10px;
-	width: 70vw;
+	width: 80vw;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -41,7 +40,6 @@
 
 .info-container {
 	width: 300px;
-	margin: 10px;
 }
 
 .info-text {
@@ -64,7 +62,6 @@ ul {
 
 @media (min-width: 700px) {
 	.button-style {
-		height: 5vh;
 		width: 20vw;
 	}
 	.game-info {

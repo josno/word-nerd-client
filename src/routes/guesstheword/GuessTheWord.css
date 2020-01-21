@@ -5,21 +5,27 @@
 	background-color: #18c0f0;
 }
 
-.game-play-container,
-.scrambled-word-container,
-.answer-page-container {
-	margin: 10px;
-}
-
 .guess-the-word-container {
 	height: 100vh;
 	background-color: #18c0f0;
 	padding-top: 30px;
 }
 
+.scrambled-word-container,
+.game-play-container,
+.answer-page-container {
+	height: 75vh;
+}
+
+.scrambled-message-text,
+.scrambled-word-text,
+.pass-the-ball-text {
+	font-size: 2rem;
+	font-family: Luckiest Guy, cursive;
+}
+
 .control-button {
 	width: 20vw;
-	height: 8vh;
 	font-size: 1rem;
 	border: 2px solid #d81159;
 	border-radius: 15px;
@@ -42,7 +48,6 @@
 	.game-play-container,
 	.scrambled-word-container,
 	.answer-page-container {
-		height: 60vh;
-		margin-top: 10vh;
+		margin-top: 1em;
 	}
 }

@@ -1,13 +1,15 @@
 .ball-gif {
+	width: 100%;
 	width: 150px;
-	height: 150px;
-	margin: 0px;
+	height: auto;
 }
 
-@media (min-width: 700px) {
+.ball-image-container {
+	background-color: #18c0f0;
+}
+
+@media (min-width: 900px) {
 	.ball-gif {
-		width: 300px;
-		height: 300px;
-		margin: 0px;
+		width: 400px;
 	}
 }

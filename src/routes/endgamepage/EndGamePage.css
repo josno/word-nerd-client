@@ -1,5 +1,5 @@
 .end-message {
-	margin-top: 10vh;
+	margin-top: 30px;
 }
 
 .home-button {
@@ -8,7 +8,6 @@
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 10px;
-	height: 6vh;
 	transition: all 0.5s ease;
 	width: 50vw;
 	border-radius: 10px;

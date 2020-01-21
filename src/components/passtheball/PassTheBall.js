@@ -22,7 +22,13 @@ class PassTheBall extends Component {
 					playStatus={Sound.status.PLAYING}
 					onFinishedPlaying={this.handleSongFinishedPlaying}
 				/>
-				<img className="ball-gif" alt="ball-placeholder" src={Ball} />
+				<div className="ball-image-container">
+					<img
+						className="ball-gif"
+						alt="ball-placeholder"
+						src={Ball}
+					/>
+				</div>
 			</div>
 		);
 	}

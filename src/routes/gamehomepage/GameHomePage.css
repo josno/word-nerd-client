@@ -1,7 +1,6 @@
 .create-game-button {
 	box-shadow: 5px 5px black;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 20px auto 20px auto;
 	border-radius: 10px;
 	border: none;
 	background-color: #18c0f0;
@@ -16,7 +15,7 @@
 }
 
 .game-container {
-	margin-top: 5rem;
+	margin-top: 40px;
 	display: flex;
 	flex-direction: column;
 }
