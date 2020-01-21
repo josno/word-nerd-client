@@ -34,7 +34,7 @@ class GameStart extends Component {
 								</ol>
 							</div>
 							<h1 className="ready-message">Are you ready?</h1>
-							<p>
+							<p className="mobile-device-note">
 								***If you are on a mobile device, change to
 								landscape format now***
 							</p>

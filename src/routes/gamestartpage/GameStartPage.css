@@ -5,7 +5,8 @@
 	padding: 10px 0 10px 0;
 }
 
-.ready-message {
+.ready-message,
+.mobile-device-note {
 	margin-top: 1em;
 	color: #d81159;
 }
