@@ -15,11 +15,11 @@ class GameStart extends Component {
 								</h1>
 								<ol className="game-instructions-list-container">
 									<li className="instructions-list-item">
-										Pass the ball around the classroom until
-										the music stops
+										Pass the ball around while the music
+										plays.
 									</li>
 									<li className="instructions-list-item">
-										The music will stop!{' '}
+										The music will stop!
 									</li>
 									<li className="instructions-list-item">
 										If you have the ball, guess the word on
@@ -29,12 +29,15 @@ class GameStart extends Component {
 										The words are scrambled!
 									</li>
 									<li className="instructions-list-item">
-										{' '}
-										Good luck~
+										Good luck!
 									</li>
 								</ol>
 							</div>
 							<h1 className="ready-message">Are you ready?</h1>
+							<p>
+								***If you are on a mobile device, change to
+								landscape format now***
+							</p>
 						</header>
 						<Link to="/game-home-page">
 							<button className="start-submit-cancel">No</button>
