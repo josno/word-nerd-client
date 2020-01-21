@@ -5,7 +5,7 @@ exports[`<AnswerPage/> renders as expected 1`] = `
   className="answer-page-container"
 >
   <h1
-    className="answer-page-text"
+    className="answer-message-text"
   >
     The word was:
   </h1>
@@ -20,7 +20,7 @@ exports[`<AnswerPage/> renders nothing when no props given 1`] = `
   className="answer-page-container"
 >
   <h1
-    className="answer-page-text"
+    className="answer-message-text"
   >
     The word was:
   </h1>
@@ -35,7 +35,7 @@ exports[`<AnswerPage/> renders with answer prop when given 1`] = `
   className="answer-page-container"
 >
   <h1
-    className="answer-page-text"
+    className="answer-message-text"
   >
     The word was:
   </h1>

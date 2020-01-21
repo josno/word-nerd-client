@@ -2,7 +2,7 @@
 
 exports[`<EntryOption/> renders as expected 1`] = `
 <div
-  className="entry-option"
+  className="entry-option-container"
 >
   <div
     className="entry-form"

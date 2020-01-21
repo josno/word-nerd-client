@@ -29,7 +29,7 @@ exports[`<Home/> renders as expected 1`] = `
   </section>
   <section>
     <div
-      className="entry-option"
+      className="entry-option-container"
     >
       <div
         className="entry-form"
