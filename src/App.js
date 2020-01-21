@@ -57,13 +57,17 @@ class App extends Component {
 						<Navigation />
 					</header>
 					<Switch>
-						<Route
-							exact
-							path="/game-home-page"
-							render={routeProps => (
-								<GameHomePage {...routeProps} />
-							)}
-						/>
+						{TokenService.hasAuthToken() ? (
+							<Route
+								exact
+								path="/game-home-page"
+								render={routeProps => (
+									<GameHomePage {...routeProps} />
+								)}
+							/>
+						) : (
+							<Redirect to="/" />
+						)}
 
 						<Route exact path="/" component={Homepage} />
 
