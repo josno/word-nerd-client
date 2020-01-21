@@ -57,6 +57,8 @@ class App extends Component {
 						<Navigation />
 					</header>
 					<Switch>
+						<Route exact path="/" component={Homepage} />
+
 						{TokenService.hasAuthToken() ? (
 							<Route
 								exact
@@ -68,8 +70,6 @@ class App extends Component {
 						) : (
 							<Redirect to="/" />
 						)}
-
-						<Route exact path="/" component={Homepage} />
 
 						{TokenService.hasAuthToken() ? (
 							<Route
