@@ -1,5 +1,7 @@
 import TokenService from '../services/token-service';
 import config from '../config';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 const GamesService = {
 	getUserGames() {

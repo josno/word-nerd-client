@@ -1,4 +1,6 @@
 import config from '../config';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 //this is a service for authorization
 const AuthApiService = {

@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import './SignUp.css';
 import AuthApiService from '../../services/auth-api-service';
+import TokenService from '../../services/token-service';
+import WordContext from '../../WordContext';
 
 class SignUp extends Component {
+	static contextType = WordContext;
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -22,16 +26,14 @@ class SignUp extends Component {
 		};
 
 		AuthApiService.postUser(newUser)
-			.then(res =>
-				this.setState({
-					signUp: 'Signed up! Please log in.'
-				})
-			)
-			.catch(res => this.setState({ error: res.error }));
-	};
-
-	capitalizeNames = string => {
-		return string.charAt(0).toUpperCase() + string.slice(1);
+			.then(res => {
+				TokenService.saveAuthToken(res.authToken);
+				this.context.handleLogInState();
+				this.props.history.push('/game-home-page');
+			})
+			.catch(res => {
+				this.setState({ error: res.error });
+			});
 	};
 
 	render() {
@@ -79,4 +81,4 @@ class SignUp extends Component {
 	}
 }
 
-export default SignUp;
+export default withRouter(SignUp);
