@@ -20,7 +20,7 @@ class Login extends Component {
 		const { username, password } = e.target;
 
 		AuthApiService.postLogin({
-			user_name: username.value,
+			user_name: username.value.toLowerCase(),
 			password: password.value
 		}) //passed in as one object
 			.then(res => {

@@ -14,7 +14,7 @@ class Navigation extends Component {
 
 	renderLogoutLink() {
 		return (
-			<div className="logged-in">
+			<nav>
 				<Link className="link-text" to="/game-home-page">
 					My Page
 				</Link>
@@ -25,7 +25,7 @@ class Navigation extends Component {
 				>
 					Logout
 				</Link>
-			</div>
+			</nav>
 		);
 	}
 
@@ -41,16 +41,29 @@ class Navigation extends Component {
 
 	render() {
 		return (
-			<nav role="navigation">
-				<h1>
-					<Link className="nav-title" to="/">
+			<div className="responsive-nav-wrapper">
+				<label for="toggle">&#9776;</label>
+				<input type="checkbox" id="toggle" />
+				<div className="menu">
+					<Link id="nav-title" to="/">
 						Word Nerd
 					</Link>
-				</h1>
-				{TokenService.hasAuthToken()
-					? this.renderLogoutLink()
-					: this.renderLoginLink()}
-			</nav>
+					{TokenService.hasAuthToken()
+						? this.renderLogoutLink()
+						: this.renderLoginLink()}
+				</div>
+			</div>
+
+			/* <nav role="navigation">
+					<h1>
+						<Link className="nav-title" to="/">
+							Word Nerd
+						</Link>
+					</h1>
+					{TokenService.hasAuthToken()
+						? this.renderLogoutLink()
+						: this.renderLoginLink()}
+				</nav> */
 		);
 	}
 }

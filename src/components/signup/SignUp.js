@@ -19,10 +19,11 @@ class SignUp extends Component {
 		e.preventDefault();
 		this.setState({ error: null });
 		const { username, password, fullName } = e.target;
+
 		const newUser = {
-			user_name: username.value,
+			user_name: username.value.toLowerCase(),
 			password: password.value,
-			full_name: fullName.value
+			full_name: fullName.value.toLowerCase()
 		};
 
 		AuthApiService.postUser(newUser)
