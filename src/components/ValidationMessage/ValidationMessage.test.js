@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import renderer from 'react-test-renderer';
-import Preview from './Preview';
+import ValidationMessage from './ValidationMessage';
 import toJson from 'enzyme-to-json';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -14,7 +14,7 @@ describe('<Preview/>', () => {
 		const tree = renderer
 			.create(
 				<BrowserRouter>
-					<Preview />
+					<ValidationMessage />
 				</BrowserRouter>
 			)
 			.toJSON();
@@ -22,12 +22,14 @@ describe('<Preview/>', () => {
 	});
 
 	it('renders nothing when no props given', () => {
-		const wrapper = shallow(<Preview />);
+		const wrapper = shallow(<ValidationMessage />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});
 
 	it('renders with props', () => {
-		const tree = renderer.create(<Preview id={3} word={'red'} />).toJSON();
+		const tree = renderer
+			.create(<ValidationMessage message={'Validation Error String'} />)
+			.toJSON();
 		expect(tree).toMatchSnapshot();
 	});
 });

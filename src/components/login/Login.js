@@ -49,6 +49,7 @@ class Login extends Component {
 							htmlFor="username"
 							placeholder="username"
 							name="username"
+							required
 						/>
 						<input
 							className="form-input"
@@ -56,6 +57,7 @@ class Login extends Component {
 							htmlFor="password"
 							placeholder="password"
 							name="password"
+							required
 						/>
 					</div>
 

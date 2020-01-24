@@ -1,40 +1,60 @@
 import React, { Component } from 'react';
 import './EditPage.css';
+import ValidationMessage from '../../components/ValidationMessage/ValidationMessage';
 import GamesService from '../../services/api-service';
 
 class EditPage extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			textInput: '',
 			wordList: [],
-			title: ''
+			title: '',
+			updatedTitle: false,
+			updatedInput: false
 		};
-		this.handleUpdate = this.handleUpdate.bind(this);
-		this.updateWords = this.updateWords.bind(this);
+		this.validateTitle = this.validateTitle.bind(this);
+		this.validateInput = this.validateInput.bind(this);
+		this.updateInput = this.updateInput.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	updateWords(text) {
+	updateInput(text) {
 		this.setState({
-			wordList: text
+			wordList: text,
+			updatedInput: true
 		});
 	}
 
 	updateTitle(text) {
 		this.setState({
-			title: text
+			title: text,
+			updatedTitle: true
 		});
 	}
 
-	handleUpdate(e) {
-		const { value } = e.target;
+	validateInput() {
+		const wordInput = this.state.wordList.toString();
 
-		this.setState({
-			title: value
-		});
+		const invalidChar = wordInput.match(/[^a-zA-Z,\s]/g);
+
+		if (invalidChar) {
+			return 'Type only letters please.';
+		} else {
+			return '';
+		}
+	}
+
+	validateTitle() {
+		const titleInput = this.state.title;
+		const invalidChar = titleInput.match(/[^a-zA-Z,\s]/g);
+
+		if (invalidChar) {
+			return 'Type only letters please.';
+		}
 	}
 
 	handleSubmit(e) {
+		e.preventDefault();
 		const { title, wordList } = this.state;
 
 		const wordListArray =
@@ -42,15 +62,14 @@ class EditPage extends Component {
 				? wordList
 				: wordList.split(',').map(i => i.trim());
 
-		console.log(typeof wordListArray);
 		const newGame = {
 			title: title,
 			word_list: wordListArray
 		};
 
-		GamesService.updateGame(newGame, this.props.gameId);
-
-		this.props.history.push(`/game-home-page`);
+		GamesService.updateGame(newGame, this.props.gameId).then(response =>
+			this.props.history.push(`/game-home-page`)
+		);
 	}
 
 	componentDidMount() {
@@ -64,6 +83,9 @@ class EditPage extends Component {
 	}
 
 	render(props) {
+		const titleError = this.validateTitle();
+		const inputError = this.validateInput();
+
 		return (
 			<div>
 				<section>
@@ -77,16 +99,23 @@ class EditPage extends Component {
 							onChange={e => this.updateTitle(e.target.value)}
 							required
 						/>
+
+						{this.state.updatedTitle && (
+							<ValidationMessage message={titleError} />
+						)}
 						<div className="input-container">
 							<textarea
 								className="input-box"
-								aria-label="Type your words here"
 								aria-required="true"
 								value={this.state.wordList}
-								onChange={e => this.updateWords(e.target.value)}
+								onChange={e => this.updateInput(e.target.value)}
 								required
 							/>
 						</div>
+
+						{this.state.updatedInput && (
+							<ValidationMessage message={inputError} />
+						)}
 					</form>
 					<div className="submit-button-container">
 						<button
@@ -99,7 +128,10 @@ class EditPage extends Component {
 						<button
 							className="submit-input"
 							type="submit"
-							onClick={e => this.handleSubmit(e.target.value)}
+							disabled={
+								this.validateInput() || this.validateTitle()
+							}
+							onClick={this.handleSubmit}
 						>
 							Update
 						</button>
