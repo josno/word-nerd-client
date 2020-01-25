@@ -20,4 +20,8 @@
 	.answer-message-text {
 		font-size: 4rem;
 	}
+
+	.answer-word {
+		font-size: 6rem;
+	}
 }

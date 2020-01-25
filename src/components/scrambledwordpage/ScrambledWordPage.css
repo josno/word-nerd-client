@@ -7,3 +7,9 @@
 		1px 1px #000;
 	font-weight: 700;
 }
+
+@media (min-width: 600px) {
+	.scrambled-word {
+		font-size: 6rem;
+	}
+}
