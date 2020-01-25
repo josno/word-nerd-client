@@ -14,7 +14,7 @@ class Navigation extends Component {
 
 	renderLogoutLink() {
 		return (
-			<nav>
+			<>
 				<Link className="link-text" to="/game-home-page">
 					My Page
 				</Link>
@@ -25,7 +25,7 @@ class Navigation extends Component {
 				>
 					Logout
 				</Link>
-			</nav>
+			</>
 		);
 	}
 
