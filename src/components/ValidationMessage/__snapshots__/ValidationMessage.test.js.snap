@@ -2,32 +2,32 @@
 
 exports[`<Preview/> renders as expected 1`] = `
 <div
-  className="preview-box"
+  className="validation-message-box"
 >
-  <li
-    className="preview-words"
+  <p
+    className="validation-message"
   />
 </div>
 `;
 
 exports[`<Preview/> renders nothing when no props given 1`] = `
 <div
-  className="preview-box"
+  className="validation-message-box"
 >
-  <li
-    className="preview-words"
+  <p
+    className="validation-message"
   />
 </div>
 `;
 
 exports[`<Preview/> renders with props 1`] = `
 <div
-  className="preview-box"
+  className="validation-message-box"
 >
-  <li
-    className="preview-words"
+  <p
+    className="validation-message"
   >
-    red
-  </li>
+    Validation Error String
+  </p>
 </div>
 `;

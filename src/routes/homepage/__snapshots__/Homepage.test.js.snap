@@ -80,6 +80,7 @@ exports[`<Home/> renders as expected 1`] = `
                 htmlFor="username"
                 name="username"
                 placeholder="username"
+                required={true}
                 type="text"
               />
               <input
@@ -87,6 +88,7 @@ exports[`<Home/> renders as expected 1`] = `
                 htmlFor="password"
                 name="password"
                 placeholder="password"
+                required={true}
                 type="password"
               />
             </div>

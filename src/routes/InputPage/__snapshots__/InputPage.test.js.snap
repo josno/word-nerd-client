@@ -14,7 +14,7 @@ exports[`<InputPage/> renders as expected 1`] = `
         Type Words In The Box
       </h1>
       <p>
-        Separate them by commas!
+        Separate each word with a comma!
       </p>
     </header>
     <form>
@@ -37,9 +37,6 @@ exports[`<InputPage/> renders as expected 1`] = `
         />
       </div>
     </form>
-    <h2>
-      Review Words
-    </h2>
     <div
       className="submit-button-container"
     >
@@ -51,6 +48,7 @@ exports[`<InputPage/> renders as expected 1`] = `
       </button>
       <button
         className="submit-input"
+        disabled="Add a comma after each word."
         onClick={[Function]}
         type="submit"
       >
