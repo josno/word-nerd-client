@@ -62,6 +62,10 @@ a:hover {
 }
 
 @media (min-width: 700px) {
+	nav {
+		display: flex;
+	}
+
 	label {
 		display: none;
 		cursor: none;

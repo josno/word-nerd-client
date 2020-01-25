@@ -70,6 +70,7 @@ class GuessTheWord extends Component {
 		const { randomWord, showAnswer, passTheBall } = this.state;
 
 		const shuffledWord = this.shuffleWord(String(randomWord));
+		console.log(randomWord);
 
 		return (
 			<div className="guess-the-word-container">
