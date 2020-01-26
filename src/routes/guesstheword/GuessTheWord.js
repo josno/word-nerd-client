@@ -77,6 +77,7 @@ class GuessTheWord extends Component {
 		const { randomWord, showAnswer, passTheBall } = this.state;
 
 		const shuffledWord = this.shuffleWord(String(randomWord));
+
 		return (
 			<main className="guess-the-word-container">
 				{showAnswer ? (
