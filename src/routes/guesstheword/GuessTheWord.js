@@ -27,13 +27,21 @@ class GuessTheWord extends Component {
 				shortWordArray[1] + shortWordArray[0] + shortWordArray[2];
 			return shuffledShortWord;
 		} else {
-			const stringToArray = string.split('');
-			const unshuffled = stringToArray;
-			const shuffled = unshuffled
-				.map(a => ({ sort: Math.random(), value: a }))
-				.sort((a, b) => a.sort - b.sort)
-				.map(a => a.value);
-			return shuffled;
+			const unshuffled = string.split('');
+
+			const shuffleString = function(str) {
+				const shuffledWord = str
+					.map(a => ({ sort: Math.random(), value: a }))
+					.sort((a, b) => a.sort - b.sort)
+					.map(a => a.value)
+					.join(',');
+				if (shuffledWord === str) {
+					shuffleString(shuffledWord);
+				}
+				return shuffledWord;
+			};
+
+			return shuffleString(unshuffled);
 		}
 	}
 
@@ -70,8 +78,6 @@ class GuessTheWord extends Component {
 		const { randomWord, showAnswer, passTheBall } = this.state;
 
 		const shuffledWord = this.shuffleWord(String(randomWord));
-		console.log(randomWord);
-
 		return (
 			<main className="guess-the-word-container">
 				{showAnswer ? (
