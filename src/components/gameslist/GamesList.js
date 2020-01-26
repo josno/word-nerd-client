@@ -4,9 +4,9 @@ import WordContext from '../../WordContext';
 import './GamesList.css';
 
 class GamesList extends Component {
+	static contextType = WordContext;
 	constructor(props) {
 		super(props);
-		this.state = {};
 		this.formatDate = this.formatDate.bind(this);
 	}
 
@@ -17,8 +17,7 @@ class GamesList extends Component {
 		return created + ' ' + formattedDate;
 	}
 
-	static contextType = WordContext;
-	render(props) {
+	render() {
 		return (
 			<div className="game-list-container">
 				<ul className="list-of-games">

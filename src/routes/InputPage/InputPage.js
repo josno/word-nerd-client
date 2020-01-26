@@ -10,7 +10,8 @@ class InputPage extends Component {
 			textInput: { value: '', touched: false },
 			wordList: [],
 			newGame: '',
-			title: { value: '', title: false }
+			title: { value: '', title: false },
+			error: null
 		};
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.validateInput = this.validateInput.bind(this);
@@ -22,7 +23,8 @@ class InputPage extends Component {
 		/*Create an array and split by comma as user types
 		so students can review the words*/
 
-		const newList = e.target.value.split(',').map(i => i.trim());
+		const trimmedWordList = e.target.value.replace(/,\s*$/, '');
+		const newList = trimmedWordList.split(',').map(i => i.trim());
 		this.setState({
 			textInput: { value: value, touched: true },
 			wordList: newList
@@ -38,12 +40,13 @@ class InputPage extends Component {
 	}
 
 	validateInput() {
-		const textInput = this.state.textInput.value;
+		const textInput = this.state.textInput.value.trim();
+
 		if (!textInput.includes(',')) {
 			return 'Add a comma after each word.';
 		}
 
-		const invalidChar = textInput.match(/[^a-z,\s]/g);
+		const invalidChar = textInput.match(/[^a-zA-Z,\s]/g);
 		if (invalidChar) {
 			return 'Type only letters please.';
 		}
@@ -59,6 +62,7 @@ class InputPage extends Component {
 
 	async handleSubmit(e) {
 		e.preventDefault();
+
 		const newGame = {
 			title: this.state.title.value,
 			word_list: this.state.wordList,
@@ -71,14 +75,15 @@ class InputPage extends Component {
 					? res.json().then(e => Promise.reject(e))
 					: res.json();
 			})
-			.then(responsejson => responsejson.id);
+			.then(responsejson => responsejson.id)
+			.catch(res => {
+				this.setState({ error: res.error });
+			});
 		/*Wait until you get the id*/
 		this.props.history.push(`/game/${gameId}/game-start-page`);
 	}
 
 	render(props) {
-		// const wordList = this.state;
-
 		const inputError = this.validateInput();
 		const titleError = this.validateTitle();
 
@@ -117,6 +122,7 @@ class InputPage extends Component {
 							<ValidationMessage message={inputError} />
 						)}
 					</form>
+					<div className="error-message">{this.state.error}</div>
 				</section>
 				<div className="submit-button-container">
 					<button

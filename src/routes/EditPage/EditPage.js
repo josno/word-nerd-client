@@ -39,8 +39,6 @@ class EditPage extends Component {
 
 		if (invalidChar) {
 			return 'Type only letters please.';
-		} else {
-			return '';
 		}
 	}
 
@@ -57,19 +55,22 @@ class EditPage extends Component {
 		e.preventDefault();
 		const { title, wordList } = this.state;
 
+		const trimmedWordList = wordList.replace(/,\s*$/, '');
+
 		const wordListArray =
-			typeof wordList !== 'string'
-				? wordList
-				: wordList.split(',').map(i => i.trim());
+			typeof trimmedWordList !== 'string'
+				? trimmedWordList
+				: trimmedWordList.split(',').map(i => i.trim());
 
 		const newGame = {
 			title: title,
 			word_list: wordListArray
 		};
 
-		GamesService.updateGame(newGame, this.props.gameId).then(response =>
-			this.props.history.push(`/game-home-page`)
-		);
+		GamesService.updateGame(newGame, this.props.gameId).then(response => {
+			console.log(response);
+			this.props.history.push(`/game-home-page`);
+		});
 	}
 
 	componentDidMount() {

@@ -5,13 +5,6 @@ import './ScrambledWordPage.css';
 import ScrambledMessage from '../ScrambledMessage/ScrambledMessage';
 
 class ScrambleWordPage extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			error: null
-		};
-	}
-
 	render(props) {
 		return (
 			<section className="scrambled-word-container">

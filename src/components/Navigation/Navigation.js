@@ -53,17 +53,6 @@ class Navigation extends Component {
 						: this.renderLoginLink()}
 				</div>
 			</nav>
-
-			/* <nav role="navigation">
-					<h1>
-						<Link className="nav-title" to="/">
-							Word Nerd
-						</Link>
-					</h1>
-					{TokenService.hasAuthToken()
-						? this.renderLogoutLink()
-						: this.renderLoginLink()}
-				</nav> */
 		);
 	}
 }

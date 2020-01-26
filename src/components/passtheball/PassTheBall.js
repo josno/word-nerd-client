@@ -6,13 +6,6 @@ import soundfile from './pass-song.mp3';
 import PassTheBallMessage from '../PassTheBallMessage/PassTheBallMessage';
 
 class PassTheBall extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			error: null
-		};
-	}
-
 	render() {
 		return (
 			<section className="game-play-container">

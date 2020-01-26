@@ -23,8 +23,6 @@ const GamesService = {
 		);
 	},
 	saveNewGame(gameObject) {
-		/* From submit via input-page then adds to state.savedGames */
-
 		const newList = {
 			method: 'POST',
 			headers: {

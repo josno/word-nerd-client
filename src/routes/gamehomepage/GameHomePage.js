@@ -11,13 +11,34 @@ class GameHomePage extends Component {
 		super(props);
 		this.state = {
 			savedGames: [],
-			noGamesSaved: false
+			noGamesSaved: false,
+			error: null
 		};
 	}
 
 	deleteSavedGame = gameId => {
-		GamesService.deleteGame(gameId).then(response => {
-			GamesService.getUserGames().then(responsejson => {
+		GamesService.deleteGame(gameId)
+			.then(response => {
+				GamesService.getUserGames().then(responsejson => {
+					if (responsejson.length === 0) {
+						this.setState({
+							noGamesSaved: true
+						});
+					} else {
+						this.setState({
+							savedGames: [...responsejson]
+						});
+					}
+				});
+			})
+			.catch(res => {
+				this.setState({ error: res.error });
+			});
+	};
+
+	componentDidMount() {
+		GamesService.getUserGames()
+			.then(responsejson => {
 				if (responsejson.length === 0) {
 					this.setState({
 						noGamesSaved: true
@@ -27,22 +48,10 @@ class GameHomePage extends Component {
 						savedGames: [...responsejson]
 					});
 				}
+			})
+			.catch(res => {
+				this.setState({ error: res.error });
 			});
-		});
-	};
-
-	componentDidMount() {
-		GamesService.getUserGames().then(responsejson => {
-			if (responsejson.length === 0) {
-				this.setState({
-					noGamesSaved: true
-				});
-			} else {
-				this.setState({
-					savedGames: [...responsejson]
-				});
-			}
-		});
 	}
 
 	render(props) {
@@ -65,6 +74,7 @@ class GameHomePage extends Component {
 						/>
 					)}
 				</section>
+				<div className="error-message">{this.state.error}</div>
 				<section>
 					<Link to={`/input-page`}>
 						<button

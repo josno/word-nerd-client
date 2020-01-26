@@ -22,11 +22,10 @@ class Login extends Component {
 		AuthApiService.postLogin({
 			user_name: username.value.toLowerCase(),
 			password: password.value
-		}) //passed in as one object
+		})
 			.then(res => {
 				username.value = '';
 				password.value = '';
-				//will only store the token when request is successful
 				TokenService.saveAuthToken(res.authToken);
 			})
 			.then(res => {

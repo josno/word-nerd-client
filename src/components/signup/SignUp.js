@@ -76,11 +76,7 @@ class SignUp extends Component {
 						Sign Up
 					</button>
 				</form>
-				{this.state.error === null ? (
-					<div className="signup-message"> {this.state.signUp}</div>
-				) : (
-					<div className="error-message">{this.state.error}</div>
-				)}
+				<div className="error-message">{this.state.error}</div>
 			</div>
 		);
 	}
