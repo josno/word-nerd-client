@@ -1,33 +1,50 @@
 # Word Nerd
 
-An App to help teachers in the classroom! Make a list of vocabulary words and play a pass-the-ball game to review and practice fluency.
+An application to help teachers create efficiency in their day. Users can make a list of vocabulary words and play a pass-the-ball game to review and practice fluency in the classroom.
 
-## Technology
+## Demo [Here](https://word-nerd.now.sh/)
 
-Javascript, React, HTML5, CSS3
+## See API Repo [Here](https://github.com/josno/word-nerd-server)
 
-## Word Nerd API [Here](https://github.com/josno/word-nerd-server)
+## How Do I Use This?
 
-## How Do I Use This? How is this helpful?
-
--   Once signed up you click on 'Create a Pass The Ball Game" button
+-   Create an account and log in
+-   Click on "Create A New Game" button
 -   On the input page, type in some vocabulary words
 -   Click "Play" if you are ready
+-   Word Nerd will store your created vocabulary lists
 
-This program saved you room in your computer by eliminating multiple powerpoint presentations you use over and over again in your classroom. This replaces folder of redundant lessons and provides access to all your vocabulary lessons at once, creating efficiencies on your teaching days.
+## How is this helpful?
+
+I taught English in Korea for four years across four grade levels (3rd-6th grade). Though the students changed over the years, the lesson contents barely did. I found myself updating presentation slides to accommodate the small vocabulary changes. I discovered my colleagues felt the same frustration as I did. Not to mention, I could have spent more time assessing student performance or evaluating possibilities in better ways to teach.
+
+This program eliminates multiple and redundant presentations for English classes. It provides access to all vocabulary lessons at once with editing ease, creating efficiencies in the work day. This is a **_supplemental_** activity for teachers' lessons to help save on lesson planning hours.
+
+## Technology Used
+
+-   Frontend:
+
+    -   Javascript
+    -   React
+    -   JQuery
+    -   HTML5
+    -   CSS3
+
+-   Backend:
+
+    -   Javascript
+    -   Node
+    -   Express
+    -   Knex
+
+-   Databases:
+    -   SQL
+    -   PostgreSQL
 
 ## Screenshots
 
-![Home Page](/assets/home-page.png)
 ![Game List](/assets/List-page.png)
 ![Input Page](/assets/Input-page.png)
 ![Pass The Ball](/assets/Pass-page.png)
 ![Scrambled Word](/assets/Scrambled-page.png)
 ![Answer](/assets/Answer-page.png)
-
-The name of your app at the top of the file.
-A link to your live app.
-Documentation of your API.
-Screenshot(s) of your app. This makes your app description much easier to understand.
-A summary section. This should have a concise explanation of what your app does. Try to frame this from the standpoint of what the user does, or what the app enables for the user.
-A section on the technology used.
