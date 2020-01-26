@@ -5,7 +5,7 @@ import './GameStartPage.css';
 class GameStart extends Component {
 	render(props) {
 		return (
-			<main class="game-start-container">
+			<main className="game-start-container">
 				<header>
 					<div className="how-to-play-box">
 						<h1 className="game-instructions">How to Play:</h1>
