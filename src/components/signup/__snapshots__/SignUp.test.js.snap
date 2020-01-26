@@ -44,10 +44,7 @@ exports[`<SignUp/> renders as expected 1`] = `
     </button>
   </form>
   <div
-    className="signup-message"
-  >
-     
-    
-  </div>
+    className="error-message"
+  />
 </div>
 `;

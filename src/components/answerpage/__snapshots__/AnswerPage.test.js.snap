@@ -1,48 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<AnswerPage/> renders as expected 1`] = `
-<div
+<section
   className="answer-page-container"
 >
-  <h1
-    className="answer-message-text"
-  >
-    The word was:
-  </h1>
+  <header>
+    <h1
+      className="answer-message-text"
+    >
+      The word was:
+    </h1>
+  </header>
   <p
     className="answer-word"
   />
-</div>
+</section>
 `;
 
 exports[`<AnswerPage/> renders nothing when no props given 1`] = `
-<div
+<section
   className="answer-page-container"
 >
-  <h1
-    className="answer-message-text"
-  >
-    The word was:
-  </h1>
+  <header>
+    <h1
+      className="answer-message-text"
+    >
+      The word was:
+    </h1>
+  </header>
   <p
     className="answer-word"
   />
-</div>
+</section>
 `;
 
 exports[`<AnswerPage/> renders with answer prop when given 1`] = `
-<div
+<section
   className="answer-page-container"
 >
-  <h1
-    className="answer-message-text"
-  >
-    The word was:
-  </h1>
+  <header>
+    <h1
+      className="answer-message-text"
+    >
+      The word was:
+    </h1>
+  </header>
   <p
     className="answer-word"
   >
     blue
   </p>
-</div>
+</section>
 `;

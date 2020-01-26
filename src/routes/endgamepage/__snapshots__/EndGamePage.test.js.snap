@@ -1,18 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<EndGamePage/> renders as expected 1`] = `
-<div
+<main
   className="end-game-page"
 >
-  <h1
-    className="end-message"
-  >
-    Game Over
-  </h1>
+  <header>
+    <h1
+      className="end-message"
+    >
+      Game Over
+    </h1>
+  </header>
   <h2>
     Thanks for playing!
   </h2>
-  <div
+  <section
     className="end-game-controls"
   >
     <a
@@ -20,11 +22,12 @@ exports[`<EndGamePage/> renders as expected 1`] = `
       onClick={[Function]}
     >
       <button
+        aria-label="go-back"
         className="home-button"
       >
         Go Back To Games Home
       </button>
     </a>
-  </div>
-</div>
+  </section>
+</main>
 `;

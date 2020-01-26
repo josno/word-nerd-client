@@ -20,6 +20,9 @@ exports[`<Login/> renders as expected 1`] = `
       />
     </div>
   </section>
+  <div
+    className="error-message"
+  />
   <section>
     <a
       href="/input-page"

@@ -37,6 +37,9 @@ exports[`<InputPage/> renders as expected 1`] = `
         />
       </div>
     </form>
+    <div
+      className="error-message"
+    />
   </section>
   <div
     className="submit-button-container"
