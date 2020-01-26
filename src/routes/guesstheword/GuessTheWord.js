@@ -33,8 +33,7 @@ class GuessTheWord extends Component {
 				const shuffledWord = str
 					.map(a => ({ sort: Math.random(), value: a }))
 					.sort((a, b) => a.sort - b.sort)
-					.map(a => a.value)
-					.join(',');
+					.map(a => a.value);
 				if (shuffledWord === str) {
 					shuffleString(shuffledWord);
 				}
