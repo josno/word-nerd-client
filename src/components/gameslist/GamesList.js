@@ -41,6 +41,7 @@ class GamesList extends Component {
 										className="game-link"
 									>
 										<button
+											aria-label="edit"
 											className="button-style"
 											type="submit"
 											onClick={() =>
@@ -57,6 +58,7 @@ class GamesList extends Component {
 										to={`/game/${g.id}/game-start-page`}
 									>
 										<button
+											aria-label="play"
 											className="button-style"
 											type="submit"
 											onClick={() =>
@@ -70,6 +72,7 @@ class GamesList extends Component {
 									</Link>
 
 									<button
+										aria-label="delete"
 										className="button-style game-link"
 										onClick={() =>
 											this.props.handleDelete(g.id)

@@ -30,34 +30,34 @@ class EntryOption extends Component {
 	render() {
 		const { formType } = this.state;
 		return (
-			<div className="entry-option-container">
-				<div className="entry-form">
-					<div className="demo-information">
-						<p> Login demo</p>
-						<p> user: 'nerd' pass: 'nerdpass'</p>
-					</div>
-					<ul>
-						<li className="form-tab-list-item">
-							<button
-								className="form-tab sign-up-tab"
-								onClick={this.toggleToSignUp}
-							>
-								Sign Up
-							</button>
-						</li>
+			<section>
+				<div className="entry-option-container">
+					<div className="entry-form">
+						<div className="demo-information">
+							<p> Login demo</p>
+							<p> user: 'nerd' pass: 'nerdpass'</p>
+						</div>
 
-						<li className="form-tab-list-item">
-							<button
-								className="form-tab login-tab"
-								onClick={this.toggleToLogin}
-							>
-								Login
-							</button>
-						</li>
-					</ul>
-					{formType === 'signUp' ? <SignUp /> : <Login />}
+						<button
+							aria-label="sign-up"
+							className="form-tab sign-up-tab"
+							onClick={this.toggleToSignUp}
+						>
+							Sign Up
+						</button>
+
+						<button
+							aria-label="login"
+							className="form-tab login-tab"
+							onClick={this.toggleToLogin}
+						>
+							Login
+						</button>
+
+						{formType === 'signUp' ? <SignUp /> : <Login />}
+					</div>
 				</div>
-			</div>
+			</section>
 		);
 	}
 }

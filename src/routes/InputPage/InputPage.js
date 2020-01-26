@@ -83,14 +83,14 @@ class InputPage extends Component {
 		const titleError = this.validateTitle();
 
 		return (
-			<div className="input-page-container">
+			<main className="input-page-container">
+				<header className="input-instructions">
+					<h1 className="input-instructions-text">
+						Type Words In The Box
+					</h1>
+					<p>Separate each word with a comma!</p>
+				</header>
 				<section>
-					<header className="input-instructions">
-						<h1 className="input-instructions-text">
-							Type Words In The Box
-						</h1>
-						<p>Separate each word with a comma!</p>
-					</header>
 					<form>
 						<input
 							className="title-name"
@@ -117,25 +117,27 @@ class InputPage extends Component {
 							<ValidationMessage message={inputError} />
 						)}
 					</form>
-					<div className="submit-button-container">
-						<button
-							className="submit-cancel"
-							onClick={() => this.props.history.goBack()}
-						>
-							Cancel
-						</button>
-
-						<button
-							className="submit-input"
-							type="submit"
-							disabled={this.validateInput()}
-							onClick={this.handleSubmit}
-						>
-							Submit
-						</button>
-					</div>
 				</section>
-			</div>
+				<div className="submit-button-container">
+					<button
+						aria-label="cancel"
+						className="submit-cancel"
+						onClick={() => this.props.history.goBack()}
+					>
+						Cancel
+					</button>
+
+					<button
+						aria-label="submit"
+						className="submit-input"
+						type="submit"
+						disabled={this.validateInput()}
+						onClick={this.handleSubmit}
+					>
+						Submit
+					</button>
+				</div>
+			</main>
 		);
 	}
 }

@@ -49,30 +49,33 @@ class GameHomePage extends Component {
 		const { savedGames } = this.state;
 
 		return (
-			<div>
+			<main className="game-container">
+				<header>
+					<h1 className="games-list-title"> Games List </h1>
+				</header>
 				<section>
-					<div className="game-container">
-						<h1 className="games-list-title"> Games List </h1>
-
-						{this.state.noGamesSaved ? (
-							<div className="no-games-message">
-								You have no saved games yet!
-							</div>
-						) : (
-							<GamesList
-								handleDelete={this.deleteSavedGame}
-								savedGames={savedGames}
-							/>
-						)}
-
-						<button className="create-game-button">
-							<Link to={`/input-page`}>
-								<h2>Create a Pass the Ball Game</h2>
-							</Link>
-						</button>
-					</div>
+					{this.state.noGamesSaved ? (
+						<div className="no-games-message">
+							You have no saved games yet!
+						</div>
+					) : (
+						<GamesList
+							handleDelete={this.deleteSavedGame}
+							savedGames={savedGames}
+						/>
+					)}
 				</section>
-			</div>
+				<section>
+					<Link to={`/input-page`}>
+						<button
+							aria-label="create"
+							className="create-game-button"
+						>
+							Create a Pass the Ball Game
+						</button>
+					</Link>
+				</section>
+			</main>
 		);
 	}
 }

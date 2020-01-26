@@ -6,7 +6,7 @@ import './Homepage.css';
 class Homepage extends Component {
 	render() {
 		return (
-			<div className="homepage">
+			<main className="homepage">
 				<header role="banner">
 					<h1 className="home-page-title"> Word Nerd </h1>
 				</header>
@@ -22,10 +22,9 @@ class Homepage extends Component {
 						</p>
 					</div>
 				</section>
-				<section>
-					{TokenService.hasAuthToken() ? '' : <EntryOption />}
-				</section>
-			</div>
+
+				{TokenService.hasAuthToken() ? '' : <EntryOption />}
+			</main>
 		);
 	}
 }

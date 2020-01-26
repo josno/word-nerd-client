@@ -4,16 +4,18 @@ import './EndGamePage.css';
 
 export default function EndGamePage() {
 	return (
-		<div className="end-game-page">
-			<h1 className="end-message">Game Over</h1>
+		<main className="end-game-page">
+			<header>
+				<h1 className="end-message">Game Over</h1>
+			</header>
 			<h2>Thanks for playing!</h2>
-			<div className="end-game-controls">
+			<section className="end-game-controls">
 				<Link to="/game-home-page">
-					<button className="home-button">
+					<button aria-label="go-back" className="home-button">
 						Go Back To Games Home
 					</button>
 				</Link>
-			</div>
-		</div>
+			</section>
+		</main>
 	);
 }

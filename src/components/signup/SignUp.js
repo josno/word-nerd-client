@@ -45,7 +45,7 @@ class SignUp extends Component {
 						<input
 							className="form-input"
 							type="text"
-							htmlFor="full-name"
+							aria-label="full-name"
 							placeholder="Full Name"
 							name="fullName"
 							required
@@ -54,7 +54,7 @@ class SignUp extends Component {
 						<input
 							className="form-input"
 							type="text"
-							htmlFor="username"
+							aria-label="username"
 							placeholder="username"
 							name="username"
 							required
@@ -62,13 +62,17 @@ class SignUp extends Component {
 						<input
 							className="form-input"
 							type="password"
-							htmlFor="password"
+							aria-label="password"
 							placeholder="password"
 							name="password"
 							required
 						/>
 					</div>
-					<button type="submit" className="input-submit-button">
+					<button
+						aria-label="sign-up"
+						type="submit"
+						className="input-submit-button"
+					>
 						Sign Up
 					</button>
 				</form>

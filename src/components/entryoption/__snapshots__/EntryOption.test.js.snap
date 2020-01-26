@@ -1,81 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<EntryOption/> renders as expected 1`] = `
-<div
-  className="entry-option-container"
->
+<section>
   <div
-    className="entry-form"
+    className="entry-option-container"
   >
     <div
-      className="demo-information"
+      className="entry-form"
     >
-      <p>
-         Login demo
-      </p>
-      <p>
-         user: 'nerd' pass: 'nerdpass'
-      </p>
-    </div>
-    <ul>
-      <li
-        className="form-tab-list-item"
-      >
-        <button
-          className="form-tab sign-up-tab"
-          onClick={[Function]}
-        >
-          Sign Up
-        </button>
-      </li>
-      <li
-        className="form-tab-list-item"
-      >
-        <button
-          className="form-tab login-tab"
-          onClick={[Function]}
-        >
-          Login
-        </button>
-      </li>
-    </ul>
-    <div
-      className="login"
-    >
-      <form
-        onSubmit={[Function]}
-      >
-        <div
-          className="input-form"
-        >
-          <input
-            className="form-input"
-            htmlFor="username"
-            name="username"
-            placeholder="username"
-            required={true}
-            type="text"
-          />
-          <input
-            className="form-input"
-            htmlFor="password"
-            name="password"
-            placeholder="password"
-            required={true}
-            type="password"
-          />
-        </div>
-        <button
-          className="input-submit-button"
-          type="submit"
-        >
-          Login
-        </button>
-      </form>
       <div
-        className="error-message"
-      />
+        className="demo-information"
+      >
+        <p>
+           Login demo
+        </p>
+        <p>
+           user: 'nerd' pass: 'nerdpass'
+        </p>
+      </div>
+      <button
+        aria-label="sign-up"
+        className="form-tab sign-up-tab"
+        onClick={[Function]}
+      >
+        Sign Up
+      </button>
+      <button
+        aria-label="login"
+        className="form-tab login-tab"
+        onClick={[Function]}
+      >
+        Login
+      </button>
+      <div
+        className="login"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <div
+            className="input-form"
+          >
+            <input
+              aria-label="username"
+              className="form-input"
+              name="username"
+              placeholder="username"
+              required={true}
+              type="text"
+            />
+            <input
+              aria-label="password"
+              className="form-input"
+              name="password"
+              placeholder="password"
+              required={true}
+              type="password"
+            />
+          </div>
+          <button
+            aria-label="login"
+            className="input-submit-button"
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+        <div
+          className="error-message"
+        />
+      </div>
     </div>
   </div>
-</div>
+</section>
 `;

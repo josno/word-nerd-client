@@ -73,7 +73,7 @@ class GuessTheWord extends Component {
 		console.log(randomWord);
 
 		return (
-			<div className="guess-the-word-container">
+			<main className="guess-the-word-container">
 				{showAnswer ? (
 					<AnswerPage word={randomWord} />
 				) : passTheBall ? (
@@ -82,14 +82,17 @@ class GuessTheWord extends Component {
 					<ScrambledWordPage shuffledWord={shuffledWord} />
 				)}
 
-				<div className="game-controls">
+				<section className="game-controls">
 					<Link to={`/end-game-page`}>
-						<button className="control-button">End</button>
+						<button aria-label="end" className="control-button">
+							End
+						</button>
 					</Link>
 					{this.state.renderAnswer ? (
 						''
 					) : (
 						<button
+							aria-label="answer"
 							className="control-button"
 							onClick={this.renderAnswer}
 						>
@@ -98,13 +101,14 @@ class GuessTheWord extends Component {
 					)}
 
 					<button
+						aria-label="next"
 						className="control-button"
 						onClick={this.handleClick}
 					>
 						Next
 					</button>
-				</div>
-			</div>
+				</section>
+			</main>
 		);
 	}
 }

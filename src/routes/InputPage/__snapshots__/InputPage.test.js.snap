@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<InputPage/> renders as expected 1`] = `
-<div
+<main
   className="input-page-container"
 >
-  <section>
-    <header
-      className="input-instructions"
+  <header
+    className="input-instructions"
+  >
+    <h1
+      className="input-instructions-text"
     >
-      <h1
-        className="input-instructions-text"
-      >
-        Type Words In The Box
-      </h1>
-      <p>
-        Separate each word with a comma!
-      </p>
-    </header>
+      Type Words In The Box
+    </h1>
+    <p>
+      Separate each word with a comma!
+    </p>
+  </header>
+  <section>
     <form>
       <input
         className="title-name"
@@ -37,24 +37,26 @@ exports[`<InputPage/> renders as expected 1`] = `
         />
       </div>
     </form>
-    <div
-      className="submit-button-container"
-    >
-      <button
-        className="submit-cancel"
-        onClick={[Function]}
-      >
-        Cancel
-      </button>
-      <button
-        className="submit-input"
-        disabled="Add a comma after each word."
-        onClick={[Function]}
-        type="submit"
-      >
-        Submit
-      </button>
-    </div>
   </section>
-</div>
+  <div
+    className="submit-button-container"
+  >
+    <button
+      aria-label="cancel"
+      className="submit-cancel"
+      onClick={[Function]}
+    >
+      Cancel
+    </button>
+    <button
+      aria-label="submit"
+      className="submit-input"
+      disabled="Add a comma after each word."
+      onClick={[Function]}
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+</main>
 `;

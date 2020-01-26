@@ -46,7 +46,7 @@ class Login extends Component {
 						<input
 							className="form-input"
 							type="text"
-							htmlFor="username"
+							aria-label="username"
 							placeholder="username"
 							name="username"
 							required
@@ -54,14 +54,18 @@ class Login extends Component {
 						<input
 							className="form-input"
 							type="password"
-							htmlFor="password"
+							aria-label="password"
 							placeholder="password"
 							name="password"
 							required
 						/>
 					</div>
 
-					<button type="submit" className="input-submit-button">
+					<button
+						aria-label="login"
+						type="submit"
+						className="input-submit-button"
+					>
 						Login
 					</button>
 				</form>

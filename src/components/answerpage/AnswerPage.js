@@ -3,9 +3,11 @@ import './AnswerPage.css';
 
 export default function AnswerPage(props) {
 	return (
-		<div className="answer-page-container">
-			<h1 className="answer-message-text">The word was:</h1>
+		<section className="answer-page-container">
+			<header>
+				<h1 className="answer-message-text">The word was:</h1>
+			</header>
 			<p className="answer-word">{props.word}</p>
-		</div>
+		</section>
 	);
 }

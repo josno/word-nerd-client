@@ -23,9 +23,9 @@ class ScrambledMessage extends Component {
 
 	render() {
 		return (
-			<div className="scrambled-message">
+			<header className="scrambled-message">
 				<h1 className="scrambled-message-text">{this.state.message}</h1>
-			</div>
+			</header>
 		);
 	}
 }

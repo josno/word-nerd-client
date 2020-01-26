@@ -23,9 +23,9 @@ class PassTheBallMessage extends Component {
 
 	render() {
 		return (
-			<div className="pass-the-ball">
+			<header className="pass-the-ball">
 				<h1 className="pass-the-ball-text">{this.state.message}</h1>
-			</div>
+			</header>
 		);
 	}
 }

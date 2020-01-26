@@ -119,6 +119,7 @@ class EditPage extends Component {
 					</form>
 					<div className="submit-button-container">
 						<button
+							aria-label="cancel"
 							className="submit-cancel"
 							onClick={() => this.props.history.goBack()}
 						>
@@ -126,6 +127,7 @@ class EditPage extends Component {
 						</button>
 
 						<button
+							aria-label="update"
 							className="submit-input"
 							type="submit"
 							disabled={

@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<PassTheBall /> renders as expected 1`] = `
-<div
+<section
   className="game-play-container"
 >
-  <div
+  <header
     className="pass-the-ball"
   >
     <h1
@@ -12,7 +12,7 @@ exports[`<PassTheBall /> renders as expected 1`] = `
     >
       Start
     </h1>
-  </div>
+  </header>
   <div
     className="ball-image-container"
   >
@@ -22,5 +22,5 @@ exports[`<PassTheBall /> renders as expected 1`] = `
       src="giphy.gif"
     />
   </div>
-</div>
+</section>
 `;

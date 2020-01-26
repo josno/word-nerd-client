@@ -4,6 +4,7 @@
 	border-radius: 10px;
 	border: none;
 	background-color: #18c0f0;
+	font-size: 1.25em;
 }
 
 .create-game-button:hover {

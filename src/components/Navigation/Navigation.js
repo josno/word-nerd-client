@@ -41,7 +41,7 @@ class Navigation extends Component {
 
 	render() {
 		return (
-			<div className="responsive-nav-wrapper">
+			<nav className="responsive-nav-wrapper">
 				<label htmlFor="toggle">&#9776;</label>
 				<input type="checkbox" id="toggle" />
 				<div className="menu">
@@ -52,7 +52,7 @@ class Navigation extends Component {
 						? this.renderLogoutLink()
 						: this.renderLoginLink()}
 				</div>
-			</div>
+			</nav>
 
 			/* <nav role="navigation">
 					<h1>

@@ -55,11 +55,6 @@ a {
 	outline: none;
 }
 
-.form-tab-list-item {
-	list-style: none;
-	display: inline-block;
-}
-
 .form-input {
 	margin-left: auto;
 	margin-right: auto;

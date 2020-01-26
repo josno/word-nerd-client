@@ -61,6 +61,10 @@ a:hover {
 	cursor: pointer;
 }
 
+.not-logged-in {
+	display: flex;
+}
+
 @media (min-width: 700px) {
 	nav {
 		display: flex;

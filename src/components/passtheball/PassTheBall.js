@@ -15,7 +15,7 @@ class PassTheBall extends Component {
 
 	render() {
 		return (
-			<div className="game-play-container">
+			<section className="game-play-container">
 				<PassTheBallMessage />
 				<Sound
 					url={soundfile}
@@ -29,7 +29,7 @@ class PassTheBall extends Component {
 						src={Ball}
 					/>
 				</div>
-			</div>
+			</section>
 		);
 	}
 }

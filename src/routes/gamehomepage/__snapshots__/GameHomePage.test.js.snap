@@ -1,36 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Login/> renders as expected 1`] = `
-<div>
+<main
+  className="game-container"
+>
+  <header>
+    <h1
+      className="games-list-title"
+    >
+       Games List 
+    </h1>
+  </header>
   <section>
     <div
-      className="game-container"
+      className="game-list-container"
     >
-      <h1
-        className="games-list-title"
-      >
-         Games List 
-      </h1>
-      <div
-        className="game-list-container"
-      >
-        <ul
-          className="list-of-games"
-        />
-      </div>
-      <button
-        className="create-game-button"
-      >
-        <a
-          href="/input-page"
-          onClick={[Function]}
-        >
-          <h2>
-            Create a Pass the Ball Game
-          </h2>
-        </a>
-      </button>
+      <ul
+        className="list-of-games"
+      />
     </div>
   </section>
-</div>
+  <section>
+    <a
+      href="/input-page"
+      onClick={[Function]}
+    >
+      <button
+        aria-label="create"
+        className="create-game-button"
+      >
+        Create a Pass the Ball Game
+      </button>
+    </a>
+  </section>
+</main>
 `;

@@ -11,16 +11,16 @@ exports[`<Login/> renders as expected 1`] = `
       className="input-form"
     >
       <input
+        aria-label="username"
         className="form-input"
-        htmlFor="username"
         name="username"
         placeholder="username"
         required={true}
         type="text"
       />
       <input
+        aria-label="password"
         className="form-input"
-        htmlFor="password"
         name="password"
         placeholder="password"
         required={true}
@@ -28,6 +28,7 @@ exports[`<Login/> renders as expected 1`] = `
       />
     </div>
     <button
+      aria-label="login"
       className="input-submit-button"
       type="submit"
     >
