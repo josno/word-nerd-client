@@ -15,9 +15,6 @@ class Navigation extends Component {
 	renderLogoutLink() {
 		return (
 			<>
-				<Link className="link-text" to="/game-home-page">
-					My Page
-				</Link>
 				<Link
 					className="link-text"
 					onClick={this.handleLogoutClick}
@@ -46,7 +43,7 @@ class Navigation extends Component {
 				<input type="checkbox" id="toggle" />
 				<div className="menu">
 					<Link id="nav-title" to="/">
-						Word Nerd
+						PawPad
 					</Link>
 					{TokenService.hasAuthToken()
 						? this.renderLogoutLink()
