@@ -63,6 +63,8 @@ a:hover {
 
 .not-logged-in {
 	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 @media (min-width: 700px) {
