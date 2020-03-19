@@ -15,6 +15,9 @@ class Navigation extends Component {
 	renderLogoutLink() {
 		return (
 			<>
+				<Link className="link-text" to="/game-home-page">
+					My Page
+				</Link>
 				<Link
 					className="link-text"
 					onClick={this.handleLogoutClick}
