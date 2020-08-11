@@ -29,7 +29,7 @@ const Login = (props) => {
 				props.history.push("/game-home-page");
 			})
 			.catch((res) => {
-				setError({ error: res.error });
+				setError(res.error);
 			});
 	};
 
