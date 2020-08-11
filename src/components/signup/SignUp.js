@@ -8,7 +8,6 @@ import WordContext from "../../WordContext";
 const SignUp = (props) => {
 	const context = useContext(WordContext);
 	const [error, setError] = useState(null);
-	const [signUp, setSignUp] = useState("");
 
 	const handleSignUp = (e) => {
 		e.preventDefault();
