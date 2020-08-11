@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import Sound from 'react-sound';
-import boing from './jump-boing.mp3';
-import './ScrambledWordPage.css';
-import ScrambledMessage from '../ScrambledMessage/ScrambledMessage';
+import React, { Component } from "react";
+import Sound from "react-sound";
+import boing from "./jump-boing.mp3";
+import "./ScrambledWordPage.css";
+import HeaderMessage from "../HeaderMessage/HeaderMessage";
 
 class ScrambleWordPage extends Component {
 	render(props) {
 		return (
-			<section className="scrambled-word-container">
+			<section className='scrambled-word-container'>
 				<Sound
 					url={boing}
 					playStatus={Sound.status.PLAYING}
 					onFinishedPlaying={this.handleSongFinishedPlaying}
 				/>
-				<ScrambledMessage />
-				<p className="scrambled-word">{this.props.shuffledWord}</p>
+				<HeaderMessage oldMessage='Stop!' newMessage='Say The Word:' />
+				<p className='scrambled-word'>{this.props.shuffledWord}</p>
 			</section>
 		);
 	}
