@@ -1,151 +1,129 @@
-import React, { Component } from 'react';
-import './InputPage.css';
-import ValidationMessage from '../../components/ValidationMessage/ValidationMessage';
-import GamesService from '../../services/api-service';
+import React, { useState } from "react";
+import "./InputPage.css";
+import ValidationMessage from "../../components/ValidationMessage/ValidationMessage";
+import GamesService from "../../services/api-service";
 
-class InputPage extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			textInput: { value: '', touched: false },
-			wordList: [],
-			newGame: '',
-			title: { value: '', title: false },
-			error: null
-		};
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.validateInput = this.validateInput.bind(this);
-		this.setInputStringToArray = this.setInputStringToArray.bind(this);
-	}
+const InputPage = (props) => {
+	const initialState = { value: "", touched: false };
+	const [textInput, setTextInput] = useState(initialState);
+	const [wordList, setWordList] = useState([]);
+	const [title, setTitle] = useState(initialState);
+	const [error, setError] = useState(null);
 
-	setInputStringToArray = e => {
+	const setInputStringToArray = (e) => {
 		const { value } = e.target;
 		/*Create an array and split by comma as user types
 		so students can review the words*/
 
-		const trimmedWordList = e.target.value.replace(/,\s*$/, '');
-		const newList = trimmedWordList.split(',').map(i => i.trim());
-		this.setState({
-			textInput: { value: value, touched: true },
-			wordList: newList
-		});
+		const trimmedWordList = e.target.value.replace(/,\s*$/, "");
+		const newList = trimmedWordList.split(",").map((i) => i.trim());
+		setTextInput({ value: value, touched: true });
+		setWordList(newList);
 	};
 
-	updateTitle(e) {
+	const updateTitle = (e) => {
 		const { value } = e.target;
+		setTitle({ value: value, touched: true });
+	};
 
-		this.setState({
-			title: { value: value, touched: true }
-		});
-	}
+	const validateInput = () => {
+		const input = textInput.value.trim();
 
-	validateInput() {
-		const textInput = this.state.textInput.value.trim();
-
-		if (!textInput.includes(',')) {
-			return 'Add a comma after each word.';
+		if (!input.includes(",")) {
+			return "Add a comma after each word.";
 		}
 
-		const invalidChar = textInput.match(/[^a-zA-Z,\s]/g);
+		const invalidChar = input.match(/[^a-zA-Z,\s]/g);
 		if (invalidChar) {
-			return 'Type only letters please.';
+			return "Type only letters please.";
 		}
-	}
+	};
 
-	validateTitle() {
-		const titleInput = this.state.title.value;
+	const validateTitle = () => {
+		const titleInput = title.value;
 		const invalidChar = titleInput.match(/[^a-zA-Z,\s]/g);
 		if (invalidChar) {
-			return 'Type only letters please.';
+			return "Type only letters please.";
 		}
-	}
+	};
 
-	async handleSubmit(e) {
+	async function handleSubmit(e) {
 		e.preventDefault();
+		validateInput();
 
 		const newGame = {
-			title: this.state.title.value,
-			word_list: this.state.wordList,
-			date_created: new Date()
+			title: title.value,
+			word_list: wordList,
+			date_created: new Date(),
 		};
 
 		const gameId = await GamesService.saveNewGame(newGame)
-			.then(res => {
-				return !res.ok
-					? res.json().then(e => Promise.reject(e))
-					: res.json();
+			.then((res) => {
+				return !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json();
 			})
-			.then(responsejson => responsejson.id)
-			.catch(res => {
-				this.setState({ error: res.error });
+			.then((responsejson) => responsejson.id)
+			.catch((res) => {
+				setError(res.error);
 			});
 		/*Wait until you get the id*/
-		this.props.history.push(`/game/${gameId}/game-start-page`);
+		props.history.push(`/game/${gameId}/game-start-page`);
 	}
 
-	render(props) {
-		const inputError = this.validateInput();
-		const titleError = this.validateTitle();
+	const inputError = validateInput();
+	const titleError = validateTitle();
 
-		return (
-			<main className="input-page-container">
-				<header className="input-instructions">
-					<h1 className="input-instructions-text">
-						Type Words In The Box
-					</h1>
-					<p>Separate each word with a comma!</p>
-				</header>
-				<section>
-					<form>
-						<input
-							className="title-name"
-							placeholder='Example: "Numbers" '
-							onChange={e => this.updateTitle(e)}
+	return (
+		<main className='input-page-container'>
+			<header className='input-instructions'>
+				<h1 className='input-instructions-text'>Type Words In The Box</h1>
+				<p>Separate each word with a comma!</p>
+			</header>
+			<section>
+				<form>
+					<input
+						className='title-name'
+						placeholder='Example: "Numbers" '
+						onChange={(e) => updateTitle(e)}
+						required
+					/>
+
+					{title.touched && <ValidationMessage message={titleError} />}
+
+					<div className='input-container'>
+						<textarea
+							className='input-box'
+							placeholder='Example: twenty, thirty...'
+							aria-label='Type your words here'
+							aria-required='true'
+							onChange={(e) => setInputStringToArray(e)}
 							required
 						/>
+					</div>
+					{textInput.touched && <ValidationMessage message={inputError} />}
+				</form>
+				<div className='error-message'>{error}</div>
+			</section>
+			<div className='submit-button-container'>
+				<button
+					aria-label='cancel'
+					className='submit-cancel'
+					onClick={() => props.history.goBack()}
+				>
+					Cancel
+				</button>
 
-						{this.state.title.touched && (
-							<ValidationMessage message={titleError} />
-						)}
-
-						<div className="input-container">
-							<textarea
-								className="input-box"
-								placeholder="Example: twenty, thirty..."
-								aria-label="Type your words here"
-								aria-required="true"
-								onChange={e => this.setInputStringToArray(e)}
-								required
-							/>
-						</div>
-						{this.state.textInput.touched && (
-							<ValidationMessage message={inputError} />
-						)}
-					</form>
-					<div className="error-message">{this.state.error}</div>
-				</section>
-				<div className="submit-button-container">
-					<button
-						aria-label="cancel"
-						className="submit-cancel"
-						onClick={() => this.props.history.goBack()}
-					>
-						Cancel
-					</button>
-
-					<button
-						aria-label="submit"
-						className="submit-input"
-						type="submit"
-						disabled={this.validateInput()}
-						onClick={this.handleSubmit}
-					>
-						Submit
-					</button>
-				</div>
-			</main>
-		);
-	}
-}
+				<button
+					aria-label='submit'
+					className='submit-input'
+					type='submit'
+					disabled={validateInput()}
+					onClick={(e) => handleSubmit(e)}
+				>
+					Submit
+				</button>
+			</div>
+		</main>
+	);
+};
 
 export default InputPage;
