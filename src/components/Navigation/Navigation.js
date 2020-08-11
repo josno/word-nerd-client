@@ -37,7 +37,7 @@ const Navigation = (props) => {
 			<input type='checkbox' id='toggle' />
 			<div className='menu'>
 				<Link id='nav-title' to='/'>
-					PawPad
+					Word Nerd
 				</Link>
 				{TokenService.hasAuthToken() ? logoutLink : loginLink}
 			</div>
