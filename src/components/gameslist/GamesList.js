@@ -35,10 +35,7 @@ const GamesList = (props) => {
 										Edit
 									</button>
 								</Link>
-								<Link
-									className='game-link'
-									to={`/game/${g.id}/game-start-page`}
-								>
+								<Link className='game-link' to={`/game-type-page`}>
 									<button
 										aria-label='play'
 										className='button-style'
