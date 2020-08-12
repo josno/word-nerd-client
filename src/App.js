@@ -3,6 +3,7 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import "./App.css";
 import Homepage from "./routes/Homepage/Homepage";
 import GameHomePage from "./routes/GameHomePage/GameHomePage";
+import GameTypePage from "./routes/GameTypePage/GameTypePage";
 import InputPage from "./routes/InputPage/InputPage";
 import EditPage from "./routes/EditPage/EditPage";
 import GameStartPage from "./routes/GameStartPage/GameStartPage";
@@ -52,6 +53,16 @@ const App = () => {
 							exact
 							path='/game-home-page'
 							render={(routeProps) => <GameHomePage {...routeProps} />}
+						/>
+					) : (
+						<Redirect to='/' />
+					)}
+
+					{TokenService.hasAuthToken() ? (
+						<Route
+							exact
+							path='/game-type-page'
+							render={(routeProps) => <GameTypePage {...routeProps} />}
 						/>
 					) : (
 						<Redirect to='/' />
