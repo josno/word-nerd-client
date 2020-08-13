@@ -8,12 +8,12 @@ exports[`<GuessTheWord/> renders as expected 1`] = `
     className="game-play-container"
   >
     <header
-      className="pass-the-ball"
+      className="scrambled-message"
     >
       <h1
-        className="pass-the-ball-text"
+        className="scrambled-message-text"
       >
-        Start
+        Start!
       </h1>
     </header>
     <div
@@ -40,13 +40,6 @@ exports[`<GuessTheWord/> renders as expected 1`] = `
         End
       </button>
     </a>
-    <button
-      aria-label="answer"
-      className="control-button"
-      onClick={[Function]}
-    >
-      Answer
-    </button>
     <button
       aria-label="next"
       className="control-button"
