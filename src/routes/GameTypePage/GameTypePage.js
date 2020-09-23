@@ -18,6 +18,11 @@ const GameTypePage = (props) => {
 						/>
 					</div>
 				</Link>
+				<Link to={`/game/${context.currentGameId}/whats-behind`}>
+					<div className='title-img-container'>
+						<img className='title-img' src={""} alt='pass-the-ball' />
+					</div>
+				</Link>
 			</div>
 		</div>
 	);
