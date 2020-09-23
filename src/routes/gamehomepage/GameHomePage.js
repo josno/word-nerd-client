@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import './GameHomePage.css';
-import { Link } from 'react-router-dom';
-import WordContext from '../../WordContext';
-import GamesList from '../../components/GamesList/GamesList';
-import GamesService from '../../services/api-service';
+import React, { Component } from "react";
+import "./GameHomePage.css";
+import { Link } from "react-router-dom";
+import WordContext from "../../WordContext";
+import GamesList from "../../components/Gameslist/GamesList";
+import GamesService from "../../services/api-service";
 
 class GameHomePage extends Component {
 	static contextType = WordContext;
@@ -12,44 +12,44 @@ class GameHomePage extends Component {
 		this.state = {
 			savedGames: [],
 			noGamesSaved: false,
-			error: null
+			error: null,
 		};
 	}
 
-	deleteSavedGame = gameId => {
+	deleteSavedGame = (gameId) => {
 		GamesService.deleteGame(gameId)
-			.then(response => {
-				GamesService.getUserGames().then(responsejson => {
+			.then((response) => {
+				GamesService.getUserGames().then((responsejson) => {
 					if (responsejson.length === 0) {
 						this.setState({
-							noGamesSaved: true
+							noGamesSaved: true,
 						});
 					} else {
 						this.setState({
-							savedGames: [...responsejson]
+							savedGames: [...responsejson],
 						});
 					}
 				});
 			})
-			.catch(res => {
+			.catch((res) => {
 				this.setState({ error: res.error });
 			});
 	};
 
 	componentDidMount() {
 		GamesService.getUserGames()
-			.then(responsejson => {
+			.then((responsejson) => {
 				if (responsejson.length === 0) {
 					this.setState({
-						noGamesSaved: true
+						noGamesSaved: true,
 					});
 				} else {
 					this.setState({
-						savedGames: [...responsejson]
+						savedGames: [...responsejson],
 					});
 				}
 			})
-			.catch(res => {
+			.catch((res) => {
 				this.setState({ error: res.error });
 			});
 	}
@@ -58,15 +58,13 @@ class GameHomePage extends Component {
 		const { savedGames } = this.state;
 
 		return (
-			<main className="game-container">
+			<main className='game-container'>
 				<header>
-					<h1 className="games-list-title"> Games List </h1>
+					<h1 className='games-list-title'> Games List </h1>
 				</header>
 				<section>
 					{this.state.noGamesSaved ? (
-						<div className="no-games-message">
-							You have no saved games yet!
-						</div>
+						<div className='no-games-message'>You have no saved games yet!</div>
 					) : (
 						<GamesList
 							handleDelete={this.deleteSavedGame}
@@ -74,14 +72,11 @@ class GameHomePage extends Component {
 						/>
 					)}
 				</section>
-				<div className="error-message">{this.state.error}</div>
+				<div className='error-message'>{this.state.error}</div>
 				<section>
-					<Link to={`/input-page`}>
-						<button
-							aria-label="create"
-							className="create-game-button"
-						>
-							Create a Pass the Ball Game
+					<Link to={`/game-type-page`}>
+						<button aria-label='create' className='create-game-button'>
+							Start A Game
 						</button>
 					</Link>
 				</section>

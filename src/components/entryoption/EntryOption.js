@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import './EntryOption.css';
-import SignUp from '../SignUp/SignUp';
-import WordContext from '../../WordContext';
-import Login from '../Login/Login';
+import React, { Component } from "react";
+import "./EntryOption.css";
+import SignUp from "../SignUp/SignUp";
+import WordContext from "../../WordContext";
+import Login from "../Login/Login";
 
 class EntryOption extends Component {
 	static contextType = WordContext;
 	constructor(props) {
 		super(props);
 		this.state = {
-			formType: 'login'
+			formType: "login",
 		};
 		this.toggleToSignUp = this.toggleToSignUp.bind(this);
 		this.toggleToLogin = this.toggleToLogin.bind(this);
@@ -17,13 +17,13 @@ class EntryOption extends Component {
 
 	toggleToSignUp = () => {
 		this.setState({
-			formType: 'signUp'
+			formType: "signUp",
 		});
 	};
 
 	toggleToLogin = () => {
 		this.setState({
-			formType: 'login'
+			formType: "login",
 		});
 	};
 
@@ -31,30 +31,30 @@ class EntryOption extends Component {
 		const { formType } = this.state;
 		return (
 			<section>
-				<div className="entry-option-container">
-					<div className="entry-form">
-						<div className="demo-information">
+				<div className='entry-option-container'>
+					<div className='entry-form'>
+						<div className='demo-information'>
 							<p> Login demo</p>
 							<p> user: 'nerd' pass: 'nerdpass'</p>
 						</div>
 
 						<button
-							aria-label="sign-up"
-							className="form-tab sign-up-tab"
+							aria-label='sign-up'
+							className='form-tab sign-up-tab'
 							onClick={this.toggleToSignUp}
 						>
 							Sign Up
 						</button>
 
 						<button
-							aria-label="login"
-							className="form-tab login-tab"
+							aria-label='login'
+							className='form-tab login-tab'
 							onClick={this.toggleToLogin}
 						>
 							Login
 						</button>
 
-						{formType === 'signUp' ? <SignUp /> : <Login />}
+						{formType === "signUp" ? <SignUp /> : <Login />}
 					</div>
 				</div>
 			</section>

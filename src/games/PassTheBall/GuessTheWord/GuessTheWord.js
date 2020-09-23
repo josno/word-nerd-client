@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./GuessTheWord.css";
 import { Link } from "react-router-dom";
-import GamesService from "../../services/api-service";
-import AnswerPage from "../../components/AnswerPage/AnswerPage";
-import ScrambledWordPage from "../../components/ScrambledWordPage/ScrambledWordPage";
-import PassTheBall from "../../components/PassTheBall/PassTheBall";
+import GamesService from "../../../services/api-service";
+import AnswerPage from "../AnswerPage/AnswerPage";
+import ScrambledWordPage from "../ScrambledWordPage/ScrambledWordPage";
+import PassTheBall from "../PassTheBall/PassTheBall";
 
 const GuessTheWord = (props) => {
 	const [showAnswer, setShowAnswer] = useState(false);

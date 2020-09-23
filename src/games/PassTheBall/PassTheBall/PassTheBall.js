@@ -3,7 +3,7 @@ import Ball from "./giphy.gif";
 import "./PassTheBall.css";
 import Sound from "react-sound";
 import soundfile from "./pass-song.mp3";
-import HeaderMessage from "../HeaderMessage/HeaderMessage";
+import HeaderMessage from "../../../components/HeaderMessage/HeaderMessage";
 
 class PassTheBall extends Component {
 	render() {

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Sound from "react-sound";
 import boing from "./jump-boing.mp3";
 import "./ScrambledWordPage.css";
-import HeaderMessage from "../HeaderMessage/HeaderMessage";
+import HeaderMessage from "../../../components/HeaderMessage/HeaderMessage";
 
 class ScrambleWordPage extends Component {
 	render(props) {

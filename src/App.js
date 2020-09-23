@@ -6,12 +6,13 @@ import GameHomePage from "./routes/GameHomePage/GameHomePage";
 import GameTypePage from "./routes/GameTypePage/GameTypePage";
 import InputPage from "./routes/InputPage/InputPage";
 import EditPage from "./routes/EditPage/EditPage";
-import GameStartPage from "./routes/GameStartPage/GameStartPage";
-import GuessTheWord from "./routes/GuessTheWord/GuessTheWord";
-import EndGamePage from "./routes/EndGamePage/EndGamePage";
+import GameStartPage from "./games/PassTheBall/GameStartPage/GameStartPage";
+import GuessTheWord from "./games/PassTheBall/GuessTheWord/GuessTheWord";
+import EndGamePage from "./routes/Endgamepage/EndGamePage";
 import Navigation from "./components/Navigation/Navigation";
 import ErrorPage from "./routes/ErrorPage/ErrorPage";
 import WordContext from "./WordContext";
+import WhatsBehind from "./games/WhatsBehind/WhatsBehind";
 import TokenService from "./services/token-service";
 
 const App = () => {
@@ -86,6 +87,18 @@ const App = () => {
 							path='/game/:gameId/guess-the-word/'
 							render={(routeProps) => (
 								<GuessTheWord gameId={routeProps.match.params.gameId} />
+							)}
+						/>
+					) : (
+						<Redirect to='/' />
+					)}
+
+					{TokenService.hasAuthToken() ? (
+						<Route
+							exact
+							path='/game/:gameId/whats-behind/'
+							render={(routeProps) => (
+								<WhatsBehind gameId={routeProps.match.params.gameId} />
 							)}
 						/>
 					) : (
