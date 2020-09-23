@@ -74,9 +74,9 @@ class GameHomePage extends Component {
 				</section>
 				<div className='error-message'>{this.state.error}</div>
 				<section>
-					<Link to={`/game-type-page`}>
+					<Link to={`/input-page`}>
 						<button aria-label='create' className='create-game-button'>
-							Start A Game
+							Make A Word List
 						</button>
 					</Link>
 				</section>
