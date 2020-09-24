@@ -10,7 +10,6 @@ const WhatsBehind = (props) => {
 	const [wordList, setWordList] = useState([]);
 	const [randomWordList, setRandomWordList] = useState([]);
 	const [counter, setCounter] = useState(0);
-	const [reset, hitReset] = useState(false);
 
 	const randomize = (wordList) => {
 		let randomizedList = [];
@@ -35,6 +34,14 @@ const WhatsBehind = (props) => {
 		});
 	}, [props.gameId]);
 
+	const reset = () => {
+		setCounter(8);
+		setTimeout(() => {
+			randomize(wordList);
+			setCounter(0);
+		}, 500);
+	};
+
 	const updateCounter = () => {
 		setCounter(counter + 1);
 		if (counter === 7) {
@@ -55,6 +62,7 @@ const WhatsBehind = (props) => {
 				/>
 			) : (
 				<WhatsBehindPlayGrid
+					resetCounter={reset}
 					count={counter}
 					addToCounter={updateCounter}
 					list={randomWordList}
@@ -68,7 +76,6 @@ const WhatsBehindStyles = styled.div`
 	position: relative;
 	width: 100%;
 	height: 100vh;
-	border: 1px solid black;
 `;
 
 export default WhatsBehind;

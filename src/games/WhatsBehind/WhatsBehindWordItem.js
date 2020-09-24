@@ -6,7 +6,6 @@ const WhatsBehindWordItem = ({
 	background,
 	addToCounter,
 	children,
-	update,
 	count,
 }) => {
 	const [display, setDisplay] = useState("flex");
@@ -26,7 +25,7 @@ const WhatsBehindWordItem = ({
 			setTimeout(() => {
 				setDisplay("flex");
 				setOpacity(1);
-			}, 700);
+			}, 500);
 		}
 	}, [count]);
 
@@ -55,7 +54,21 @@ const ItemStyles = styled.li`
 	background: ${(props) => props.background};
 	opacity: ${(props) => props.opacity};
 
-	transition: all 0.5s ease-out;
+	transition: all 0.25s ease-out;
+
+	h1 {
+		animation: fadeIn 0.2s;
+		transition: all 0.25s ease-in;
+	}
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
 `;
 
 export default WhatsBehindWordItem;
