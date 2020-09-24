@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import WhatsBehindWordItem from "./WhatsBehindWordItem";
 
-const ActionGrid = (props) => {
+const ActionGrid = ({ count }) => {
 	const [actionList, setActionList] = useState([]);
+	const [start, setStart] = useState(true);
 
 	const makeActionList = () => {
 		const list = [];
@@ -24,10 +25,16 @@ const ActionGrid = (props) => {
 		));
 
 	useEffect(() => {
-		if (props.update) {
+		if (start) {
 			makeActionList();
+			setStart(false);
 		}
-	}, [props.update]);
+		if (count === 8) {
+			setTimeout(() => {
+				makeActionList();
+			}, 1000);
+		}
+	}, [count, start]);
 
 	return <ActionGridStyles>{setRender}</ActionGridStyles>;
 };

@@ -1,28 +1,50 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const WhatsBehindWordItem = (props) => {
+const WhatsBehindWordItem = ({
+	className,
+	background,
+	addToCounter,
+	children,
+	update,
+	count,
+}) => {
+	const [display, setDisplay] = useState("flex");
 	const [opacity, setOpacity] = useState(1);
 
 	const updateBox = () => {
 		setOpacity(0);
-		props.addToCounter();
+		setTimeout(() => {
+			setDisplay("none");
+		}, 500);
+
+		addToCounter();
 	};
+
+	useEffect(() => {
+		if (count === 8) {
+			setTimeout(() => {
+				setDisplay("flex");
+				setOpacity(1);
+			}, 700);
+		}
+	}, [count]);
 
 	return (
 		<ItemStyles
 			onClick={() => updateBox()}
-			background={props.background}
-			className={props.className}
+			background={background}
+			className={className}
 			opacity={opacity}
+			display={display}
 		>
-			<h1>{props.children}</h1>
+			<h1>{children}</h1>
 		</ItemStyles>
 	);
 };
 
 const ItemStyles = styled.li`
-	display: flex;
+	display: ${(props) => props.display};
 	justify-content: center;
 	align-items: center;
 
@@ -33,7 +55,7 @@ const ItemStyles = styled.li`
 	background: ${(props) => props.background};
 	opacity: ${(props) => props.opacity};
 
-	transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-out;
 `;
 
 export default WhatsBehindWordItem;

@@ -15,60 +15,39 @@ const colors = [
 	"#d883ff",
 ];
 
-const WhatsBehindPlayGrid = ({ list }) => {
-	const [randomWordList, setRandomWordList] = useState([]);
-	const [update, setUpdate] = useState(false);
+const gridClass = [
+	"one",
+	"two",
+	"three",
+	"four",
+	"five",
+	"six",
+	"seven",
+	"eight",
+];
+
+const WhatsBehindPlayGrid = ({ list, update, addToCounter, count }) => {
 	const [colorList, setColorList] = useState(colors);
-	const [counter, setCounter] = useState(0);
-	const [reset, setReset] = useState(false);
-
-	const randomize = (wordList, state) => {
-		let randomizedList = [];
-
-		for (let i = 1; randomizedList.length < 8; i++) {
-			let newRandIndex = Math.floor(Math.random() * wordList.length);
-
-			if (randomizedList.includes(wordList[newRandIndex])) {
-				newRandIndex = Math.floor(Math.random() * wordList.length);
-			} else {
-				randomizedList.push(wordList[newRandIndex]);
-			}
-		}
-
-		return randomizedList;
-	};
-
-	const addToCounter = () => {
-		setCounter(counter + 1);
-	};
-
-	useEffect(() => {
-		if (!update || counter === 8) {
-			const newWords = randomize(list);
-			setRandomWordList([...newWords]);
-			const newColors = randomize(colorList);
-			setColorList([...newColors]);
-			setUpdate(true);
-			setCounter(0);
-		}
-	}, [colorList, counter, list, update]);
 
 	const setRenderList =
-		randomWordList.length > 0 &&
+		list.length > 0 &&
 		colors.map((color, index) => (
 			<WhatsBehindWordItem
+				key={index}
 				addToCounter={() => addToCounter()}
 				background={color}
-				className={index + 1}
+				className={gridClass[index]}
+				update={update}
+				count={count}
 			>
-				{randomWordList[index]}
+				{list[index]}
 			</WhatsBehindWordItem>
 		));
 
-	const render = randomWordList.length > 0 && (
+	const render = list.length > 0 && (
 		<>
 			<WordGrid>{setRenderList}</WordGrid>
-			<ActionGrid update={update} />
+			<ActionGrid count={count} />
 		</>
 	);
 

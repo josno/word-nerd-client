@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 
-const WhatsBehindInstructions = ({ gameId, handleClick }) => {
+const WhatsBehindInstructions = ({ handleClick }) => {
 	return (
 		<InstructionsStyles>
 			<h1>Instructions</h1>
